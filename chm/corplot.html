@@ -1,0 +1,109 @@
+<html><head><title>Plot of a correlation matrix</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>corplot(mcmctools)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   corplot">
+<param name="keyword" value=" Plot of a correlation matrix">
+</object>
+
+
+<h2>Plot of a correlation matrix</h2>
+
+
+<h3>Description</h3>
+
+<p>
+Creates an image plot of a correlation matrix where colors of different
+shades represent differing levels of correlation.  One possible use of
+this function is to plot the correlation between posterior draws of an
+MCMC run.  Patterns in the plot can aid in constructing a more efficient
+blocking structure for the MCMC algorithm.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+corplot(mat, col = gray(11:0/11), ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>mat</code></td>
+<td>
+correlation matrix.</td></tr>
+<tr valign="top"><td><code>col</code></td>
+<td>
+colors to be used in the plot.</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+currently not used. </td></tr>
+</table>
+
+<h3>Details</h3>
+
+<p>
+No details.
+</p>
+
+
+<h3>Value</h3>
+
+<p>
+Creates a plot.</p>
+
+<h3>Note</h3>
+
+<p>
+No notes.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>
+S. McKay Curtis
+</p>
+
+
+<h3>References</h3>
+
+<p>
+No references.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+<code>image</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+vals &lt;-c(
+ 1.00,  0.35, -0.65, -0.66,  0.46,  0.42,
+ 0.35,  1.00, -0.69, -0.64,  0.40, -0.06,
+-0.65, -0.69,  1.00,  0.70, -0.57, -0.11,
+-0.66, -0.64,  0.70,  1.00, -0.15, -0.10,
+ 0.46,  0.40, -0.57, -0.15,  1.00,  0.18,
+ 0.42, -0.06, -0.11, -0.10,  0.18,  1.00)
+Rho &lt;- matrix(vals, 6, 6)
+dimnames(Rho) &lt;- list(paste("vec[", 1:6, "]", sep=""), paste("vec[", 1:6, "]", sep=""))
+corplot(Rho)
+## End(Not run)
+</pre>
+
+
+
+<hr><div align="center">[Package <em>mcmctools</em> version 1.0 <a href="00Index.html">Index</a>]</div>
+
+</body></html>

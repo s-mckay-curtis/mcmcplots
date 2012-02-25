@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HEAD></HEAD><HTML><BODY>
+<UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Package mcmctools:  Contents">
+<param name="Local" value="00Index.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Package mcmctools:  R objects">
+</OBJECT>
+<UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="mcmctools-package">
+<param name="Local" value="mcmctools-package.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="as.mcmc.bugs">
+<param name="Local" value="as.mcmc.bugs.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="as.mcmc.rjags">
+<param name="Local" value="as.mcmc.rjags.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="caterpillar">
+<param name="Local" value="caterpillar.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="corplot">
+<param name="Local" value="corplot.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="denoverplot">
+<param name="Local" value="denoverplot.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="get.parnames.to.plot">
+<param name="Local" value="get.parnames.to.plot.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="mcmcplot1">
+<param name="Local" value="mcmcplot1.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="denoverplot">
+<param name="Local" value="denoverplot.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="denplot">
+<param name="Local" value="denplot.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="mcmcplot">
+<param name="Local" value="mcmcplot.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="mcmctools">
+<param name="Local" value="mcmctools-package.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="traplot">
+<param name="Local" value="traplot.html">
+</OBJECT>
+</UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Package mcmctools:  Titles">
+</OBJECT>
+<UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Convert a bugs object to an mcmc object">
+<param name="Local" value="as.mcmc.bugs.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Convert an rjags object to an mcmc or mcmc.list object.">
+<param name="Local" value="as.mcmc.rjags.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Graphs for one parameter from an MCMC run">
+<param name="Local" value="mcmcplot1.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Matches groups of parameters to plot in MCMC diagnostics plots.">
+<param name="Local" value="get.parnames.to.plot.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Overlaying densities for parameters from two MCMC simulations.">
+<param name="Local" value="denoverplot.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Plot of a correlation matrix">
+<param name="Local" value="corplot.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Plot overlaying densities">
+<param name="Local" value="denoverplot.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Plots for MCMC output in HTML format">
+<param name="Local" value="mcmcplot.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Produce density plots for parameters in an MCMC simulation on a single plot">
+<param name="Local" value="denplot.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Produce traceplots for parameters in an MCMC simulation on a single plot">
+<param name="Local" value="traplot.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Side-by-side "line" plots of the posterior draws of parameters">
+<param name="Local" value="caterpillar.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Sundry tools for evaluating posterior draws from an MCMC simulation">
+<param name="Local" value="mcmctools-package.html">
+</OBJECT>
+</UL>
+</UL>
+</BODY></HTML>

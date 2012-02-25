@@ -1,0 +1,42 @@
+\name{mcmcplotsPalette}
+\alias{mcmcplotsPalette}
+\title{Color Palette for the mcmcplots Package }
+
+\description{
+  This function uses the \pkg{colorspace} package to create a color palette for the functions in the \pkg{mcmcplots} package.
+}
+
+\usage{mcmcplotsPalette(n, seq = FALSE)}
+
+\arguments{
+  \item{n}{number of colors}
+  \item{seq}{logical indicating whether to use "sequential" colors rather than "rainbow" colors}
+}
+
+\value{
+  A color palette of \code{n} colors.
+}
+
+\details{
+  None.
+}
+
+\author{
+  S. McKay Curtis
+}
+
+\references{
+  Zeileis, A., Hornik, K. and Murrell, P. (2009) "Escaping RGBland: Selecting colors for statistical graphs." Compuational Statistics \& Data Analysis, 53, 3259--3270.
+}
+
+\seealso{
+  \code{rainbow_hcl}, \code{sequential_hcl}
+}
+
+\examples{
+colorpie <- function(n) pie(rep(1, n), col=mcmcplotsPalette(n))
+colorpie(1)
+colorpie(8)
+}
+
+\keyword{ color }

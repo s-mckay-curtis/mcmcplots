@@ -1,0 +1,130 @@
+<html><head><title>Plots for MCMC output in HTML format</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>mcmcplot(mcmctools)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   mcmcplot">
+<param name="keyword" value=" Plots for MCMC output in HTML format">
+</object>
+
+
+<h2>Plots for MCMC output in HTML format</h2>
+
+
+<h3>Description</h3>
+
+<p>
+Creates an HTML file which will display diagnostic plots (trace, density, autocorrelation) from an MCMC simulation.  When the number of parameters in an MCMC simulation is large, viewing all plots in a web browser is much easier than clicking through <code>R</code> graph windows.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+mcmcplot(mcmcout, params=NULL, random=NULL, dir=tempdir(), filename="MCMCoutput", extension="html", title="MCMC Plots", heading, col, lty)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>mcmcout</code></td>
+<td>
+posterior draws. This argument will be coerced to an <code>mcmc</code> object.</td></tr>
+<tr valign="top"><td><code>params</code></td>
+<td>
+character vector specifying which subsets of parameters to plot.  If <code>NULL</code>, <code>mcmcplot</code> will plot all parameters. Regular expressions are used to strip all numbers and punctuation out of the parameter names to find the parameters that match the character strings in <code>params</code>.</td></tr>
+<tr valign="top"><td><code>random</code></td>
+<td>
+integer specifying how many parameters from each group will be randomly selected for plotting.  This argument is useful when <code>mcmcout</code> has a large number of parameters (e.g., from a hierarchical model).  If <code>NULL</code>, <code>mcmcplot</code> will plot all parameters.</td></tr>
+<tr valign="top"><td><code>dir</code></td>
+<td>
+string containing the directory where the plots and the main html file will be stored. </td></tr>
+<tr valign="top"><td><code>filename</code></td>
+<td>
+string containing the name of the main html file which will contain code to display each plot produced by <code>mcmcplot</code>.</td></tr>
+<tr valign="top"><td><code>extension</code></td>
+<td>
+string containing the extension to be used for the html file.</td></tr>
+<tr valign="top"><td><code>title</code></td>
+<td>
+string containing the title to be included in the html file.</td></tr>
+<tr valign="top"><td><code>heading</code></td>
+<td>
+string containing the heading to be used for the html file.</td></tr>
+<tr valign="top"><td><code>col</code></td>
+<td>
+vector of colors.  This will determine the colors that will be used to plot each chain in the traceplots and density plots.  If missing, <code>mcmcplot</code> will use <code>1:nchain + 1</code>, where <code>nchain</code> is the number of chains per parameter in <code>mcmcout</code>.</td></tr>
+<tr valign="top"><td><code>lty</code></td>
+<td>
+vector of line types. This will determine the line types that will be used to plot each chain in the traceplots and density plots.  If missing, <code>mcmcplot</code> will use 1 for all line types.</td></tr>
+</table>
+
+<h3>Details</h3>
+
+<p>
+No more details at this time.
+</p>
+
+
+<h3>Value</h3>
+
+<p>
+Invisibly returns a string containing the path to <code>filename</code>.</p>
+
+<h3>Note</h3>
+
+<p>
+No further notes.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>
+S. McKay Curtis
+</p>
+
+
+<h3>References</h3>
+
+<p>
+No references.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+Plotting functions in the <code>coda</code> package
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+## Create fake MCMC output
+nc &lt;- 10
+nr &lt;- 1000
+fakemcmc &lt;- lapply(1:3, function(i) matrix(rnorm(nc*nr),nrow=nr))
+shift &lt;- matrix(rep(rpois(nc, 20), nr), nrow=nr, byrow=TRUE)
+fakemcmc &lt;- lapply(fakemcmc, function(x) x + shift)
+for (i in seq(along=fakemcmc))
+   dimnames(fakemcmc[[i]])[[2]] &lt;- c(paste("alpha[", 1:5, "]", sep=""),
+paste("gamma[", 1:5, "]", sep=""))
+fakemcmc &lt;- as.mcmc.list(lapply(fakemcmc,mcmc))
+
+## Plot the fake MCMC output
+mcmcplot(fakemcmc)
+mcmcplot(fakemcmc, "gamma")
+## End(Not run)
+</pre>
+
+
+
+<hr><div align="center">[Package <em>mcmctools</em> version 1.0 <a href="00Index.html">Index</a>]</div>
+
+</body></html>

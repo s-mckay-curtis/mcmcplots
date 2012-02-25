@@ -1,0 +1,103 @@
+<html><head><title>Matches groups of parameters to plot in MCMC diagnostics plots.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>get.parnames.to.plot(mcmctools)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   get.parnames.to.plot">
+<param name="keyword" value=" Matches groups of parameters to plot in MCMC diagnostics plots.">
+</object>
+
+
+<h2>Matches groups of parameters to plot in MCMC diagnostics plots.</h2>
+
+
+<h3>Description</h3>
+
+<p>
+Utility function that finds the parameter names to plot in the
+<code>mcmcplot</code> function.  For internal use.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+get.parnames.to.plot(parnames, params, random)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>parnames</code></td>
+<td>
+parameter names from an MCMC run</td></tr>
+<tr valign="top"><td><code>params</code></td>
+<td>
+partial parameter names that will be used to determine
+which subset of <code>parnames</code> will be plotted.</td></tr>
+<tr valign="top"><td><code>random</code></td>
+<td>
+an integer or <code>NULL</code>.  If an integer is specified,
+the function will select only <code>random</code> number of plots from each
+parameter group for plotting.  If <code>NULL</code>, all parameter names from
+groups specified in <code>params</code> will be plotted.</td></tr>
+</table>
+
+<h3>Details</h3>
+
+<p>
+No details.
+</p>
+
+
+<h3>Value</h3>
+
+<p>
+A character vector with parameter names from <code>parnames</code> that
+match the partial parameter names in <code>params</code>.</p>
+
+<h3>Note</h3>
+
+<p>
+No further notes.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>
+S. McKay Curtis
+</p>
+
+
+<h3>References</h3>
+
+<p>
+~put references to the literature/web site here ~
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+<code><a href="mcmcplot.html">mcmcplot</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+fakenames &lt;- c(paste("gamma[", 1:5, "]", sep=""), paste("alpha[", 1:5,
+"]", sep=""))
+get.parnames.to.plot(fakenames, "alpha", random=NULL)
+get.parnames.to.plot(fakenames, "alpha", random=3)
+</pre>
+
+
+
+<hr><div align="center">[Package <em>mcmctools</em> version 1.0 <a href="00Index.html">Index</a>]</div>
+
+</body></html>

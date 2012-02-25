@@ -1,0 +1,131 @@
+<html><head><title>Overlaying densities for parameters from two MCMC simulations.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>denoverplot1(mcmctools)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   denoverplot">
+<param name="keyword" value=" Overlaying densities for parameters from two MCMC simulations.">
+</object>
+
+
+<h2>Overlaying densities for parameters from two MCMC simulations.</h2>
+
+
+<h3>Description</h3>
+
+<p>
+This function determines which parameters are in common from two different MCMC simulations and plots overlaying density estimates of the parameters in common.  This function can be used in debugging MCMC code by comparing distributions of parameters from the development MCMC code and a reference MCMC simulation (e.g., from WinBUGS).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+denoverplot1(mcmc1, mcmc2, nr.plots, mfrow, mfcol, legend=TRUE, col, lty)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>mcmc1</code></td>
+<td>
+object that can be coerced to an <code>mcmc</code> object. </td></tr>
+<tr valign="top"><td><code>mcmc2</code></td>
+<td>
+object that can be coerced to an <code>mcmc</code> object. </td></tr>
+<tr valign="top"><td><code>nr.plots</code></td>
+<td>
+optional argument to be passed to the <code>mult.fig</code> function for setting up the plotting region.  The default value is the number of common parameters in <code>mcmc1</code> and <code>mcmc2</code> if <code>legend=FALSE</code> or the number of common parameters in <code>mcmc1</code> and <code>mcmc2</code> plus one if <code>legend=TRUE</code>.</td></tr>
+<tr valign="top"><td><code>mfrow</code></td>
+<td>
+optional argument to be passed to <code>mult.fig</code> for setting up the plotting region.</td></tr>
+<tr valign="top"><td><code>mfcol</code></td>
+<td>
+optional argument to be passed to <code>mult.fig</code> for setting up the plotting region.</td></tr>
+<tr valign="top"><td><code>legend</code></td>
+<td>
+if <code>TRUE</code> an extra plot in the plotting region is used as a legend.</td></tr>
+<tr valign="top"><td><code>col</code></td>
+<td>
+colors for plotting the densites.  Default is <code>c(2,3)</code> </td></tr>
+<tr valign="top"><td><code>lty</code></td>
+<td>
+line types for plotting densities.  Default is <code>1</code></td></tr>
+</table>
+
+<h3>Details</h3>
+
+<p>
+No details.
+</p>
+
+
+<h3>Value</h3>
+
+<p>
+Creates a plot.</p>
+
+<h3>Note</h3>
+
+<p>
+No further notes.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>
+S. McKay Curtis
+</p>
+
+
+<h3>References</h3>
+
+<p>
+No references.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+<code><a href="denoverplot.html">denoverplot</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+## Create fake MCMC output
+nc &lt;- 10
+nr &lt;- 1000
+fakemcmc &lt;- lapply(1:3, function(i) matrix(rnorm(nc*nr),nrow=nr))
+shift &lt;- matrix(rep(rpois(nc, 20), nr), nrow=nr, byrow=TRUE)
+fakemcmc &lt;- lapply(fakemcmc, function(x) x + shift)
+for (i in seq(along=fakemcmc))
+   dimnames(fakemcmc[[i]])[[2]] &lt;- c(paste("alpha[", 1:5, "]", sep=""),
+paste("gamma[", 1:5, "]", sep=""))
+fakemcmc &lt;- as.mcmc.list(lapply(fakemcmc,mcmc))
+
+## Create second fake MCMC output
+fakemcmc2 &lt;- lapply(1:3, function(i) matrix(rnorm(nc*nr),nrow=nr))
+fakemcmc2 &lt;- lapply(fakemcmc2, function(x) x + shift)
+for (i in seq(along=fakemcmc2))
+   dimnames(fakemcmc2[[i]])[[2]] &lt;- c(paste("alpha[", 1:5, "]", sep=""),
+paste("gamma[", 1:5, "]", sep=""))
+fakemcmc2 &lt;- as.mcmc.list(lapply(fakemcmc2, mcmc))
+
+## Plot the fake MCMC output
+denoverplot1(fakemcmc, fakemcmc2)
+## End(Not run)
+</pre>
+
+
+
+<hr><div align="center">[Package <em>mcmctools</em> version 1.0 <a href="00Index.html">Index</a>]</div>
+
+</body></html>

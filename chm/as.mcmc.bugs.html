@@ -1,0 +1,99 @@
+<html><head><title>Convert a bugs object to an mcmc object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>as.mcmc.bugs(mcmctools)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   as.mcmc.bugs">
+<param name="keyword" value=" Convert a bugs object to an mcmc object">
+</object>
+
+
+<h2>Convert a bugs object to an mcmc object</h2>
+
+
+<h3>Description</h3>
+
+<p>
+This function converts a <code>bugs</code> object to an <code>mcmc</code> object so
+that the functions of the <code>coda</code> package may be used to analyze the
+posterior draws in the <code>bugs</code> object.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+## S3 method for class 'bugs':
+as.mcmc(x)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<code>bugs</code> object</td></tr>
+</table>
+
+<h3>Details</h3>
+
+<p>
+None.
+</p>
+
+
+<h3>Value</h3>
+
+<p>
+If <code>x</code> contains multiple chains, the function returns an <code>mcmc.list</code> object.  Otherwise, the function returns an <code>mcmc</code> object.</p>
+
+<h3>Note</h3>
+
+<p>
+No notes.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>
+S. McKay Curtis
+</p>
+
+
+<h3>References</h3>
+
+<p>
+No references.
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+<code>bugs</code> in <span class="pkg">R2WinBUGS</span>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+## Data object "schools.sim" generated from the examples
+## in the bugs function of the R2WinBUGS package.
+outmcmc &lt;- as.mcmc(schools.sim)
+
+## Gelman Rubin diagnostics
+coda:::gelman.diag(outmcmc)
+coda:::mcmc.plot(outmcmc)
+## End(Not run)
+</pre>
+
+
+
+<hr><div align="center">[Package <em>mcmctools</em> version 1.0 <a href="00Index.html">Index</a>]</div>
+
+</body></html>
