@@ -30,7 +30,7 @@
 ##     return(parnames)
 ## }
 
-parms2plot <- function(parnames, parms, regex, random, leaf.marker="[\\[_]"){
+parms2plot <- function(parnames, parms, regex, random, do.unlist=TRUE, leaf.marker="[\\[_]"){
     addBackslash <- function(x){
         ## helper function
         ## adds a backslash to special characters so a string
@@ -74,6 +74,6 @@ parms2plot <- function(parnames, parms, regex, random, leaf.marker="[\\[_]"){
                 parlist[[i]] <- x[sort(sample(seq(along=x), r))]
         }
     }
-    parnames <- unlist(parlist)
+    parnames <- if(do.unlist) unlist(parlist) else parlist
     return(parnames)
 }

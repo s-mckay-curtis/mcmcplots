@@ -28,9 +28,17 @@ mcmcplot <- function(mcmcout, parms=NULL, regex=NULL, random=NULL, dir=tempdir()
         warning("Argument 'mcmcout' did not have valid variable names, so names have been created for you.")
         varnames(mcmcout) <- varnames(mcmcout, allow.null=FALSE)
     }
-    parnames <- parms2plot(varnames(mcmcout), parms, regex, random)
+    parnames <- 
+      parms2plot(varnames(mcmcout), parms, regex, random, do.unlist=FALSE)
     if (length(parnames)==0)
         stop("No parameters matched arguments 'parms' or 'regex'.")
+      
+    HTML('<div id="toc">')
+    for (group_name in names(parnames)) {
+      HTML(sprintf('<p class="toc_entry"><a href="#%s">%s</a></p>', 
+          group_name, group_name))
+    }
+    HTML('</div>')
     np <- length(parnames)
     ## parnames <- varnames(mcmcout)
     ## if (is.null(parnames))
@@ -40,15 +48,18 @@ mcmcplot <- function(mcmcout, parms=NULL, regex=NULL, random=NULL, dir=tempdir()
 
     htmlwidth <- 640
     htmlheight <- 480
-    for (p in parnames){
-        pctdone <- round(100*which(p==parnames)/np)
+    for (group_name in names(parnames)) {
+        pctdone <- round(100*match(group_name, parnames)/np)
         cat("\r", rep(" ", getOption("width")), sep="")
-        cat("\rPreparing plots for ", p, ".  ", pctdone, "% complete.", sep="")
-        gname <- paste(p, ".png", sep="")
-        png(file.path(dir, gname), width=htmlwidth, height=htmlheight)
-        mcmcplot1(mcmcout[, p, drop=FALSE], col=col, lty=lty, xlim=xlim, ylim=ylim, style=style, greek=greek)
-        dev.off()
-        HTMLInsertGraph(gname, file=htmlfile, WidthHTML=htmlwidth, HeightHTML=htmlheight)
+        cat("\rPreparing plots for ", group_name, ".  ", pctdone, "% complete.", sep="")
+        HTML(sprintf('<h2><a name="%s">Plots for %s</a></h2>', group_name, group_name))
+        for (p in parnames[[group_name]]) {
+          gname <- paste(p, ".png", sep="")
+          png(file.path(dir, gname), width=htmlwidth, height=htmlheight)
+          mcmcplot1(mcmcout[, p, drop=FALSE], col=col, lty=lty, xlim=xlim, ylim=ylim, style=style, greek=greek)
+          dev.off()
+          HTMLInsertGraph(gname, file=htmlfile, WidthHTML=htmlwidth, HeightHTML=htmlheight)
+        }
     }
     cat("\r", rep(" ", getOption("width")), "\r", sep="")
     HTMLEndFile(htmlfile)
