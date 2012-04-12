@@ -21,6 +21,5 @@ denoverplot1 <- function(..., col=NULL, lty=1, xlim=NULL, ylim=NULL, xlab = "", 
         do.call("matplot", c(list(x=xx, y=yy, type="n", bty="n", xaxt="n", yaxt="n", xlim=xlim, ylim=ylim, xlab=xlab, ylab=ylab, main=main)))
         .graypr()
         do.call("matlines", c(list(x=xx, y=yy, col=col, lty=lty), gpar))
-        ## matlines(xx, yy, col=col, lty=lty)
     }
 }

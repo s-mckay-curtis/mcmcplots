@@ -1,4 +1,6 @@
 Changes to mcmcplots version 0.4
+* denplot, denoverplot1:
+  - corrected a bug that would not recognize the "lwd" option when style="gray". (Thanks to Pei-Hsuan Chiu.)
 * caterplot:
   - added the eps option which controls the spacing between chains (or density strips) when collapse=FALSE.
   - added the las option which controls the rotation of the parameter labels on the label axis. (Thanks to Jessi Brown for the idea.)
