@@ -32,7 +32,6 @@ style=c("gray", "plain"), greek = FALSE)
   \item{ylim}{ limits for the y axis of the density plot.}
   \item{style}{ if "gray", then the plotting region is printed with a gray background, otherwise the default plotting region is used.}
   \item{greek}{if \code{TRUE}, the names of greek letters in the \code{labels} will be displayed as greek characters on the plot.}
-
 }
 
 \details{
@@ -52,7 +51,7 @@ style=c("gray", "plain"), greek = FALSE)
 }
 
 \author{
-  S. McKay Curtis
+  S. McKay Curtis with contributions from Ilya Goldin
 }
 
 \note{

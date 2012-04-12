@@ -20,6 +20,9 @@ Changes to mcmcplots version 0.4
 * parms2plot
   - simplified function logic (at least, that was my intent... maybe I just made things more complicated)
   - added "leaf.marker" option
+  - added "do.unlist" option to allow for hyperlinking to parameter groups in the mcmcplot plot function. (Thanks to Ilya Goldin for writing some initial code.)
+* mcmcplot
+  - added hyperlinking to parameter groups.  (Thanks to Ilya Goldin for writing some initial code.)
 
 Changes to mcmcplots version 0.3
 * autplot1:

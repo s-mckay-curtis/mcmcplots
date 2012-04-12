@@ -32,7 +32,7 @@ parms2plot(parnames, parms, regex, random, leaf.marker = "[\\\\[_]", do.unlist =
   None.
 }
 
-\author{ S. McKay Curtis }
+\author{ S. McKay Curtis with contributions from Ilya Goldin }
 
 \note{
   None.
