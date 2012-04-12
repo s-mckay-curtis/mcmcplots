@@ -1,0 +1,5 @@
+exportPattern("^[^\\.]")
+importFrom(sfsmisc, mult.fig)
+importFrom(colorspace, sequential_hcl, rainbow_hcl)
+importFrom(denstrip, denstrip)
+import(R2HTML)

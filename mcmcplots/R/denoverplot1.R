@@ -18,8 +18,9 @@ denoverplot1 <- function(..., col=NULL, lty=1, xlim=NULL, ylim=NULL, xlab = "", 
     if (style=="plain")
         do.call("matplot", c(list(x=xx, y=yy, col=col, lty=lty, xlim=xlim, ylim=ylim, xlab=xlab, ylab=ylab, main=main, type="l"), gpar))
     if (style=="gray"){
-        do.call("matplot", c(list(x=xx, y=yy, type="n", bty="n", xaxt="n", yaxt="n", xlim=xlim, ylim=ylim, xlab=xlab, ylab=ylab, main=main), gpar))
+        do.call("matplot", c(list(x=xx, y=yy, type="n", bty="n", xaxt="n", yaxt="n", xlim=xlim, ylim=ylim, xlab=xlab, ylab=ylab, main=main)))
         .graypr()
-        matlines(xx, yy, col=col, lty=lty)
+        do.call("matlines", c(list(x=xx, y=yy, col=col, lty=lty), gpar))
+        ## matlines(xx, yy, col=col, lty=lty)
     }
 }

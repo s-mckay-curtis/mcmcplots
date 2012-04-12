@@ -1,0 +1,25 @@
+.graypr                 Create a Gray Plotting Region
+as.mcmc.bugs            Convert a bugs Object to an mcmc or mcmc.list
+                        Object
+as.mcmc.rjags           Convert an rjags Object to an mcmc or mcmc.list
+                        Object.
+autplot1                Autocorrelation Plot of MCMC Output
+caterplot               Caterpillar Plots of MCMC Output
+caterpoints             Points on a "caterplot"
+corplot                 Plot a Correlation Matrix
+denoverplot             Overlaying Densities for Parameters from two
+                        MCMC Simulations.
+denoverplot1            Plot Overlaying Densities
+denplot                 Density Plots for MCMC Parameters on a Single
+                        Plot
+mcmcplot                Diagnostics Plots for MCMC in HTML format
+mcmcplot1               MCMC Diagnostics Plots for one Model Parameter
+mcmcplots-package       Plots for MCMC Output
+mcmcplotsPalette        Color Palette for the mcmcplots Package
+parcorplot              Correlation Plot for Posterior Draws of Model
+                        Parameters
+parms2plot              Matches groups of parameters to plot in MCMC
+                        diagnostics plots.
+traplot                 Traceplots of Multiple Parameters.
+traplot1                Trace Plot for a Single Parameter in MCMC
+                        Output
