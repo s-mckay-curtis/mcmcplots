@@ -1,4 +1,6 @@
 Changes to mcmcplots version 0.4
+* convert.mcmc.list
+  - added this function to help convert objects to mcmc.list objects.
 * denplot, denoverplot1:
   - corrected a bug that would not recognize the "lwd" option when style="gray". (Thanks to Pei-Hsuan Chiu.)
 * caterplot:
@@ -23,6 +25,7 @@ Changes to mcmcplots version 0.4
   - added "do.unlist" option to allow for hyperlinking to parameter groups in the mcmcplot plot function. (Thanks to Ilya Goldin for writing some initial code.)
 * mcmcplot
   - added hyperlinking to parameter groups.  (Thanks to Ilya Goldin for writing some initial code.)
+
 
 Changes to mcmcplots version 0.3
 * autplot1:
