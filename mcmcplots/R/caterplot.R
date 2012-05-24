@@ -17,10 +17,11 @@ caterplot <- function (mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker
     style <- match.arg(style)
 
     ## Convert to MCMC list object
-    if (!(is.mcmc(mcmcout)|is.mcmc.list(mcmcout)))
-        mcmcout <- as.mcmc(mcmcout)
-    if (!is.mcmc.list(mcmcout))
-        mcmcout <- mcmc.list(mcmcout)
+    ## if (!(is.mcmc(mcmcout)|is.mcmc.list(mcmcout)))
+    ##     mcmcout <- as.mcmc(mcmcout)
+    ## if (!is.mcmc.list(mcmcout))
+    ##     mcmcout <- mcmc.list(mcmcout)
+    mcmcout <- convert.mcmc.list(mcmcout)
 
     if (is.null(varnames(mcmcout))){
         warning("Argument 'mcmcout' did not have valid variable names, so names have been created for you.")

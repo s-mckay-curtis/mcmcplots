@@ -10,16 +10,13 @@ mcmcplot <- function(mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker="
     on.exit( sapply(dev.list(), function(dev) if(!(dev %in% current.devices)) dev.off(dev)) )
 
     ## Convert input mcmcout to mcmc.list object
-    if (!(is.mcmc(mcmcout) | is.mcmc.list(mcmcout)))
-        mcmcout <- as.mcmc(mcmcout)
-    if (!is.mcmc.list(mcmcout))
-        mcmcout <- mcmc.list(mcmcout)
-
+    mcmcout <- convert.mcmc.list(mcmcout)
     nchains <- length(mcmcout)
     if (is.null(col)){
         col <- mcmcplotsPalette(nchains)
     }
-    htmlfile <- HTMLInitFile(dir, filename, extension, BackGroundColor="#736F6E", Title=title, useLaTeX=FALSE, useGrid=FALSE, CSSFile="")
+    css.file <- system.file("MCMCoutput.css", package="mcmcplots")
+    htmlfile <- HTMLInitFile(dir, filename, extension, BackGroundColor="#736F6E", Title=title, useLaTeX=FALSE, useGrid=FALSE, CSSFile=css.file)
     if (!is.null(heading))
         cat("<h1 align=center>", heading, "</h1>", sep="", file=htmlfile, append=TRUE)
 
@@ -33,16 +30,18 @@ mcmcplot <- function(mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker="
         stop("No parameters matched arguments 'parms' or 'regex'.")
     np <- length(unlist(parnames))
 
-    HTML('<div id="toc">')
+    cat('\n<div id="outer">\n', file=htmlfile, append=TRUE)
+    cat('<div id="toc">\n', file=htmlfile, append=TRUE)
     for (group.name in names(parnames)) {
-        HTML(sprintf('<p class="toc_entry"><a href="#%s">%s</a></p>', group.name, group.name))
+        cat(sprintf('<p class="toc_entry"><a href="#%s">%s</a></p>\n', group.name, group.name), file=htmlfile, append=TRUE)
     }
-    HTML('</div>')
+    cat('</div>\n', file=htmlfile, append=TRUE)
 
+    cat('<div class="main">\n', file=htmlfile, append=TRUE)
     htmlwidth <- 640
     htmlheight <- 480
     for (group.name in names(parnames)) {
-        HTML(sprintf('<center><h2><a name="%s">Plots for %s</a></h2></center>', group.name, group.name))
+        cat(sprintf('<center><h2><a name="%s">Plots for %s</a></h2></center>\n', group.name, group.name), file=htmlfile, append=TRUE)
         for (p in parnames[[group.name]]) {
             pctdone <- round(100*match(p, unlist(parnames))/np)
             cat("\r", rep(" ", getOption("width")), sep="")
@@ -55,7 +54,8 @@ mcmcplot <- function(mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker="
         }
     }
     cat("\r", rep(" ", getOption("width")), "\r", sep="")
-    HTMLEndFile(htmlfile)
+    cat('\n</div>\n</div>\n</body>\n</html>', file=htmlfile, append=TRUE)
+    ## HTMLEndFile(htmlfile)
     full.name.path <- paste("file://", htmlfile, sep="")
     browseURL(full.name.path)
     invisible(full.name.path)
