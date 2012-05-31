@@ -8,7 +8,8 @@
 }
 
 \usage{
-mcmcplot(mcmcout, parms = NULL, regex = NULL, random = NULL, dir =
+mcmcplot(mcmcout, parms = NULL, regex = NULL, random = NULL,
+leaf.marker = "[\\\\[_]", dir =
 tempdir(), filename = "MCMCoutput", extension = "html", title = NULL,
 heading = NULL, col = NULL, lty = 1, xlim = NULL, ylim = NULL,
 style=c("gray", "plain"), greek = FALSE)
@@ -19,6 +20,7 @@ style=c("gray", "plain"), greek = FALSE)
   \item{parms}{ character vector specifying which subsets of parameters to plot.  If \code{NULL} and \code{regex=NULL}, \code{mcmcplot} will plot all parameters. Regular expressions are used to strip all numbers and punctuation out of the parameter names to find the parameters that match the character strings in \code{parms}.}
   \item{regex}{ character vector of regular expressions denoting groups of parameters to plot.}
   \item{random}{ integer specifying how many parameters from each group will be randomly selected for plotting.  This argument is useful when \code{mcmcout} has a large number of parameters (e.g., from a hierarchical model).  If \code{NULL}, \code{mcmcplot} will plot all parameters.}
+  \item{leaf.marker}{ a regular expression with a character class that marks the beginning of the ``leaf'' portion of a parameter name.  The default character class includes \code{[} and \code{_}}
   \item{dir}{ string containing the directory where the plots and the main html file will be stored. }
   \item{filename}{ string containing the name of the main html file which will contain code to display each plot produced by \code{mcmcplot}.}
   \item{extension}{ string containing the extension to be used for the html file.}
@@ -30,7 +32,6 @@ style=c("gray", "plain"), greek = FALSE)
   \item{ylim}{ limits for the y axis of the density plot.}
   \item{style}{ if "gray", then the plotting region is printed with a gray background, otherwise the default plotting region is used.}
   \item{greek}{if \code{TRUE}, the names of greek letters in the \code{labels} will be displayed as greek characters on the plot.}
-
 }
 
 \details{
@@ -50,7 +51,7 @@ style=c("gray", "plain"), greek = FALSE)
 }
 
 \author{
-  S. McKay Curtis
+  S. McKay Curtis with contributions from Ilya Goldin
 }
 
 \note{

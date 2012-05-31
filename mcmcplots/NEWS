@@ -1,4 +1,8 @@
 Changes to mcmcplots version 0.4
+* convert.mcmc.list
+  - added this function to help convert objects to mcmc.list objects.
+* denplot, denoverplot1:
+  - corrected a bug that would not recognize the "lwd" option when style="gray". (Thanks to Pei-Hsuan Chiu.)
 * caterplot:
   - added the eps option which controls the spacing between chains (or density strips) when collapse=FALSE.
   - added the las option which controls the rotation of the parameter labels on the label axis. (Thanks to Jessi Brown for the idea.)
@@ -18,6 +22,10 @@ Changes to mcmcplots version 0.4
 * parms2plot
   - simplified function logic (at least, that was my intent... maybe I just made things more complicated)
   - added "leaf.marker" option
+  - added "do.unlist" option to allow for hyperlinking to parameter groups in the mcmcplot plot function. (Thanks to Ilya Goldin for writing some initial code.)
+* mcmcplot
+  - added hyperlinking to parameter groups.  (Thanks to Ilya Goldin for writing some initial code.)
+
 
 Changes to mcmcplots version 0.3
 * autplot1:

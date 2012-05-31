@@ -8,7 +8,7 @@
 }
 
 \usage{
-parms2plot(parnames, parms, regex, random, leaf.marker = "[\\\\[_]")
+parms2plot(parnames, parms, regex, random, leaf.marker = "[\\\\[_]", do.unlist = TRUE)
 }
 
 \arguments{
@@ -17,6 +17,7 @@ parms2plot(parnames, parms, regex, random, leaf.marker = "[\\\\[_]")
   \item{regex}{ a vector of character strings containing regular expressions to match parameter names in the \code{mcmc} object.}
   \item{random}{ an integer or \code{NULL}.  If an integer is specified, the function will select only \code{random} number of plots from each parameter group for plotting.  If \code{NULL}, all parameter names from groups specified in \code{params} will be plotted.}
   \item{leaf.marker}{ a regular expression with a character class that marks the beginning of the ``leaf'' portion of a parameter name.  The default character class includes \code{[} and \code{_}}
+  \item{do.unlist}{ a logical indicating whether the function should return the vector of parameter names or a list of parameter names according to parameter "groupings" (so parameters can be accessed according to their "stems").  This option was added in order to improve the functionality of \code{mcmcplot} function.}
 }
 
 \details{
@@ -31,7 +32,7 @@ parms2plot(parnames, parms, regex, random, leaf.marker = "[\\\\[_]")
   None.
 }
 
-\author{ S. McKay Curtis }
+\author{ S. McKay Curtis with contributions from Ilya Goldin }
 
 \note{
   None.

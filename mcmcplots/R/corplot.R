@@ -15,8 +15,8 @@ corplot <- function(mat, col=mcmcplotsPalette(11, "sequential"), outline=TRUE, g
     ## y <- com[1]
     ## z <- mat[lower.tri(mat)]
     image(mat, axes=FALSE, col=col)
-    axis(2, at=0:(p-1)/(p-1), label=c(rev(labels[-1]), NA), las=2, tick=FALSE, ...)
-    axis(1, at=0:(p-1)/(p-1), label=c(labels[-length(labels)], NA), las=2, tick=FALSE, ...)
+    axis(2, at=0:(p-1)/(p-1), labels=c(rev(labels[-1]), NA), las=2, tick=FALSE, ...)
+    axis(1, at=0:(p-1)/(p-1), labels=c(labels[-length(labels)], NA), las=2, tick=FALSE, ...)
     ol.x <- seq(par("usr")[1], par("usr")[2], length.out=p + 1)
     ol.y <- seq(par("usr")[3], par("usr")[4], length.out=p + 1)
     if (outline){

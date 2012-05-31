@@ -30,11 +30,12 @@
 ##     return(parnames)
 ## }
 
-parms2plot <- function(parnames, parms, regex, random, do.unlist=TRUE, leaf.marker="[\\[_]"){
+parms2plot <- function(parnames, parms, regex, random, leaf.marker="[\\[_]", do.unlist=TRUE){
     addBackslash <- function(x){
         ## helper function
         ## adds a backslash to special characters so a string
         ## can be converted to a regex
+        ## if (is.null(x)) return(NULL)
         gsub("(\\[|\\]|\\.|\\+|\\*|\\(|\\))", "\\\\\\1", x)
     }
     ## Replace numbers in parms with corresponding parameter names
@@ -45,23 +46,23 @@ parms2plot <- function(parnames, parms, regex, random, do.unlist=TRUE, leaf.mark
     }
     re.leaf <- paste(leaf.marker, ".*$", sep="")
     plot.all <- is.null(parms) && is.null(regex)
+    re <- parlist.names <- NULL
     if (plot.all){
         ## Can't just return(parnames) if all parameters are desired
         ## because random may be specified.
         has.leaf <- grepl(re.leaf, parnames)
         if (any(!has.leaf)){
-            re1 <- paste("^", addBackslash(parnames[!has.leaf]), "$", sep="") # exact matches
-        } else {
-            re1 <- NULL
+            parlist.names <- c(parlist.names, parnames[!has.leaf])
+            re <- c(re, paste("^", addBackslash(parnames[!has.leaf]), "$", sep="")) # exact matches
         }
         if (any(has.leaf)){
-            re2 <- paste("^", addBackslash(unique(gsub(re.leaf, "", parnames[has.leaf]))), re.leaf, sep="")
-        } else {
-            re2 <- NULL
+            parlist.names <- c(parlist.names, unique(gsub(re.leaf, "", parnames[has.leaf])))
+            re <- c(re, paste("^", addBackslash(unique(gsub(re.leaf, "", parnames[has.leaf]))), re.leaf, sep=""))
         }
-        re <- c(re1, re2)
     } else {
-        re <- c(paste("^", addBackslash(parms), re.leaf, sep=""), regex)
+        parlist.names <- c(parms, regex)
+        if (!is.null(parms)) re <- paste("^", addBackslash(parms), re.leaf, sep="")
+        re <- c(re, regex)
     }
     parlist <- lapply(re, function(r, p) grep(r, p, value=TRUE), p=parnames)
     if (!is.null(random)){
@@ -74,6 +75,7 @@ parms2plot <- function(parnames, parms, regex, random, do.unlist=TRUE, leaf.mark
                 parlist[[i]] <- x[sort(sample(seq(along=x), r))]
         }
     }
-    parnames <- if(do.unlist) unlist(parlist) else parlist
-    return(parnames)
+    if (do.unlist) parlist <- unlist(parlist)
+    else names(parlist) <- parlist.names
+    return(parlist)
 }
