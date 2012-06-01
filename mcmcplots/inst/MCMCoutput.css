@@ -31,5 +31,6 @@ li.toc_item {
 }
 
 p.plot_err {
-  background-color: #c91818;
+  border: dashed #C91818;
+  padding: 8px;
 }

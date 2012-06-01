@@ -52,10 +52,17 @@ mcmcplot <- function(mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker="
             cat("\rPreparing plots for ", group.name, ".  ", pctdone, "% complete.", sep="")
             gname <- paste(p, ".png", sep="")
             png(file.path(dir, gname), width=htmlwidth, height=htmlheight)
-            mcmcplot1(mcmcout[, p, drop=FALSE], col=col, lty=lty, xlim=xlim, ylim=ylim, style=style, greek=greek)
+            plot_err <- tryCatch({
+                mcmcplot1(mcmcout[, p, drop=FALSE], col=col, lty=lty, xlim=xlim, ylim=ylim, style=style, greek=greek)
+              }, error=function(e) {e})
             dev.off()
-            html.img(file=htmlfile, class="mcmcplot", src=gname, 
-              width=htmlwidth, height=htmlheight)
+            if (inherits(plot_err, "error")) {
+                cat(sprintf('<p class="plot_err">%s. %s</p>', p, plot_err), 
+                    file=htmlfile, append=TRUE)
+            } else {
+                html.img(file=htmlfile, class="mcmcplot", src=gname, 
+                  width=htmlwidth, height=htmlheight)
+            }
         }
     }
     cat("\r", rep(" ", getOption("width")), "\r", sep="")
