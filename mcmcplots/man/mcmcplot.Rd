@@ -11,7 +11,7 @@
 mcmcplot(mcmcout, parms = NULL, regex = NULL, random = NULL,
 leaf.marker = "[\\\\[_]", dir =
 tempdir(), filename = "MCMCoutput", extension = "html", title = NULL,
-heading = NULL, col = NULL, lty = 1, xlim = NULL, ylim = NULL,
+heading = title, col = NULL, lty = 1, xlim = NULL, ylim = NULL,
 style=c("gray", "plain"), greek = FALSE)
 }
 
@@ -25,7 +25,7 @@ style=c("gray", "plain"), greek = FALSE)
   \item{filename}{ string containing the name of the main html file which will contain code to display each plot produced by \code{mcmcplot}.}
   \item{extension}{ string containing the extension to be used for the html file.}
   \item{title}{ string containing the title to be included in the html file.  Default is to use the name of object passed as the \code{mcmcout} argument prepended with the string "MCMC Output: ".}
-  \item{heading}{ string containing the heading to be used for the html file.}
+  \item{heading}{ string containing the heading to be used for the html file.  Default is to use the \code{title}.}
   \item{col}{ vector of colors.  This will determine the colors that will be used to plot each chain in the traceplots and density plots.  Default is \code{mcmcplotsPalette(nchains)}.}
   \item{lty}{ vector of line types.  This will determine the line types that will be used to plot each chain in the traceplots and density plots.  If missing, \code{mcmcplot} will use 1 for all line types.}
   \item{xlim}{ limits for the x axis of the density plot.}
@@ -51,7 +51,7 @@ style=c("gray", "plain"), greek = FALSE)
 }
 
 \author{
-  S. McKay Curtis with contributions from Ilya Goldin
+  S. McKay Curtis and Ilya Goldin
 }
 
 \note{

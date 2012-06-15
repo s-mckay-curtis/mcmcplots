@@ -35,7 +35,7 @@ The \code{corplot} function creates a "heat plot" of a correlation matrix.  This
 }
 
 \author{
-  S. McKay Curtis
+  S. McKay Curtis and Ilya Goldin
 
   Maintainer: S. McKay Curtis <s.mckay.curtis@gmail.com>
 

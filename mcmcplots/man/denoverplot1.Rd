@@ -33,9 +33,13 @@ ylim = NULL, xlab = "", ylab = "Density", main = NULL, style = c("gray",
   Creates a plot.
 }
 
-\references{ None }
+\references{
+  None.
+}
 
-\author{ S. McKay Curtis }
+\author{
+  S. McKay Curtis and Ilya Goldin
+}
 
 \note{
   None.
