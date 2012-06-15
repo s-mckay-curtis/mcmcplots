@@ -61,7 +61,13 @@ parms2plot <- function(parnames, parms, regex, random, leaf.marker="[\\[_]", do.
         }
     } else {
         parlist.names <- c(parms, regex)
-        if (!is.null(parms)) re <- paste("^", addBackslash(parms), re.leaf, sep="")
+        if (!is.null(parms)){
+            exact.idx <- parms %in% parnames
+            exact.matches <- parms[exact.idx]
+            re <- parms
+            re[exact.idx] <- paste("^", addBackslash(exact.matches), "$", sep="")
+            re[!exact.idx] <- paste("^", addBackslash(parms[!exact.idx]), re.leaf, sep="")
+        }
         re <- c(re, regex)
     }
     parlist <- lapply(re, function(r, p) grep(r, p, value=TRUE), p=parnames)
