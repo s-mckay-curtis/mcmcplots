@@ -12,9 +12,11 @@ denoverplot1 <- function(..., col=NULL, lty=1, xlim=NULL, ylim=NULL, xlab = "", 
     }
     ## col <- rep(col, length.out=n)
     ## lty <- rep(lty, length.out=n)
-    denout <- lapply(dat, density)
+    denout <- lapply(dat, density, bw="SJ")
     xx <- sapply(denout, function(den) den$x)
     yy <- sapply(denout, function(den) den$y)
+    lb <- sapply(dat, quantile, 0.025)
+    ub <- sapply(dat, quantile, 0.975)
     if (style=="plain")
         do.call("matplot", c(list(x=xx, y=yy, col=col, lty=lty, xlim=xlim, ylim=ylim, xlab=xlab, ylab=ylab, main=main, type="l"), gpar))
     if (style=="gray"){
@@ -22,4 +24,6 @@ denoverplot1 <- function(..., col=NULL, lty=1, xlim=NULL, ylim=NULL, xlab = "", 
         .graypr()
         do.call("matlines", c(list(x=xx, y=yy, col=col, lty=lty), gpar))
     }
+    do.call("abline", c(list(v=lb, col=col, lty=lty), gpar))
+    do.call("abline", c(list(v=ub, col=col, lty=lty), gpar))
 }
