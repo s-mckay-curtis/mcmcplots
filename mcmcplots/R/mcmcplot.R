@@ -4,7 +4,7 @@ mcmcplot <- function(mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker="
         title <- paste("MCMC Plots: ", deparse(substitute(mcmcout)), sep="")
     if (is.null(heading))
         heading <- title
-        
+
     style <- match.arg(style)
 
     ## Turn off graphics device if interrupted in the middle of plotting
@@ -19,7 +19,7 @@ mcmcplot <- function(mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker="
     }
     css.file <- system.file("MCMCoutput.css", package="mcmcplots")
     css.file <- paste("file:///", css.file, sep="")
-    htmlfile <- html.begin(dir, filename, extension, title=title, cssfile=css.file)
+    htmlfile <- .html.begin(dir, filename, extension, title=title, cssfile=css.file)
 
     ## Select parameters for plotting
     if (is.null(varnames(mcmcout))){
@@ -57,17 +57,17 @@ mcmcplot <- function(mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker="
               }, error=function(e) {e})
             dev.off()
             if (inherits(plot_err, "error")) {
-                cat(sprintf('<p class="plot_err">%s. %s</p>', p, plot_err), 
+                cat(sprintf('<p class="plot_err">%s. %s</p>', p, plot_err),
                     file=htmlfile, append=TRUE)
             } else {
-                html.img(file=htmlfile, class="mcmcplot", src=gname, 
+                .html.img(file=htmlfile, class="mcmcplot", src=gname,
                   width=htmlwidth, height=htmlheight)
             }
         }
     }
     cat("\r", rep(" ", getOption("width")), "\r", sep="")
     cat('\n</div>\n</div>\n', file=htmlfile, append=TRUE)
-    html.end(htmlfile)
+    .html.end(htmlfile)
     full.name.path <- paste("file://", htmlfile, sep="")
     browseURL(full.name.path)
     invisible(full.name.path)

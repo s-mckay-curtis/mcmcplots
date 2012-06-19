@@ -1,7 +1,7 @@
 #' @examples \dontrun{
-#' html.img("index.html", class="myid", src="my.png", width=400)
+#' .html.img("index.html", class="myid", src="my.png", width=400)
 #' }
-html.img <- function(file, ...) {
+.html.img <- function(file, ...) {
   fq <- getOption("useFancyQuotes")
   options(useFancyQuotes=FALSE)
   att <- unlist(list(...))

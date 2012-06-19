@@ -25,7 +25,7 @@ Changes to mcmcplots version 0.4
   - added "do.unlist" option to allow for hyperlinking to parameter groups in the mcmcplot plot function. (Thanks to Ilya Goldin for writing some initial code.)
 * mcmcplot
   - added hyperlinking to parameter groups, improved layout of plots with CSS file, removed dependence on R2HTML.
-* html.begin, html.end, html.img
+* .html.begin, .html.end, .html.img
   - new functions contributed by Ilya Goldin for use by mcmcplot.
 
 
