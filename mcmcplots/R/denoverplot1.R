@@ -1,4 +1,4 @@
-denoverplot1 <- function(..., col=NULL, lty=1, xlim=NULL, ylim=NULL, xlab = "", ylab = "Density", main = NULL, style=c("gray", "plain"), gpar=NULL){
+denoverplot1 <- function(..., ci = NULL, col=NULL, lty=1, xlim=NULL, ylim=NULL, xlab = "", ylab = "Density", main = NULL, style=c("gray", "plain"), gpar=NULL){
     dat <- list(...)
     style <- match.arg(style)
     if (length(dat)==1 && is.list(dat[[1]])) dat <- dat[[1]]
@@ -10,13 +10,9 @@ denoverplot1 <- function(..., col=NULL, lty=1, xlim=NULL, ylim=NULL, xlab = "", 
     if (is.null(col)){
         col <- mcmcplotsPalette(n)
     }
-    ## col <- rep(col, length.out=n)
-    ## lty <- rep(lty, length.out=n)
     denout <- lapply(dat, density, bw="SJ")
     xx <- sapply(denout, function(den) den$x)
     yy <- sapply(denout, function(den) den$y)
-    lb <- sapply(dat, quantile, 0.025)
-    ub <- sapply(dat, quantile, 0.975)
     if (style=="plain")
         do.call("matplot", c(list(x=xx, y=yy, col=col, lty=lty, xlim=xlim, ylim=ylim, xlab=xlab, ylab=ylab, main=main, type="l"), gpar))
     if (style=="gray"){
@@ -24,6 +20,10 @@ denoverplot1 <- function(..., col=NULL, lty=1, xlim=NULL, ylim=NULL, xlab = "", 
         .graypr()
         do.call("matlines", c(list(x=xx, y=yy, col=col, lty=lty), gpar))
     }
-    do.call("abline", c(list(v=lb, col=col, lty=lty), gpar))
-    do.call("abline", c(list(v=ub, col=col, lty=lty), gpar))
+    if (!is.null(ci)){
+        lb <- sapply(dat, quantile, (1 - ci)/2)
+        ub <- sapply(dat, quantile, ci + (1 - ci)/2)
+        do.call("abline", c(list(v=lb, col=col, lty=lty), gpar))
+        do.call("abline", c(list(v=ub, col=col, lty=lty), gpar))
+    }
 }

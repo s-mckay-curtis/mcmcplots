@@ -1,4 +1,4 @@
-denplot <- function(mcmcout, parms=NULL, regex=NULL, random=NULL, xlim=NULL, ylim=NULL, auto.layout=TRUE, mar=c(2.0, 2.0, 1.5, 0.25)+0.1, col=NULL, lty=1, xlab="", ylab="", plot.title=NULL, main=NULL, greek = FALSE, collapse=FALSE, style=c("gray", "plain"), ...){
+denplot <- function(mcmcout, parms=NULL, regex=NULL, random=NULL, ci = NULL, xlim=NULL, ylim=NULL, auto.layout=TRUE, mar=c(2.0, 2.0, 1.5, 0.25)+0.1, col=NULL, lty=1, xlab="", ylab="", plot.title=NULL, main=NULL, greek = FALSE, collapse=FALSE, style=c("gray", "plain"), ...){
     gpar.args <- list(...)
     style <- match.arg(style)
     mcmcout <- convert.mcmc.list(mcmcout)
@@ -40,7 +40,7 @@ denplot <- function(mcmcout, parms=NULL, regex=NULL, random=NULL, xlim=NULL, yli
     main <- rep(main, length.out=length(parnames))
     names(main) <- parnames
     for (pmtr in parnames){
-        denoverplot1(mcmcout[, pmtr, drop=FALSE], col=col, lty=lty, xlim=xlim, ylim=ylim, style=style, xlab=xlab, ylab=ylab, main=main[pmtr], gpar=gpar.args)
+        denoverplot1(mcmcout[, pmtr, drop=FALSE], ci=ci, col=col, lty=lty, xlim=xlim, ylim=ylim, style=style, xlab=xlab, ylab=ylab, main=main[pmtr], gpar=gpar.args)
     }
     return(invisible(parnames))
 }

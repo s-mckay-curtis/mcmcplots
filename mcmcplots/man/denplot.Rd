@@ -8,10 +8,10 @@
 }
 
 \usage{
-denplot(mcmcout, parms = NULL, regex = NULL, random = NULL, xlim = NULL,
+denplot(mcmcout, parms = NULL, regex = NULL, random = NULL, ci = NULL, xlim = NULL,
 ylim = NULL, auto.layout = TRUE, mar=c(2.0, 2.0, 1.5, 0.25) + 0.1, col =
-NULL, lty = 1, xlab = "", ylab = "",
-plot.title = NULL, main = NULL, greek = FALSE, collapse = FALSE, style=c("gray", "plain"), \dots)
+NULL, lty = 1, xlab = "", ylab = "", plot.title = NULL, main = NULL,
+greek = FALSE, collapse = FALSE, style=c("gray", "plain"), \dots)
 }
 
 \arguments{
@@ -19,6 +19,7 @@ plot.title = NULL, main = NULL, greek = FALSE, collapse = FALSE, style=c("gray",
   \item{parms}{ a vector of character strings that identifies which variables in \code{mcmcout} should be plotted. If \code{parms} and \code{regex} are both \code{NULL}, all parameters will be plotted.}
   \item{regex}{ a vector of character strings with regular expressions that identify which variables in \code{mcmcout} should be plotted.}
   \item{random}{ an integer indicating the maximum number of parameters to randomly select for plotting from each group of parameters as specified by the \code{parms} argument.}
+  \item{ci}{ if non \code{NULL}, plots \code{(100*ci)}\% credible interval limits on the density plots.  The default (\code{NULL}) is not to plot the intervals.}
   \item{xlim}{ limits of the x-axis.}
   \item{ylim}{ limits of the y-axis.}
   \item{auto.layout}{ if \code{TRUE}, \code{denplot} automatically creates a plot layout using \code{mult.fig} from the \pkg{sfsmisc} package.}
@@ -69,7 +70,7 @@ fakemcmc <- as.mcmc.list(lapply(1:3, function(i) mcmc(matrix(rnorm(nc*nr, rep(me
 ## Plot densities of the fake MCMC output
 denplot(fakemcmc)
 denplot(fakemcmc, style="plain")
-denplot(fakemcmc, collapse=TRUE, greek=TRUE)
+denplot(fakemcmc, collapse=TRUE, greek=TRUE, ci=0.95)
 denplot(fakemcmc, xlim=range(unlist(fakemcmc)), plot.title="Density plots of fake data.  Yawn.")
 denplot(fakemcmc, "gamma")
 denplot(fakemcmc, "gamma", "alpha\\\\[[12]]$") # all gamma and alpha[1] and alpha[2]

@@ -7,13 +7,14 @@
 }
 
 \usage{
-denoverplot1(\dots, col = NULL, lty = 1, xlim = NULL,
+denoverplot1(\dots, ci = NULL, col = NULL, lty = 1, xlim = NULL,
 ylim = NULL, xlab = "", ylab = "Density", main = NULL, style = c("gray",
 "plain"), gpar = NULL)
 }
 
 \arguments{
   \item{\dots}{ one or more vectors or a list containing one or more vectors to be plotted.}
+  \item{ci}{ if non \code{NULL}, plots \code{(100*ci)}\% credible interval limits on the density plots.  The default (\code{NULL}) is not to plot the intervals.}
   \item{col}{ one or more colors for the densities.  Default is \code{mcmcplotsPalette(n)}, where \code{n} is the number of elements in the \dots argument.}
   \item{lty}{ types of lines to plot.}
   \item{xlim}{ limits for the x axis.}
@@ -38,7 +39,7 @@ ylim = NULL, xlab = "", ylab = "Density", main = NULL, style = c("gray",
 }
 
 \author{
-  S. McKay Curtis and Ilya Goldin
+  S. McKay Curtis with contributions from Ilya Goldin
 }
 
 \note{
@@ -51,7 +52,7 @@ ylim = NULL, xlab = "", ylab = "Density", main = NULL, style = c("gray",
 
 \examples{
 denoverplot1(rnorm(1000), rnorm(1000))
-denoverplot1(rnorm(1000, 0.0, 1.0), rnorm(1000, 0.1, 1.0), style="plain")
+denoverplot1(rnorm(1000, 0.0, 1.0), rnorm(1000, 0.1, 1.0), style="plain", col=mcmcplotsPalette(2, type="grayscale"), ci=0.95)
 denoverplot1(list(rgamma(1000, 1, 1), rgamma(1000, 1, 1)))
 }
 

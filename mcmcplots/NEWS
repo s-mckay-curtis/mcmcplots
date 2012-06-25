@@ -3,6 +3,7 @@ Changes to mcmcplots version 0.4
   - added this function to help convert objects to mcmc.list objects.
 * denplot, denoverplot1:
   - corrected a bug that would not recognize the "lwd" option when style="gray". (Thanks to Pei-Hsuan Chiu.)
+  - added option "ci" to plot credible intervals.
 * caterplot:
   - added the eps option which controls the spacing between chains (or density strips) when collapse=FALSE.
   - added the las option which controls the rotation of the parameter labels on the label axis. (Thanks to Jessi Brown for the idea.)
@@ -12,6 +13,7 @@ Changes to mcmcplots version 0.4
   - added the greek option which attemts to convert the names of greek letters in labels to greek characters on the plot.
 * denoverplot
   - corrected bug that plotted a gray background for the legend when style="plain"
+  - added option "ci" to plot credible intervals.
 * traplot, denoverplot
   - added plot.title option and changed the functionality of the main option to match denplot
 * mcmcplotsPalette

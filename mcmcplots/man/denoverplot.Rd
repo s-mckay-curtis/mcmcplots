@@ -7,10 +7,11 @@
 }
 
 \usage{
-denoverplot(mcmc1, mcmc2, parms = NULL, regex = NULL, random = NULL,
-auto.layout = TRUE, legend = TRUE, mar = c(2.0, 2.0, 1.5, 0.25)+0.1, col
-= mcmcplotsPalette(2), lty = 1, plot.title = NULL, main = NULL, greek =
-FALSE, style = c("gray", "plain"), \dots)
+denoverplot(mcmc1, mcmc2, parms = NULL, regex = NULL, random = NULL, ci
+= NULL, auto.layout = TRUE, legend = TRUE,
+mar = c(2.0, 2.0, 1.5, 0.25) + 0.1, col = mcmcplotsPalette(2),
+lty = 1, plot.title = NULL, main = NULL, greek =FALSE,
+style = c("gray", "plain"), \dots)
 }
 
 \arguments{
@@ -19,6 +20,7 @@ FALSE, style = c("gray", "plain"), \dots)
   \item{parms}{ character vector specifying which subsets of parameters to plot.  If \code{NULL} and \code{regex=NULL}, \code{denoverplot} will plot all common parameters \code{mcmc1} and \code{mcmc2}. Regular expressions are used to strip all numbers and punctuation out of the parameter names to find the parameters that match the character strings in \code{parms}.}
   \item{regex}{ character vector of regular expressions denoting groups of parameters to plot.}
   \item{random}{ integer specifying how many parameters from each group will be randomly selected for plotting.  This argument is useful when \code{mcmcout} has a large number of parameters (e.g., from a hierarchical model).  If \code{NULL}, \code{mcmcplot} will plot all parameters.}
+  \item{ci}{ if non \code{NULL}, plots \code{(100*ci)}\% credible interval limits on the density plots.  The default (\code{ci=NULL}) is not to plot the intervals.}
   \item{auto.layout}{ logical specifying whether the \code{mult.fig} function from the \pkg{sfsmisc} package should be used to construct the plotting region.}
   \item{legend}{ if \code{TRUE} an extra plot in the plotting region is used as a legend.}
   \item{mar}{ argument passed to \code{multi.fig} if \code{auto.layout=TRUE}}
@@ -63,7 +65,7 @@ fakemcmc2 <- as.mcmc.list(lapply(1:3, function(i) mcmc(matrix(rnorm(nc*nr, rep(m
 
 ## Plot the fake MCMC output
 denoverplot(fakemcmc, fakemcmc2)
-denoverplot(fakemcmc, fakemcmc2, style="plain")
+denoverplot(fakemcmc, fakemcmc2, style="plain", col=mcmcplotsPalette(3, type="grayscale"), ci=0.95, greek=TRUE)
 denoverplot(fakemcmc, fakemcmc2, plot.title="Comparison of densities of fake data")
 denoverplot(fakemcmc, fakemcmc2, plot.title="Comparison of densities of fake data", greek=TRUE)
 
