@@ -47,7 +47,6 @@ caterplot <- function (mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker
     q[names(quantiles)] <- quantiles
     qout <- lapply(mcmcout, function(mat) apply(mat, 2, quantile, probs=q$outer))
     qin  <- lapply(mcmcout, function(mat) apply(mat, 2, quantile, probs=q$inner))
-    mn   <- lapply(mcmcout, colMeans)
     med  <- lapply(mcmcout, function(mat) apply(mat, 2, median))
     dens <- lapply(mcmcout, function(mat) apply(mat, 2, density))
     densx <- lapply(dens, function(dl) lapply(dl, function(x) x$x))
