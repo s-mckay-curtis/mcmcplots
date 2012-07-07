@@ -18,8 +18,8 @@ mcmcplot1 <- function(x, col=mcmcplotsPalette(n), lty=1, xlim=NULL, ylim=NULL, s
     denoverplot1(x, col=col, lty=lty, xlim=xlim, ylim=ylim, style=style, xlab=label, ylab="Density")
     autplot1(x, style=style)
     autplot1(x, style=style, partial=TRUE)
-    traplot1(x, col=col, lty=lty, style=style, ylab=parname, xlab="Iteration")
-    if (greek==TRUE){
+    traplot1(x, col=col, lty=lty, style=style, ylab=label, xlab="Iteration")
+    if (greek) {
         title(parse(text=paste("paste('Diagnostics for ', ", parname, ")")), cex.main=1.5, outer=TRUE)
     } else {
         title(paste("Diagnostic Plots for ", parname, sep=""), cex.main=1.5, outer=TRUE)
