@@ -10,7 +10,7 @@ Author@R: c(
 Author: S. McKay Curtis with contributions from Ilya Goldin
 Maintainer: S. McKay Curtis <s.mckay.curtis@gmail.com>
 Depends: coda
-Imports: sfsmisc, R2HTML, colorspace, denstrip
+Imports: sfsmisc, colorspace, denstrip
 Suggests: R2WinBUGS
 Description: MCMC plots
 License: GPL (>=2)
