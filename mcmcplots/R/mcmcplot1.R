@@ -22,6 +22,6 @@ mcmcplot1 <- function(x, col=mcmcplotsPalette(n), lty=1, xlim=NULL, ylim=NULL, s
     if (greek) {
         title(parse(text=paste("paste('Diagnostics for ', ", parname, ")")), cex.main=1.5, outer=TRUE)
     } else {
-        title(paste("Diagnostic Plots for ", parname, sep=""), cex.main=1.5, outer=TRUE)
+        title(paste("Diagnostics for ", parname, sep=""), cex.main=1.5, outer=TRUE)
     }
 }
