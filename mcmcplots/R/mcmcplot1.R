@@ -4,12 +4,8 @@ mcmcplot1 <- function(x, col=mcmcplotsPalette(n), lty=1, xlim=NULL, ylim=NULL, s
     n <- length(x)
     parname <- varnames(x)
     label <- parname
-    if (greek==TRUE){
-        greek.alphabet <- c("Alpha", "Beta", "Gamma", "Delta", "Epsilon", "Zeta", "Eta", "Theta", "Iota", "Kappa", "Lambda", "Mu", "Nu", "Xi", "Omicron", "Pi", "Rho", "Sigma", "Tau", "Upsilon", "Phi", "Chi", "Psi", "Omega", "alpha", "beta", "gamma", "delta", "epsilon", "zeta", "eta", "theta", "iota", "kappa", "lambda", "mu", "nu", "xi", "omicron", "pi", "rho", "sigma", "tau", "upsilon", "phi", "chi", "psi", "omega")
-        has.greek <- any(sapply(greek.alphabet, function(x) length(grep(x, label))>0))
-        if (has.greek){
-            label <- parse(text=gsub(",", "*','*", label))
-        }
+    if (greek) {
+      label <- .to.greek(label)
     }
     ## layout(matrix(c(1, 1, 2, 3), 2, 2, byrow=TRUE))
     opar <- par(mar=c(5, 4, 2, 1) + 0.2, oma=c(0, 0, 2, 0) + 0.1)
