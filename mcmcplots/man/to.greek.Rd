@@ -4,7 +4,7 @@
 Parse strings containing names of greek letters.
 }
 \description{
-If a character vector contains names of greek letters, apply the 
+If a character vector contains names of greek letters, apply the
 \code{link{parse}} function.
 }
 \usage{
@@ -32,6 +32,6 @@ If a character vector contains names of greek letters, apply the
 \code{\link{parse}}
 }
 \examples{
-.to.greek(c("mybeta", "YourDelta"))
+\dontrun{.to.greek(c("mybeta", "YourDelta"))}
 }
 \keyword{ utilities }
