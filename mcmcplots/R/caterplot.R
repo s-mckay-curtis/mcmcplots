@@ -1,4 +1,4 @@
-caterplot <- function (mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker = "[\\[_]", quantiles=list(), collapse=TRUE, denstrip = FALSE, add = FALSE, labels=NULL, labels.loc="axis", las = NULL, cex.labels=NULL, greek = FALSE, horizontal=TRUE, val.lim=NULL, lab.lim=NULL, lwd=c(1, 2), pch=16, eps=0.1, width=NULL, col=NULL, style=c("gray", "plain"), ...){
+caterplot <- function (mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker="[\\[_]", quantiles=list(), collapse=TRUE, denstrip = FALSE, add = FALSE, labels=NULL, labels.loc="axis", las = NULL, cex.labels=NULL, greek = FALSE, horizontal=TRUE, val.lim=NULL, lab.lim=NULL, lwd=c(1, 2), pch=16, eps=0.1, width=NULL, col=NULL, style=c("gray", "plain"), ...){
 
     ## Utility functions ##
     is.odd <- function(x) return(x %% 2 != 0)

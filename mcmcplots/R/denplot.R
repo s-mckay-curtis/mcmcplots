@@ -1,4 +1,4 @@
-denplot <- function(mcmcout, parms=NULL, regex=NULL, random=NULL, ci = NULL, xlim=NULL, ylim=NULL, auto.layout=TRUE, mar=c(2.0, 2.0, 1.5, 0.25)+0.1, col=NULL, lty=1, xlab="", ylab="", plot.title=NULL, main=NULL, greek = FALSE, collapse=FALSE, style=c("gray", "plain"), ...){
+denplot <- function(mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker="[\\[_]", ci=NULL, xlim=NULL, ylim=NULL, auto.layout=TRUE, mar=c(2.0, 2.0, 1.5, 0.25) + 0.1, col=NULL, lty=1, xlab="", ylab="", plot.title=NULL, main=NULL, greek = FALSE, collapse=FALSE, style=c("gray", "plain"), ...){
     gpar.args <- list(...)
     style <- match.arg(style)
     mcmcout <- convert.mcmc.list(mcmcout)
@@ -14,7 +14,7 @@ denplot <- function(mcmcout, parms=NULL, regex=NULL, random=NULL, ci = NULL, xli
         warning("Argument 'mcmcout' did not have valid variable names, so names have been created for you.")
         varnames(mcmcout) <- varnames(mcmcout, allow.null=FALSE)
     }
-    parnames <- parms2plot(varnames(mcmcout), parms, regex, random)
+    parnames <- parms2plot(varnames(mcmcout), parms, regex, random, leaf.marker)
     if (length(parnames)==0)
         stop("No parameters matched arguments 'parms' or 'regex'.")
     p <- length(parnames)

@@ -73,7 +73,7 @@ parms2plot <- function(parnames, parms, regex, random, leaf.marker="[\\[_]", do.
     parlist <- lapply(re, function(r, p) grep(r, p, value=TRUE), p=parnames)
     if (!is.null(random)){
         random <- rep(random, length=length(re))
-        random[is.na(random)] <- length(parnames)
+        random[is.na(random)] <- length(parnames) # select all parameters for groups with random=NA
         for (i in seq(along=parlist)){
             x <- parlist[[i]]
             r <- random[i]

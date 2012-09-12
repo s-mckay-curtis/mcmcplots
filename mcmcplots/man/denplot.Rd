@@ -8,7 +8,8 @@
 }
 
 \usage{
-denplot(mcmcout, parms = NULL, regex = NULL, random = NULL, ci = NULL, xlim = NULL,
+denplot(mcmcout, parms = NULL, regex = NULL, random = NULL,
+leaf.marker="[\\\\[_]", ci = NULL, xlim = NULL,
 ylim = NULL, auto.layout = TRUE, mar=c(2.0, 2.0, 1.5, 0.25) + 0.1, col =
 NULL, lty = 1, xlab = "", ylab = "", plot.title = NULL, main = NULL,
 greek = FALSE, collapse = FALSE, style=c("gray", "plain"), \dots)
@@ -19,6 +20,7 @@ greek = FALSE, collapse = FALSE, style=c("gray", "plain"), \dots)
   \item{parms}{ a vector of character strings that identifies which variables in \code{mcmcout} should be plotted. If \code{parms} and \code{regex} are both \code{NULL}, all parameters will be plotted.}
   \item{regex}{ a vector of character strings with regular expressions that identify which variables in \code{mcmcout} should be plotted.}
   \item{random}{ an integer indicating the maximum number of parameters to randomly select for plotting from each group of parameters as specified by the \code{parms} argument.}
+  \item{leaf.marker}{ a regular expression with a character class that marks the beginning of the ``leaf'' portion of a parameter name.  The default character class includes \code{[} and \code{_}}
   \item{ci}{ if non \code{NULL}, plots \code{(100*ci)}\% credible interval limits on the density plots.  The default (\code{NULL}) is not to plot the intervals.}
   \item{xlim}{ limits of the x-axis.}
   \item{ylim}{ limits of the y-axis.}

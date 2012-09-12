@@ -7,8 +7,9 @@
 }
 
 \usage{
-traplot(mcmcout, parms = NULL, regex = NULL, random = NULL, ylim = NULL,
-auto.layout = TRUE, mar = c(2.0, 2.0, 1.5, 0.25)+0.1, col =
+traplot(mcmcout, parms = NULL, regex = NULL, random = NULL,
+leaf.marker="[\\\\[_]", ylim = NULL, auto.layout = TRUE,
+mar = c(2.0, 2.0, 1.5, 0.25) + 0.1, col =
 NULL, lty = 1, plot.title = NULL, main = NULL,
 greek = FALSE, style = c("gray", "plain"), \dots)
 }
@@ -18,6 +19,7 @@ greek = FALSE, style = c("gray", "plain"), \dots)
   \item{parms}{ character vector specifying which subsets of parameters to plot.  If \code{NULL}, \code{mcmcplot} will plot all parameters. Regular expressions are used to strip all numbers and punctuation out of the parameter names to find the parameters that match the character strings in \code{parms}.}
   \item{regex}{ character vector of regular expressions denoting groups of parameters to plot.}
   \item{random}{ an integer indicating the maximum number of parameters to randomly select for plotting from each group of parameters as specified by the \code{parms} argument. }
+  \item{leaf.marker}{ a regular expression with a character class that marks the beginning of the ``leaf'' portion of a parameter name.  The default character class includes \code{[} and \code{_}}
   \item{ylim}{ limits for the y-axis.}
   \item{auto.layout}{automatically creates a plot layout using \code{mult.fig} if \code{TRUE}.}
   \item{mar}{ argument passed to \code{multi.fig} if \code{auto.layout=TRUE}}
