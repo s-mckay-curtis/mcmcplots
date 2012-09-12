@@ -163,10 +163,8 @@ caterplot <- function (mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker
     }
     if (is.null(labels))
         labels <- parnames
-    if (greek==TRUE){
-        greek.alphabet <- c("Alpha", "Beta", "Gamma", "Delta", "Epsilon", "Zeta", "Eta", "Theta", "Iota", "Kappa", "Lambda", "Mu", "Nu", "Xi", "Omicron", "Pi", "Rho", "Sigma", "Tau", "Upsilon", "Phi", "Chi", "Psi", "Omega", "alpha", "beta", "gamma", "delta", "epsilon", "zeta", "eta", "theta", "iota", "kappa", "lambda", "mu", "nu", "xi", "omicron", "pi", "rho", "sigma", "tau", "upsilon", "phi", "chi", "psi", "omega")
-        has.greek <- sapply(labels, function(l) any(sapply(greek.alphabet, function(x) length(grep(x, l))>0)))
-        labels[has.greek] <- parse(text=gsub(",", "*','*", labels[has.greek]))
+    if (greek) {
+      labels <- .to.greek(labels)
     }
     if (is.null(cex.labels))
         cex.labels <- 1/(log(np)/5 + 1)

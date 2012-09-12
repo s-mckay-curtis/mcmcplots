@@ -32,10 +32,8 @@ denplot <- function(mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker="[
         main <- parnames
         names(parnames) <- main
     }
-    if (greek==TRUE){
-        greek.alphabet <- c("Alpha", "Beta", "Gamma", "Delta", "Epsilon", "Zeta", "Eta", "Theta", "Iota", "Kappa", "Lambda", "Mu", "Nu", "Xi", "Omicron", "Pi", "Rho", "Sigma", "Tau", "Upsilon", "Phi", "Chi", "Psi", "Omega", "alpha", "beta", "gamma", "delta", "epsilon", "zeta", "eta", "theta", "iota", "kappa", "lambda", "mu", "nu", "xi", "omicron", "pi", "rho", "sigma", "tau", "upsilon", "phi", "chi", "psi", "omega")
-        has.greek <- sapply(main, function(l) any(sapply(greek.alphabet, function(x) length(grep(x, l))>0)))
-        main[has.greek] <- parse(text=gsub(",", "*','*", main[has.greek]))
+    if (greek) {
+      main <- .to.greek(main)
     }
     main <- rep(main, length.out=length(parnames))
     names(main) <- parnames
