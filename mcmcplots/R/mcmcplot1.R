@@ -16,7 +16,8 @@ mcmcplot1 <- function(x, col=mcmcplotsPalette(n), lty=1, xlim=NULL, ylim=NULL, s
     autplot1(x, style=style, partial=TRUE)
     traplot1(x, col=col, lty=lty, style=style, ylab=label, xlab="Iteration")
     if (greek) {
-        title(parse(text=paste("paste('Diagnostics for ', ", parname, ")")), cex.main=1.5, outer=TRUE)
+        ## title(parse(text=paste("paste('Diagnostics for ', ", parname, ")")), cex.main=1.5, outer=TRUE)
+        title(parse(text=paste("paste('Diagnostics for ', ", label, ")")), cex.main=1.5, outer=TRUE)
     } else {
         title(paste("Diagnostics for ", parname, sep=""), cex.main=1.5, outer=TRUE)
     }
