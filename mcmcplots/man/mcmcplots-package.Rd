@@ -35,7 +35,7 @@ The \code{corplot} function creates a "heat plot" of a correlation matrix.  This
 }
 
 \author{
-  S. McKay Curtis and Ilya Goldin
+  S. McKay Curtis with contributions from Ilya Goldin
 
   Maintainer: S. McKay Curtis <s.mckay.curtis@gmail.com>
 
@@ -98,12 +98,20 @@ denplot(fakemcmc, "gamma", "alpha\\\\[[12]]$") # all gamma and alpha[1] and alph
 
 ## Use caterplot to create
 ## caterpillar plots of fake MCMC data
-## caterplot plots of the fake MCMC output
 par(mfrow=c(2,2))
 caterplot(fakemcmc, "alpha", collapse=FALSE)
 caterplot(fakemcmc, "gamma", collapse=FALSE)
 caterplot(fakemcmc, "alpha", labels.loc="axis", col="blue")
 caterplot(fakemcmc, "gamma", labels.loc="above", col="red")
+
+## Use cater plot to create
+## caterpillar plots of fake MCMC data
+## with density strips
+caterplot(fakemcmc, "alpha", collapse=FALSE, denstrip=TRUE)
+caterplot(fakemcmc, "gamma", collapse=FALSE, denstrip=TRUE)
+caterplot(fakemcmc, "alpha", labels.loc="axis", col="blue", denstrip=TRUE)
+caterplot(fakemcmc, "gamma", labels.loc="above", col="red", denstrip=TRUE)
+
 
 ## Use denoverplot to create overlaying density plots
 ## of all parameters in fake MCMC data

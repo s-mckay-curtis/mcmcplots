@@ -22,10 +22,6 @@ NULL, style = c("gray", "plain"), greek = FALSE)
   \item{greek}{if \code{TRUE}, the names of greek letters in the \code{labels} will be displayed as greek characters on the plot.}
 }
 
-\details{
-  No details.
-}
-
 \value{
   Creates a plot.
 }

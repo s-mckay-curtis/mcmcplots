@@ -4,34 +4,26 @@
 Parse strings containing names of greek letters.
 }
 \description{
-If a character vector contains names of greek letters, apply the
-\code{link{parse}} function.
+  Convert character vector with greek letters to an expression suitable for plotting greek symbols in titles and labels.
 }
 \usage{
 .to.greek(instr)
 }
 \arguments{
   \item{instr}{
-	a character vector
-}
-}
-\details{
-  None.
+    a character vector
+  }
 }
 \value{
-  Parsed representation of the character vector
+  Parsed representation of the character vector.
 }
 \author{
   Ilya Goldin
 }
-\note{
-  None.
-}
-
 \seealso{
-\code{\link{parse}}
+  \code{\link[base]{parse}}
 }
 \examples{
-\dontrun{.to.greek(c("mybeta", "YourDelta"))}
+\dontrun{.to.greek(c("alpha", "beta", "mybeta", "YourDelta"))}
 }
 \keyword{ utilities }

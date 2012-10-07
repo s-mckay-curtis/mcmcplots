@@ -32,26 +32,14 @@ greek = FALSE, style = c("gray", "plain"), \dots)
   \item{\ldots}{ further arguments passed to the plotting function. }
 }
 
-\details{
-  None.
-}
-
 \value{
   Creates a plot.
 }
 
-\references{
-  None.
-}
-
 \author{ S. McKay Curtis }
 
-\note{
-  None.
-}
-
 \seealso{
-  \code{\link{denplot}}
+  \code{\link{denplot}}, \code{\link{parms2plot}}
 }
 
 \examples{

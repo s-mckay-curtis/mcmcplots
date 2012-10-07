@@ -1,10 +1,10 @@
 \name{parcorplot}
 \alias{parcorplot}
 
-\title{Correlation Plot for Posterior Draws of Model Parameters}
+\title{Correlation Plot for MCMC Draws of Model Parameters}
 
 \description{
-  This is a wrapper function for \code{corplot}.  The function uses the arguments \code{parms}, \code{regex}, and \code{random} to allow the user to easily select parameters from an MCMC simulation to use for computing correlations and plotting with \code{corplot}.
+  Creates an image plot of posterior correlations between model   parameters from an MCMC simulation.
 }
 
 \usage{
@@ -21,25 +21,17 @@ parcorplot(mcmcout, parms = NULL, regex = NULL, random = NULL, col = gray(11:0/1
 }
 
 \details{
-  None.
+  The \code{parcorplot} is a wrapper function to \code{corplot} that allows the use of arguments \code{parms}, \code{regex}, and \code{random} to conveniently select parameters from an MCMC simulation to plot with \code{corplot}.
 }
 
 \value{
   Creates a plot.
 }
 
-\references{
-  None.
-}
-
 \author{S. McKay Curtis}
 
-\note{
-  None.
-}
-
 \seealso{
-  \code{\link{corplot}}
+  \code{\link{corplot}}, \code{\link{parms2plot}}
 }
 
 \examples{

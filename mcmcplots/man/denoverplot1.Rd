@@ -26,28 +26,16 @@ ylim = NULL, xlab = "", ylab = "Density", main = NULL, style = c("gray",
   \item{gpar}{ a list of additional graphical parameters to be passed to the plotting function.  See help for \code{par}.}
 }
 
-\details{
-  None.
-}
-
 \value{
   Creates a plot.
-}
-
-\references{
-  None.
 }
 
 \author{
   S. McKay Curtis with contributions from Ilya Goldin
 }
 
-\note{
-  None.
-}
-
 \seealso{
-  \code{\link{denoverplot}}
+  \code{\link{denoverplot}}, \code{\link{denplot}}, \code{\link{traplot1}}
 }
 
 \examples{

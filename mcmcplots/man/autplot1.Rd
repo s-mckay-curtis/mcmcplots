@@ -4,7 +4,7 @@
   Autocorrelation Plot of MCMC Output
 }
 \description{
-  Creates an autocorrelation or partial autocorrelation plot of MCMC output.  The code for \code{autplot1} is modified from the \code{autocorr.plot} function in the \pkg{coda} package.
+  Creates an autocorrelation or partial autocorrelation plot of MCMC output.  
 }
 \usage{
 autplot1(x, chain = 1, lag.max = NULL, partial = FALSE, col = mcmcplotsPalette(1), style = c("gray", "plain"), ylim = NULL, \dots)
@@ -29,10 +29,7 @@ autplot1(x, chain = 1, lag.max = NULL, partial = FALSE, col = mcmcplotsPalette(1
   None.
 }
 \author{
-  S. McKay Curtis (but adapted from Martyn Plummer's code in the \pkg{coda} package)
-}
-\note{
-  None.
+  S. McKay Curtis (adapted from Martyn Plummer's \code{autcorr.plot} code in the \pkg{coda} package)
 }
 
 \seealso{

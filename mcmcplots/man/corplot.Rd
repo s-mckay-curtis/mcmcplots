@@ -3,7 +3,7 @@
 \title{ Plot a Correlation Matrix }
 
 \description{
-  Creates an image plot of a correlation matrix where colors of different shades represent differing levels of correlation.  One possible use of this function is to plot the correlation between posterior draws of an MCMC run.  Patterns in the plot can aid in constructing a more efficient blocking structure for an MCMC algorithm, where highly correlated parameters should be placed in the same MCMC update block.
+  Creates an image plot of a correlation matrix where colors of different shades represent differing levels of correlation.  
 }
 
 \usage{
@@ -22,21 +22,14 @@ greek = FALSE, legend.scale = 0.75, mar=c(5, 4, 1, 1) + 0.1, \dots)
 }
 
 \details{
-  None.
+  One possible use of this function is to plot the correlation between posterior draws of an MCMC run.  Patterns in the plot can aid in constructing a more efficient blocking structure for an MCMC algorithm, where highly correlated parameters should be placed in the same MCMC update block.  None.
 }
 
 \value{
   Creates a plot.
 }
 
-\references{
-  None.
-}
-
 \author{ S. McKay Curtis }
-\note{
-  None.
-}
 
 \seealso{ \code{image} }
 

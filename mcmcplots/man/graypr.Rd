@@ -2,7 +2,7 @@
 \alias{.graypr}
 \title{Create a Gray Plotting Region}
 \description{
-  This function colors the plotting region gray and plots light-gray gridlines.  This function is intended for internal use only.
+  Colors the plotting region gray and plots light-gray gridlines.  This function is intended for internal use only.
 }
 \usage{
 .graypr(x.axis = TRUE, y.axis = TRUE, x.major = TRUE, y.major = TRUE, x.minor = TRUE, y.minor=TRUE, x.malty = 1, y.malty = 1, x.milty = 1, y.milty = 1)
@@ -19,20 +19,8 @@
   \item{x.milty}{ line type to be used on the x-axis, minor gridlines.}
   \item{y.milty}{ line type to be used on the y-axis, minor gridlines.}
 }
-\value{
-  None.
-}
-\details{
-  None.
-}
-\references{
-  None.
-}
 \seealso{
   \code{rect}
-}
-\examples{
-## None.
 }
 \author{S. McKay Curtis}
 \keyword{aplot}

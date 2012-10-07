@@ -18,20 +18,8 @@
     string containing additional html attributes for the image.
   }
 }
-\details{
-  None.
-}
-\value{
-  None.
-}
-\references{
-  None.
-}
 \author{
   Ilya Goldin
-}
-\note{
-  None.
 }
 \seealso{
   \code{\link{.html.begin}}, \code{\link{.html.end}}, \code{\link{mcmcplot}}

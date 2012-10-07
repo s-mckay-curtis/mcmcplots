@@ -26,20 +26,11 @@
     css file name.
   }
 }
-\details{
-  None.
-}
 \value{
   String containing the path to the initialized html file.
 }
-\references{
-  None.
-}
 \author{
   Ilya Goldin
-}
-\note{
-  None.
 }
 \seealso{
   \code{\link{.html.end}}, \code{\link{.html.img}}, \code{\link{mcmcplot}}

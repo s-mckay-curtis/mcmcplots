@@ -15,20 +15,8 @@
     a string with a path to the html file.
   }
 }
-\details{
-  None.
-}
-\value{
-  None.
-}
-\references{
-  None.
-}
 \author{
   Ilya Goldin
-}
-\note{
-  None.
 }
 \seealso{
   \code{\link{.html.begin}}, \code{\link{.html.img}}, \code{\link{mcmcplot}}

@@ -3,7 +3,7 @@
 \title{Overlaying Densities for Parameters from two MCMC Simulations.}
 
 \description{
-  This function determines which parameters are in common from two different MCMC simulations and plots overlaying density estimates of the parameters in common.  This function can be used in debugging MCMC code by comparing distributions of parameters from the development MCMC code and a reference MCMC simulation.
+  Determines which parameters are in common from two different MCMC simulations and plots overlaying density estimates of the parameters in common.  
 }
 
 \usage{
@@ -17,8 +17,8 @@ style = c("gray", "plain"), \dots)
 \arguments{
   \item{mcmc1}{ object that can be coerced to an \code{mcmc} object. }
   \item{mcmc2}{ object that can be coerced to an \code{mcmc} object. }
-  \item{parms}{ character vector specifying which subsets of parameters to plot.  If \code{NULL} and \code{regex=NULL}, \code{denoverplot} will plot all common parameters \code{mcmc1} and \code{mcmc2}. Regular expressions are used to strip all numbers and punctuation out of the parameter names to find the parameters that match the character strings in \code{parms}.}
-  \item{regex}{ character vector of regular expressions denoting groups of parameters to plot.}
+  \item{parms}{ character vector specifying which subsets of parameters to plot.  If \code{NULL} and \code{regex=NULL}, \code{denoverplot} will plot all common parameters \code{mcmc1} and \code{mcmc2}. See documentation for \code{\link{parms2plot}} for more information. }
+  \item{regex}{ character vector of regular expressions denoting groups of parameters to plot. }
   \item{random}{ integer specifying how many parameters from each group will be randomly selected for plotting.  This argument is useful when \code{mcmcout} has a large number of parameters (e.g., from a hierarchical model).  If \code{NULL}, \code{mcmcplot} will plot all parameters.}
   \item{ci}{ if non \code{NULL}, plots \code{(100*ci)}\% credible interval limits on the density plots.  The default (\code{ci=NULL}) is not to plot the intervals.}
   \item{auto.layout}{ logical specifying whether the \code{mult.fig} function from the \pkg{sfsmisc} package should be used to construct the plotting region.}
@@ -34,25 +34,17 @@ style = c("gray", "plain"), \dots)
 }
 
 \details{
-  None.
+  This function can be used in debugging MCMC code by comparing distributions of parameters from the development MCMC code and a reference MCMC simulation.
 }
 
 \value{
   Creates a plot.
 }
 
-\references{
-  None.
-}
-
 \author{S. McKay Curtis}
 
-\note{
-  None.
-}
-
 \seealso{
-  \code{\link{denplot}}
+  \code{\link{denplot}}, \code{\link{parms2plot}}
 }
 
 \examples{

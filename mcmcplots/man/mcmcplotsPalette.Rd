@@ -2,9 +2,7 @@
 \alias{mcmcplotsPalette}
 \title{Color Palette for the mcmcplots Package }
 
-\description{
-  This function uses the \pkg{colorspace} package to create a color palette for the functions in the \pkg{mcmcplots} package.
-}
+\description{ Creates a color palette for plotting functions in the \pkg{mcmcplots} package using functions in the \pkg{colorspace} package.  }
 
 \usage{mcmcplotsPalette(n, type = c("rainbow", "sequential",
 "grayscale"), seq = NULL)}
@@ -19,16 +17,12 @@
   A color palette of \code{n} colors.
 }
 
-\details{
-  None.
-}
-
 \author{
   S. McKay Curtis
 }
 
 \references{
-  Zeileis, A., Hornik, K. and Murrell, P. (2009) "Escaping RGBland: Selecting colors for statistical graphs." Compuational Statistics \& Data Analysis, 53, 3259--3270.
+  Zeileis, A., Hornik, K. and Murrell, P. (2009) "Escaping RGBland: Selecting colors for statistical graphs." Compuational Statistics & Data Analysis, 53, 3259--3270.
 }
 
 \seealso{

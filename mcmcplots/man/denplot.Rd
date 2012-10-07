@@ -4,7 +4,7 @@
 \title{Density Plots for MCMC Parameters on a Single Plot}
 
 \description{
-  This function plots densities for all parameters from an MCMC simulation on a single plot or plots densities for those parameters as indicated by the \code{parms} and \code{regex}.
+  Creates a plot of densities for specified parameters from an MCMC simulation in a single plot or plots densities for those parameters as indicated by the \code{parms} and \code{regex}.
 }
 
 \usage{
@@ -38,28 +38,16 @@ greek = FALSE, collapse = FALSE, style=c("gray", "plain"), \dots)
   \item{\ldots}{ further arguments to be passed to the plotting function.}
 }
 
-\details{
-  None.
-}
-
 \value{
   Creates a plot.
-}
-
-\references{
-  None.
 }
 
 \author{
   S. McKay Curtis
 }
 
-\note{
-  None.
-}
-
 \seealso{
-  \code{\link{mcmcplot}}
+  \code{\link{mcmcplot}}, \code{\link{parms2plot}}
 }
 
 \examples{

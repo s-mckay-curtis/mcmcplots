@@ -22,13 +22,13 @@ style=c("gray", "plain"), \dots)
   \item{parms}{a vector of character strings that identifies which variables in \code{mcmcout} should be plotted. If \code{parms} and \code{regex} are both \code{NULL}, all parameter will be plotted.}
   \item{regex}{a vector of character strings with regular expressions that identify which variables in \code{mcmcout} should be plotted.}
   \item{random}{integer specifying how many parameters from each group will be randomly selected for plotting.  This argument is useful when \code{mcmcout} has a large number of parameters (e.g., from a hierarchical model).  If \code{NULL}, all parameters will be plotted.}
-  \item{leaf.marker}{ a regular expression with a character class that markks the beginning of the ``leaf'' portion of a parameter name.  The default character class includes \code{[} and \code{_}}
+  \item{leaf.marker}{ a regular expression with a character class that marks the beginning of the ``leaf'' portion of a parameter name.  The default character class includes \code{[} and \code{_}}
   \item{quantiles}{list with two elements \code{outer} and \code{inner}. The \code{outer} element of the list should contain the quantiles of the posterior draws that will be plotted as the longer, thinner line.  The \code{inner} element of the list should contain the quantiles of posterior draws that will be plotted as the shorter, thicker line.  If missing, the default is to use \code{list(outer=c(0.025,0.975),inner=c(0.16,0.84))}, which corresponds to 95\% and 68\% credible intervals.}
   \item{collapse}{if \code{TRUE}, all parallel chains are collapsed into one chain before plotting. If \code{FALSE}, parallel chains are plotted nearly on top of each other with colors as specified in \code{col}.}
   \item{denstrip}{if \code{TRUE}, then density strips will be plotted rather than quantile line plots.}
   \item{add}{if \code{TRUE}, output will be added to the existing plot.}
   \item{labels}{labels for the individual "caterpillars."  If \code{NULL}, parameter names in \code{mcmcout} are used.}
-  \item{labels.loc}{if 'axis,' then parameter labels (the names of the parameters) will be plotted on the axis.  If 'above,' then variable names will be plotted above the means for each 'caterplot.' If any other value, no names will be plotted.}
+  \item{labels.loc}{if `axis,' then parameter labels (the names of the parameters) will be plotted on the axis.  If `above,' then variable names will be plotted above the means for each 'caterplot.' If any other value, no names will be plotted.}
   \item{las}{controls the rotation of the labels on the label axis.  See documentation for \code{par} for more information.}
   \item{cex.labels}{character expansion factor for the plot labels.  If names of parameters will not be plotted, this argument is ignored.}
   \item{greek}{if \code{TRUE}, the names of greek letters in the \code{labels} will be displayed as greek characters on the plot.}
@@ -67,7 +67,7 @@ style=c("gray", "plain"), \dots)
 }
 
 \seealso{
-  \code{\link{caterpoints}}, \code{\link{mcmcplot}}, \code{\link{denstrip}}
+  \code{\link{caterpoints}}, \code{\link{mcmcplot}}, \code{\link{denstrip}}, \code{\link{parms2plot}}
 }
 
 \examples{

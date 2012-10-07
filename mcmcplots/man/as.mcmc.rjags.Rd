@@ -4,7 +4,7 @@
 \title{Convert an rjags Object to an mcmc or mcmc.list Object.}
 
 \description{
-  This is a function to convert and object produced by the \code{jags} function in the \pkg{R2jags} package.   If the \code{rjags} object contains more than one chain, then this function will return an \code{mcmc.list} object. Otherwise, the function returns an \code{mcmc} object.
+  Converts an \code{rjags} object to an \code{mcmc} object.
 }
 
 \usage{
@@ -16,22 +16,14 @@
 }
 
 \details{
-  No details.
+  If \code{x} contains multiple chains, the function returns an \code{mcmc.list} object.  Otherwise, the function returns an \code{mcmc} object.
 }
 
 \value{
   An \code{mcmc.list} or \code{mcmc} object.
 }
 
-\references{
-  None.
-}
-
 \author{ S. McKay Curtis }
-
-\note{
-  None.
-}
 
 \seealso{
   \pkg{coda} package.

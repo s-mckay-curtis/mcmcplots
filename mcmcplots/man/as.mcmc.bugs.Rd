@@ -4,7 +4,7 @@
 \title{Convert a bugs Object to an mcmc or mcmc.list Object}
 
 \description{
-This function converts a \code{bugs} object to an \code{mcmc} object so that the functions of the \code{coda} package may be used to analyze the posterior draws in the \code{bugs} object.
+  Converts a \code{bugs} object to an \code{mcmc} object.
 }
 
 \usage{
@@ -15,23 +15,11 @@ This function converts a \code{bugs} object to an \code{mcmc} object so that the
   \item{x}{\code{bugs} object}
 }
 
-\details{
-  None.
-}
-
 \value{
   If \code{x} contains multiple chains, the function returns an \code{mcmc.list} object.  Otherwise, the function returns an \code{mcmc} object.
 }
 
-\references{
-  None.
-}
-
 \author{ S. McKay Curtis }
-
-\note{
-  None.
-}
 
 \seealso{
   \code{bugs} in \pkg{R2WinBUGS}
