@@ -1,3 +1,6 @@
+Changes to mcmcplots version 0.4.1
+* corrected errors in documentation
+
 Changes to mcmcplots version 0.4
 * convert.mcmc.list
   - added this function to help convert objects to mcmc.list objects.
