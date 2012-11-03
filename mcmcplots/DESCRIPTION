@@ -3,7 +3,7 @@ Type: Package
 Title: Create Plots from MCMC Output
 Version: 0.4
 Date: 2010-01-12
-Author@R: c(
+Authors@R: c(
 	  person("S. McKay", "Curtis", role=c("aut", "cre"), email="s.mckay.curtis@gmail.com"),
 	  person("Ilya", "Goldin", role="ctb")
 	  )
