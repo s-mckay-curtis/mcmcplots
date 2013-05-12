@@ -1,3 +1,6 @@
+Changes to mcmcplots version 0.4.2
+* added function rmeanplot (thanks to Evangelos Evangelou)
+
 Changes to mcmcplots version 0.4.1
 * corrected errors in documentation
 
