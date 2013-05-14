@@ -1,5 +1,7 @@
 Changes to mcmcplots version 0.4.2
 * added function rmeanplot (thanks to Evangelos Evangelou)
+* added function rmeanplot1
+* changed mcmcplot to use rmeanplot1 instead of autplot1(partial=TRUE)
 
 Changes to mcmcplots version 0.4.1
 * corrected errors in documentation
