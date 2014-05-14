@@ -1,4 +1,4 @@
-caterplot <- function (mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker="[\\[_]", quantiles=list(), collapse=TRUE, denstrip = FALSE, add = FALSE, labels=NULL, labels.loc="axis", las = NULL, cex.labels=NULL, greek = FALSE, horizontal=TRUE, val.lim=NULL, lab.lim=NULL, lwd=c(1, 2), pch=16, eps=0.1, width=NULL, col=NULL, style=c("gray", "plain"), ...){
+caterplot <- function (mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker="[\\[_]", quantiles=list(), collapse=TRUE, denstrip = FALSE, add = FALSE, labels=NULL, labels.loc="axis", las = NULL, cex.labels=NULL, greek = FALSE, horizontal=TRUE, val.lim=NULL, lab.lim=NULL, lwd=c(1, 2), pch=16, eps=0.1, width=NULL, col=NULL, ybase=0, style=c("gray", "plain"), ...){
 
     ## Utility functions ##
     is.odd <- function(x) return(x %% 2 != 0)
@@ -76,7 +76,7 @@ caterplot <- function (mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker
 
         if (is.null(las)) las <- 1
 
-        vv <- rev(seq(np))
+        vv <- rev(seq(np)) + ybase
     }
     else{
         ylim <- val.lim
@@ -96,7 +96,7 @@ caterplot <- function (mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker
         axis.side <- 1
         if (is.null(las)) las <- 2
 
-        vv <- seq(np)
+        vv <- seq(np) + ybase
     }
 
     if(style=="gray"){

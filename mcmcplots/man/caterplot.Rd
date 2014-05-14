@@ -13,7 +13,7 @@ leaf.marker = "[\\\\[_]", quantiles
 = list(), collapse = TRUE, denstrip = FALSE, add = FALSE, labels = NULL,
 labels.loc = "axis", las = NULL, cex.labels = NULL, greek = FALSE,
 horizontal=TRUE, val.lim = NULL, lab.lim = NULL, lwd = c(1, 2), pch =
-16, eps = 0.1, width = NULL, col = NULL,
+16, eps = 0.1, width = NULL, col = NULL, ybase=0,
 style=c("gray", "plain"), \dots)
 }
 
@@ -41,6 +41,7 @@ style=c("gray", "plain"), \dots)
   \item{eps}{controls the spacing between parallel caterpillars when \code{collapse=FALSE}}
   \item{width}{width of the density strips.}
   \item{style}{if "gray", then the plotting region is printed with a gray background, otherwise the default plotting region is used.}
+  \item{ybase}{if larger 0 "caterpillars" are translated up (left), if smaller 0 "caterpillars" are translated down (right) by the amount \code{ybase}.}
   \item{\ldots}{further arguments passed to the plotting function.}
 }
 
@@ -106,6 +107,11 @@ caterplot(fakemcmc, col="purple", pch=19, add=TRUE)
 varnames(fakemcmc) <- NULL
 caterplot(fakemcmc)
 caterplot(fakemcmc, collapse=FALSE)
+
+## Overlay caterplots 
+caterplot(fakemcmc, "alpha", collapse=TRUE)
+caterplot(fakemcmc, "gamma", collapse=TRUE, add=TRUE, ybase=-0.3)
+
 
 \dontrun{
 ## caterplot works on bugs objects too:
