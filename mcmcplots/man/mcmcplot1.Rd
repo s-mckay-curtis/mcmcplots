@@ -38,8 +38,8 @@ NULL, style = c("gray", "plain"), greek = FALSE)
 
 \examples{
 ## Create fake MCMC output
-fakemcmc <- as.mcmc.list(mcmc(sapply(1:5, function(dum) rnorm(1000))))
-varnames(fakemcmc) <- c("gamma[1,1]", "gamma[1,2]", "gamma[1,3]", "sigma[1]", "sigma[2]")
+fakemcmc <- coda::as.mcmc.list(coda::mcmc(sapply(1:5, function(dum) rnorm(1000))))
+coda::varnames(fakemcmc) <- c("gamma[1,1]", "gamma[1,2]", "gamma[1,3]", "sigma[1]", "sigma[2]")
 
 mcmcplot1(fakemcmc[, "sigma[1]", drop=FALSE])
 mcmcplot1(fakemcmc[, "gamma[1,3]", drop=FALSE], style="plain")

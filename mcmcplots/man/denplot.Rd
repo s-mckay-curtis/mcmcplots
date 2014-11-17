@@ -55,7 +55,7 @@ greek = FALSE, collapse = FALSE, style=c("gray", "plain"), \dots)
 nc <- 10; nr <- 1000
 pnames <- c(paste("alpha[", 1:5, "]", sep=""), paste("gamma[", 1:5, "]", sep=""))
 means <- rpois(10, 20)
-fakemcmc <- as.mcmc.list(lapply(1:3, function(i) mcmc(matrix(rnorm(nc*nr, rep(means,each=nr)), nrow=nr, dimnames=list(NULL,pnames)))))
+fakemcmc <- coda::as.mcmc.list(lapply(1:3, function(i) coda::mcmc(matrix(rnorm(nc*nr, rep(means,each=nr)), nrow=nr, dimnames=list(NULL,pnames)))))
 
 ## Plot densities of the fake MCMC output
 denplot(fakemcmc)
@@ -66,7 +66,7 @@ denplot(fakemcmc, "gamma")
 denplot(fakemcmc, "gamma", "alpha\\\\[[12]]$") # all gamma and alpha[1] and alpha[2]
 
 ## What happens with NULL varnames?
-varnames(fakemcmc) <- NULL
+coda::varnames(fakemcmc) <- NULL
 denplot(fakemcmc)
 
 \dontrun{

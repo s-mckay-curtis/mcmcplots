@@ -1,4 +1,5 @@
 Changes to mcmcplots version 0.4.2
+* added argument "reorder" to caterplot which (when TRUE) reorders caterpillars according to their medians.
 * added function rmeanplot (thanks to Evangelos Evangelou)
 * added function rmeanplot1
 * changed mcmcplot to use rmeanplot1 instead of autplot1(partial=TRUE)

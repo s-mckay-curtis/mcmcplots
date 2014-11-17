@@ -10,10 +10,10 @@
 \usage{
 caterplot(mcmcout, parms = NULL, regex = NULL, random = NULL,
 leaf.marker = "[\\\\[_]", quantiles
-= list(), collapse = TRUE, denstrip = FALSE, add = FALSE, labels = NULL,
+= list(), collapse = TRUE, reorder = collapse, denstrip = FALSE, add = FALSE, labels = NULL,
 labels.loc = "axis", las = NULL, cex.labels = NULL, greek = FALSE,
 horizontal=TRUE, val.lim = NULL, lab.lim = NULL, lwd = c(1, 2), pch =
-16, eps = 0.1, width = NULL, col = NULL,
+16, eps = 0.1, width = NULL, col = NULL, cat.shift=0,
 style=c("gray", "plain"), \dots)
 }
 
@@ -25,6 +25,7 @@ style=c("gray", "plain"), \dots)
   \item{leaf.marker}{ a regular expression with a character class that marks the beginning of the ``leaf'' portion of a parameter name.  The default character class includes \code{[} and \code{_}}
   \item{quantiles}{list with two elements \code{outer} and \code{inner}. The \code{outer} element of the list should contain the quantiles of the posterior draws that will be plotted as the longer, thinner line.  The \code{inner} element of the list should contain the quantiles of posterior draws that will be plotted as the shorter, thicker line.  If missing, the default is to use \code{list(outer=c(0.025,0.975),inner=c(0.16,0.84))}, which corresponds to 95\% and 68\% credible intervals.}
   \item{collapse}{if \code{TRUE}, all parallel chains are collapsed into one chain before plotting. If \code{FALSE}, parallel chains are plotted nearly on top of each other with colors as specified in \code{col}.}
+  \item{reorder}{if \code{TRUE}, caterpillars will be ordered according to their medians. This option only works when \code{collapse=TRUE}.}
   \item{denstrip}{if \code{TRUE}, then density strips will be plotted rather than quantile line plots.}
   \item{add}{if \code{TRUE}, output will be added to the existing plot.}
   \item{labels}{labels for the individual "caterpillars."  If \code{NULL}, parameter names in \code{mcmcout} are used.}
@@ -40,6 +41,7 @@ style=c("gray", "plain"), \dots)
   \item{pch}{plot character to use in plotting the medians of the intervals.}
   \item{eps}{controls the spacing between parallel caterpillars when \code{collapse=FALSE}}
   \item{width}{width of the density strips.}
+  \item{cat.shift}{if greater than 0 "caterpillars" are translated up (left) by the amount \code{cat.shift}. If less than 0, "caterpillars" are translated down (right) by the amount \code{cat.shift}.}
   \item{style}{if "gray", then the plotting region is printed with a gray background, otherwise the default plotting region is used.}
   \item{\ldots}{further arguments passed to the plotting function.}
 }
@@ -75,7 +77,7 @@ style=c("gray", "plain"), \dots)
 nc <- 10; nr <- 1000
 pnames <- c(paste("alpha[1,", 1:5, "]", sep=""), paste("gamma[", 1:5, "]", sep=""))
 means <- rpois(10, 20)
-fakemcmc <- as.mcmc.list(lapply(1:3, function(i) mcmc(matrix(rnorm(nc*nr, rep(means, each=nr)), nrow=nr, dimnames=list(NULL,pnames)))))
+fakemcmc <- coda::as.mcmc.list(lapply(1:3, function(i) coda::mcmc(matrix(rnorm(nc*nr, rep(means, each=nr)), nrow=nr, dimnames=list(NULL,pnames)))))
 
 ## caterplot plots of the fake MCMC output
 par(mfrow=c(2,2))
@@ -102,8 +104,12 @@ caterplot(fakemcmc, horizontal=FALSE, col="red", pch=19, add=TRUE)
 caterplot(fakemcmc, denstrip=TRUE, col="blue", pch=NA)
 caterplot(fakemcmc, col="purple", pch=19, add=TRUE)
 
+## Overlay caterplots
+caterplot(fakemcmc, "alpha", collapse=TRUE)
+caterplot(fakemcmc, "gamma", collapse=TRUE, add=TRUE, cat.shift=-0.3)
+
 ## What happens with NULL varnames?
-varnames(fakemcmc) <- NULL
+coda::varnames(fakemcmc) <- NULL
 caterplot(fakemcmc)
 caterplot(fakemcmc, collapse=FALSE)
 

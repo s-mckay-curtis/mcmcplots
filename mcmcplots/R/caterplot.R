@@ -1,4 +1,4 @@
-caterplot <- function (mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker="[\\[_]", quantiles=list(), collapse=TRUE, denstrip = FALSE, add = FALSE, labels=NULL, labels.loc="axis", las = NULL, cex.labels=NULL, greek = FALSE, horizontal=TRUE, val.lim=NULL, lab.lim=NULL, lwd=c(1, 2), pch=16, eps=0.1, width=NULL, col=NULL, style=c("gray", "plain"), ...){
+caterplot <- function (mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker="[\\[_]", quantiles=list(), collapse=TRUE, reorder=collapse, denstrip = FALSE, add = FALSE, labels=NULL, labels.loc="axis", las = NULL, cex.labels=NULL, greek = FALSE, horizontal=TRUE, val.lim=NULL, lab.lim=NULL, lwd=c(1, 2), pch=16, eps=0.1, width=NULL, col=NULL, cat.shift=0, style=c("gray", "plain"), ...){
 
     ## Utility functions ##
     is.odd <- function(x) return(x %% 2 != 0)
@@ -28,13 +28,15 @@ caterplot <- function (mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker
         varnames(mcmcout) <- varnames(mcmcout, allow.null=FALSE)
     }
     parnames <- parms2plot(varnames(mcmcout), parms, regex, random, leaf.marker)
-    if (length(parnames)==0)
+    if (length(parnames)==0){
         stop("No parameters matched arguments 'parms' or 'regex'.")
+    }
     mcmcout <- mcmcout[, parnames, drop=FALSE]
     np <- length(parnames)
-
-    if (collapse)
+    if (collapse){
         mcmcout <- as.mcmc.list(as.mcmc(as.matrix(mcmcout)))
+    }
+
     nchains <- length(mcmcout)
 
     if (is.null(col)){
@@ -45,11 +47,18 @@ caterplot <- function (mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker
     ## Calculate points and lines to plot and medians for line plots
     q <- list(outer=c(0.025, 0.975), inner=c(0.16, 0.84))
     q[names(quantiles)] <- quantiles
+
+    if (reorder & collapse){
+        o <- order(unlist(lapply(mcmcout, function(mat) apply(mat, 2, median))), decreasing=TRUE)
+        mcmcout <- mcmcout[, o, drop=FALSE]
+        parnames <- varnames(mcmcout)
+    }
+    med  <- lapply(mcmcout, function(mat) apply(mat, 2, median))
     qout <- lapply(mcmcout, function(mat) apply(mat, 2, quantile, probs=q$outer))
     qin  <- lapply(mcmcout, function(mat) apply(mat, 2, quantile, probs=q$inner))
-    med  <- lapply(mcmcout, function(mat) apply(mat, 2, median))
     dens <- lapply(mcmcout, function(mat) apply(mat, 2, density))
     densx <- lapply(dens, function(dl) lapply(dl, function(x) x$x))
+
 
     if (is.null(val.lim)){
         val.lim <- if (denstrip) range(unlist(densx)) else range(unlist(qout))
@@ -76,9 +85,8 @@ caterplot <- function (mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker
 
         if (is.null(las)) las <- 1
 
-        vv <- rev(seq(np))
-    }
-    else{
+        vv <- rev(seq(np)) + cat.shift
+    } else {
         ylim <- val.lim
         xlim <- lab.lim
 
@@ -96,7 +104,7 @@ caterplot <- function (mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker
         axis.side <- 1
         if (is.null(las)) las <- 2
 
-        vv <- seq(np)
+        vv <- seq(np) + cat.shift
     }
 
     if(style=="gray"){
@@ -161,22 +169,25 @@ caterplot <- function (mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker
             }
         }
     }
-    if (is.null(labels))
+    if (is.null(labels)){
         labels <- parnames
-    if (greek) {
+    }
+    if (greek){
       labels <- .to.greek(labels)
     }
-    if (is.null(cex.labels))
+    if (is.null(cex.labels)){
         cex.labels <- 1/(log(np)/5 + 1)
-    if (labels.loc=="axis")
-        axis(axis.side, at=vv, labels=labels, tick=F, las=las, cex.axis=cex.labels)
-    if (labels.loc=="above"){
-        if (horizontal)
-            text(med[[1]], vv, pos=3, labels=labels, cex=cex.labels)
-        else
-            text(vv, med[[1]], pos=3, labels=labels, cex=cex.labels)
     }
-
+    if (labels.loc=="axis"){
+        axis(axis.side, at=vv, labels=labels, tick=F, las=las, cex.axis=cex.labels)
+    }
+    if (labels.loc=="above"){
+        if (horizontal){
+            text(med[[1]], vv, pos=3, labels=labels, cex=cex.labels)
+        } else {
+            text(vv, med[[1]], pos=3, labels=labels, cex=cex.labels)
+        }
+    }
     return(invisible(parnames))
 }
 

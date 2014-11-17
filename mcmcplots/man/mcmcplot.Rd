@@ -59,7 +59,7 @@ See documentation for \code{\link{parms2plot}} for more information on how to ``
 nc <- 10; nr <- 1000
 pnames <- c(paste("alpha[", 1:5, "]", sep=""), paste("gamma[", 1:5, "]", sep=""))
 means <- rpois(10, 20)
-fakemcmc <- as.mcmc.list(lapply(1:3, function(i) mcmc(matrix(rnorm(nc*nr, rep(means,each=nr)), nrow=nr, dimnames=list(NULL,pnames)))))
+fakemcmc <- coda::as.mcmc.list(lapply(1:3, function(i) coda::mcmc(matrix(rnorm(nc*nr, rep(means,each=nr)), nrow=nr, dimnames=list(NULL,pnames)))))
 
 ## Use mcmcplot to plot
 ## the fake MCMC output
@@ -73,7 +73,7 @@ mcmcplot(fakemcmc, random=2)
 mcmcplot(fakemcmc, random=c(2, 3))
 
 ## What happens with NULL varnames?
-varnames(fakemcmc) <- NULL
+coda::varnames(fakemcmc) <- NULL
 mcmcplot(fakemcmc)
 
 ## mcmcplot works on bugs objects too
