@@ -1,5 +1,5 @@
 exportPattern("^[^\\.]")
-import(coda)
 importFrom(sfsmisc, mult.fig)
 importFrom(colorspace, sequential_hcl, rainbow_hcl)
 importFrom(denstrip, denstrip)
+importFrom(coda, mcmc, mcmc.list, varnames, "varnames<-", as.mcmc.list,as.mcmc, is.mcmc, is.mcmc.list, nchain, nvar)

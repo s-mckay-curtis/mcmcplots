@@ -5,7 +5,11 @@
   Colors the plotting region gray and plots light-gray gridlines.  This function is intended for internal use only.
 }
 \usage{
-.graypr(x.axis = TRUE, y.axis = TRUE, x.major = TRUE, y.major = TRUE, x.minor = TRUE, y.minor=TRUE, x.malty = 1, y.malty = 1, x.milty = 1, y.milty = 1)
+.graypr(x.axis = TRUE, y.axis = TRUE,
+x.major = TRUE, y.major = TRUE,
+x.minor = TRUE, y.minor=TRUE,
+x.malty = 1, y.malty = 1,
+x.milty = 1, y.milty = 1)
 }
 \arguments{
   \item{x.axis}{ if \code{TRUE} an x axis will be plotted.}

@@ -2,16 +2,16 @@ Package: mcmcplots
 Type: Package
 Title: Create Plots from MCMC Output
 Version: 0.4.2
-Date: 2014-11-16
+Date: 2015-03-15
 Authors@R: c(
 	  person("S. McKay", "Curtis", role=c("aut", "cre"), email="s.mckay.curtis@gmail.com"),
 	  person("Ilya", "Goldin", role="ctb"),
-	  person("Evangelos", "Evangelou", role="ctb")
+	  person("Evangelos", "Evangelou", role="ctb"),
+	  person("'sumtxt' from GitHub", role="ctb")
 	  )
-Author: S. McKay Curtis with contributions from Ilya Goldin, Evangelos Evangelou, and "sumtxt" (GitHub user)
 Maintainer: S. McKay Curtis <s.mckay.curtis@gmail.com>
-Imports: coda, sfsmisc, colorspace, denstrip
-Suggests: R2WinBUGS
+Depends: coda (>= 0.17.1)
+Imports: sfsmisc, colorspace, denstrip
 Description: MCMC plots
 License: GPL (>=2)
 LazyLoad: yes

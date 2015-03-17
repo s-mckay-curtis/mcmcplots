@@ -8,11 +8,12 @@
 }
 
 \usage{
-\method{as.mcmc}{rjags}(x)
+\method{as.mcmc}{rjags}(x, \dots)
 }
 
 \arguments{
-  \item{x}{ \code{rjags} object.}
+  \item{x}{ \code{rjags} object }
+  \item{\dots}{unused}
 }
 
 \details{

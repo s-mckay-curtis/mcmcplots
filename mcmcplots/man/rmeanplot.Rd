@@ -8,7 +8,11 @@
   This function produces running mean plots from an MCMC simulation on a single plot for all parameters (by default) or those parameters indicated by the \code{parms} argument.
 }
 \usage{
-rmeanplot(mcmcout, parms = NULL, regex = NULL, random = NULL, leaf.marker = "[\\\\[_]", ylim = NULL, auto.layout = TRUE, mar = c(2, 2, 1.5, 0.25) + 0.1, col = NULL, lty = 1, plot.title = NULL, main = NULL, greek = FALSE, style = c("gray", "plain"), ...)
+rmeanplot(mcmcout, parms = NULL, regex = NULL, random = NULL,
+leaf.marker = "[\\\\[_]", ylim = NULL, auto.layout = TRUE,
+mar = c(2, 2, 1.5, 0.25) + 0.1, col = NULL, lty = 1,
+plot.title = NULL, main = NULL, greek = FALSE,
+style = c("gray", "plain"), ...)
 }
 
 \arguments{
@@ -42,7 +46,10 @@ rmeanplot(mcmcout, parms = NULL, regex = NULL, random = NULL, leaf.marker = "[\\
 nc <- 10; nr <- 1000
 pnames <- c(paste("alpha[", 1:5, "]", sep=""), paste("gamma[", 1:5, "]", sep=""))
 means <- rpois(10, 20)
-fakemcmc <- coda::as.mcmc.list(lapply(1:3, function(i) coda::mcmc(matrix(rnorm(nc*nr, rep(means,each=nr)), nrow=nr, dimnames=list(NULL,pnames)))))
+fakemcmc <- coda::as.mcmc.list(
+    lapply(1:3,
+           function(i) coda::mcmc(matrix(rnorm(nc*nr, rep(means,each=nr)),
+                                         nrow=nr, dimnames=list(NULL,pnames)))))
 
 ## Plot traces of the fake MCMC output
 rmeanplot(fakemcmc)

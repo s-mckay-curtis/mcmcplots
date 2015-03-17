@@ -9,11 +9,11 @@
 
 \usage{
 caterplot(mcmcout, parms = NULL, regex = NULL, random = NULL,
-leaf.marker = "[\\\\[_]", quantiles
-= list(), collapse = TRUE, reorder = collapse, denstrip = FALSE, add = FALSE, labels = NULL,
+leaf.marker = "[\\\\[_]", quantiles = list(), collapse = TRUE,
+reorder = collapse, denstrip = FALSE, add = FALSE, labels = NULL,
 labels.loc = "axis", las = NULL, cex.labels = NULL, greek = FALSE,
-horizontal=TRUE, val.lim = NULL, lab.lim = NULL, lwd = c(1, 2), pch =
-16, eps = 0.1, width = NULL, col = NULL, cat.shift=0,
+horizontal=TRUE, val.lim = NULL, lab.lim = NULL, lwd = c(1, 2),
+pch = 16, eps = 0.1, width = NULL, col = NULL, cat.shift=0,
 style=c("gray", "plain"), \dots)
 }
 
@@ -41,7 +41,7 @@ style=c("gray", "plain"), \dots)
   \item{pch}{plot character to use in plotting the medians of the intervals.}
   \item{eps}{controls the spacing between parallel caterpillars when \code{collapse=FALSE}}
   \item{width}{width of the density strips.}
-  \item{cat.shift}{if greater than 0 "caterpillars" are translated up (left) by the amount \code{cat.shift}. If less than 0, "caterpillars" are translated down (right) by the amount \code{cat.shift}.}
+  \item{cat.shift}{if greater than 0, "caterpillars" are translated up (left) by the amount \code{cat.shift}. If less than 0, "caterpillars" are translated down (right) by the amount \code{cat.shift}.}
   \item{style}{if "gray", then the plotting region is printed with a gray background, otherwise the default plotting region is used.}
   \item{\ldots}{further arguments passed to the plotting function.}
 }
@@ -77,7 +77,11 @@ style=c("gray", "plain"), \dots)
 nc <- 10; nr <- 1000
 pnames <- c(paste("alpha[1,", 1:5, "]", sep=""), paste("gamma[", 1:5, "]", sep=""))
 means <- rpois(10, 20)
-fakemcmc <- coda::as.mcmc.list(lapply(1:3, function(i) coda::mcmc(matrix(rnorm(nc*nr, rep(means, each=nr)), nrow=nr, dimnames=list(NULL,pnames)))))
+fakemcmc <- coda::as.mcmc.list(
+    lapply(1:3,
+           function(i)
+               coda::mcmc(matrix(rnorm(nc*nr, rep(means, each=nr)),
+                                 nrow=nr, dimnames=list(NULL,pnames)))))
 
 ## caterplot plots of the fake MCMC output
 par(mfrow=c(2,2))

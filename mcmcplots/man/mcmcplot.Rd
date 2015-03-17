@@ -9,9 +9,10 @@
 
 \usage{
 mcmcplot(mcmcout, parms = NULL, regex = NULL, random = NULL,
-leaf.marker = "[\\\\[_]", dir =
-tempdir(), filename = "MCMCoutput", extension = "html", title = NULL,
-heading = title, col = NULL, lty = 1, xlim = NULL, ylim = NULL,
+leaf.marker = "[\\\\[_]", dir = tempdir(), filename = "MCMCoutput",
+extension = "html", title = NULL,
+heading = title, col = NULL, lty = 1,
+xlim = NULL, ylim = NULL,
 style=c("gray", "plain"), greek = FALSE)
 }
 
@@ -59,7 +60,10 @@ See documentation for \code{\link{parms2plot}} for more information on how to ``
 nc <- 10; nr <- 1000
 pnames <- c(paste("alpha[", 1:5, "]", sep=""), paste("gamma[", 1:5, "]", sep=""))
 means <- rpois(10, 20)
-fakemcmc <- coda::as.mcmc.list(lapply(1:3, function(i) coda::mcmc(matrix(rnorm(nc*nr, rep(means,each=nr)), nrow=nr, dimnames=list(NULL,pnames)))))
+fakemcmc <- coda::as.mcmc.list(
+    lapply(1:3,
+           function(i) coda::mcmc(matrix(rnorm(nc*nr, rep(means,each=nr)),
+                                         nrow=nr, dimnames=list(NULL,pnames)))))
 
 ## Use mcmcplot to plot
 ## the fake MCMC output

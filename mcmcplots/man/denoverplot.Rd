@@ -3,12 +3,12 @@
 \title{Overlaying Densities for Parameters from two MCMC Simulations.}
 
 \description{
-  Determines which parameters are in common from two different MCMC simulations and plots overlaying density estimates of the parameters in common.  
+  Determines which parameters are in common from two different MCMC simulations and plots overlaying density estimates of the parameters in common.
 }
 
 \usage{
-denoverplot(mcmc1, mcmc2, parms = NULL, regex = NULL, random = NULL, ci
-= NULL, auto.layout = TRUE, legend = TRUE,
+denoverplot(mcmc1, mcmc2, parms = NULL, regex = NULL, random = NULL,
+ci = NULL, auto.layout = TRUE, legend = TRUE,
 mar = c(2.0, 2.0, 1.5, 0.25) + 0.1, col = mcmcplotsPalette(2),
 lty = 1, plot.title = NULL, main = NULL, greek =FALSE,
 style = c("gray", "plain"), \dots)
@@ -52,14 +52,24 @@ style = c("gray", "plain"), \dots)
 nc <- 10; nr <- 1000
 pnames <- c(paste("alpha[", 1:5, "]", sep=""), paste("gamma[", 1:5, "]", sep=""))
 means <- rpois(10, 20)
-fakemcmc <- coda::as.mcmc.list(lapply(1:3, function(i) coda::mcmc(matrix(rnorm(nc*nr, rep(means, each=nr)), nrow=nr, dimnames=list(NULL,pnames)))))
-fakemcmc2 <- coda::as.mcmc.list(lapply(1:3, function(i) coda::mcmc(matrix(rnorm(nc*nr, rep(means, each=nr)), nrow=nr, dimnames=list(NULL,pnames)))))
+fakemcmc <- coda::as.mcmc.list(
+    lapply(1:3,
+           function(i) coda::mcmc(matrix(rnorm(nc*nr, rep(means, each=nr)),
+                                         nrow=nr, dimnames=list(NULL,pnames)))))
+fakemcmc2 <- coda::as.mcmc.list(
+    lapply(1:3,
+           function(i) coda::mcmc(matrix(rnorm(nc*nr, rep(means, each=nr)),
+                                         nrow=nr, dimnames=list(NULL,pnames)))))
 
 ## Plot the fake MCMC output
 denoverplot(fakemcmc, fakemcmc2)
-denoverplot(fakemcmc, fakemcmc2, style="plain", col=mcmcplotsPalette(3, type="grayscale"), ci=0.95, greek=TRUE)
-denoverplot(fakemcmc, fakemcmc2, plot.title="Comparison of densities of fake data")
-denoverplot(fakemcmc, fakemcmc2, plot.title="Comparison of densities of fake data", greek=TRUE)
+denoverplot(fakemcmc, fakemcmc2, style="plain",
+            col=mcmcplotsPalette(3, type="grayscale"),
+            ci=0.95, greek=TRUE)
+denoverplot(fakemcmc, fakemcmc2,
+            plot.title="Comparison of densities of fake data")
+denoverplot(fakemcmc, fakemcmc2,
+            plot.title="Comparison of densities of fake data", greek=TRUE)
 
 }
 

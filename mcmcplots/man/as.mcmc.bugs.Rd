@@ -8,11 +8,12 @@
 }
 
 \usage{
-\method{as.mcmc}{bugs}(x)
+\method{as.mcmc}{bugs}(x, \dots)
 }
 
 \arguments{
   \item{x}{\code{bugs} object}
+  \item{\dots}{unused}
 }
 
 \value{

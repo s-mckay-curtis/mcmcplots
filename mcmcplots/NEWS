@@ -1,4 +1,6 @@
 Changes to mcmcplots version 0.4.2
+* made changes for compatibility with changes in coda (thanks to Martyn Plummer for the patches).
+* added "cat.shift" parameter to allow more directly control over caterpillar placement (thanks to GitHub user "sumtxt")
 * added argument "reorder" to caterplot which (when TRUE) reorders caterpillars according to their medians.
 * added function rmeanplot (thanks to Evangelos Evangelou)
 * added function rmeanplot1
