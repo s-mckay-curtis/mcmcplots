@@ -12,7 +12,7 @@ Authors@R: c(
 Maintainer: S. McKay Curtis <s.mckay.curtis@gmail.com>
 Depends: coda (>= 0.17.1)
 Imports: sfsmisc, colorspace, denstrip
-Description: MCMC plots
+Description: Functions for convenient plotting and viewing of MCMC output.
 License: GPL (>=2)
 LazyLoad: yes
 LazyData: yes
