@@ -1,4 +1,4 @@
-mcmcplot <- function(mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker="[\\[_]", dir=tempdir(), filename="MCMCoutput", extension="html", title=NULL, heading=title, col=NULL, lty=1, xlim=NULL, ylim=NULL, style=c("gray", "plain"), greek=FALSE){
+mcmcplot <- function(mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker="[\\[_]", dir=tempdir(), filename="MCMCoutput", extension="html", title=NULL, heading=title, col=NULL, lty=1, xlim=NULL, ylim=NULL, style=c("gray", "plain"), greek=FALSE, browse=TRUE){
     ## This must come before mcmcout is evaluated in any other expression
     if (is.null(title))
         title <- paste("MCMC Plots: ", deparse(substitute(mcmcout)), sep="")
@@ -69,6 +69,6 @@ mcmcplot <- function(mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker="
     cat('\n</div>\n</div>\n', file=htmlfile, append=TRUE)
     .html.end(htmlfile)
     full.name.path <- paste("file://", htmlfile, sep="")
-    browseURL(full.name.path)
+    if (browse) browseURL(full.name.path)
     invisible(full.name.path)
 }
