@@ -23,17 +23,6 @@
   The \code{corplot} function (see also \code{parcorplot}) creates a "heat plot" of a correlation matrix.  This function can be useful in deciding on a blocking structure for an MCMC algorithm, because highly correlated parameters can be sampled in a single block of an MCMC algorithm to improve efficiency.
 }
 
-\details{
-  \tabular{ll}{
-    Package: \tab mcmcplots\cr
-    Type: \tab Package\cr
-    Version: \tab 0.4\cr
-    Date: \tab 2012-10-07\cr
-    License: \tab GPL (>= 2)\cr
-    LazyLoad: \tab yes\cr
-  }
-}
-
 \author{
   S. McKay Curtis with contributions from Ilya Goldin
 
