@@ -1,3 +1,6 @@
+Changes to mcmcplots version 0.4.3
+* corrected package Rd file to comply with CRAN specifications
+
 Changes to mcmcplots version 0.4.2
 * made changes for compatibility with changes in coda (thanks to Martyn Plummer for the patches).
 * added "cat.shift" parameter to allow more directly control over caterpillar placement (thanks to GitHub user "sumtxt")
