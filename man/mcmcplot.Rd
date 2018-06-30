@@ -22,7 +22,7 @@ style=c("gray", "plain"), greek = FALSE)
   \item{regex}{ character vector of regular expressions denoting groups of parameters to plot.}
   \item{random}{ integer specifying how many parameters from each group will be randomly selected for plotting.  This argument is useful when \code{mcmcout} has a large number of parameters (e.g., from a hierarchical model).  If \code{NULL}, \code{mcmcplot} will plot all parameters.}
   \item{leaf.marker}{ a regular expression with a character class that marks the beginning of the ``leaf'' portion of a parameter name.  The default character class includes \code{[} and \code{_}}
-  \item{dir}{ string containing the directory where the plots and the main html file will be stored. }
+  \item{dir}{ string containing the directory where the plots and the main html file will be stored. This directory must exist or the function will throw an error.}
   \item{filename}{ string containing the name of the main html file which will contain code to display each plot produced by \code{mcmcplot}.}
   \item{extension}{ string containing the extension to be used for the html file.}
   \item{title}{ string containing the title to be included in the html file.  Default is to use the name of object passed as the \code{mcmcout} argument prepended with the string "MCMC Output: ".}

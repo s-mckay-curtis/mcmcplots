@@ -1,7 +1,7 @@
 Package: mcmcplots
 Type: Package
 Title: Create Plots from MCMC Output
-Version: 0.4.3
+Version: 0.4.4
 Date: 2018-06-18
 Authors@R: c(
 	  person("S. McKay", "Curtis", role=c("aut", "cre"), email="s.mckay.curtis@gmail.com"),

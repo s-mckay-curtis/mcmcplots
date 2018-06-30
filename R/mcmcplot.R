@@ -19,6 +19,9 @@ mcmcplot <- function(mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker="
     }
     css.file <- system.file("MCMCoutput.css", package="mcmcplots")
     css.file <- paste("file:///", css.file, sep="")
+    if (!dir.exists(dir)){
+        stop("Directory in argument 'dir' must exist.")
+    }
     htmlfile <- .html.begin(dir, filename, extension, title=title, cssfile=css.file)
 
     ## Select parameters for plotting
