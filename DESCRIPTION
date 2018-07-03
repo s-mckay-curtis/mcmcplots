@@ -4,10 +4,11 @@ Title: Create Plots from MCMC Output
 Version: 0.4.4
 Date: 2018-06-29
 Authors@R: c(
-	  person("S. McKay", "Curtis", role=c("aut", "cre"), email="s.mckay.curtis@gmail.com"),
-	  person("Ilya", "Goldin", role="ctb"),
-	  person("Evangelos", "Evangelou", role="ctb"),
-	  person("'sumtxt' from GitHub", role="ctb")
+	  person("S. McKay", "Curtis", role=c("aut", "cre"), email="s.mckay.curtis@gmail.com")
+	, person("Ilya", "Goldin", role="ctb")
+	, person("Evangelos", "Evangelou", role="ctb")
+	, person("'sumtxt' from GitHub", role="ctb")
+	, person("Alex", "Zvoleff", role="ctb")
 	  )
 Maintainer: S. McKay Curtis <s.mckay.curtis@gmail.com>
 Depends: coda (>= 0.17.1)

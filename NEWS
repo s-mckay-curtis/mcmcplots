@@ -1,5 +1,6 @@
 Changes to mcmcplots version 0.4.4
 * added argument check for 'dir' in function 'mcmcplot'; dir must exist or error is thrown. (thanks to Johan Nylander)
+* added normalizePath to mcmcplot function to correct for bug. (Thanks to Alex Zvoleff.)
 
 Changes to mcmcplots version 0.4.3
 * corrected package Rd file to comply with CRAN specifications
