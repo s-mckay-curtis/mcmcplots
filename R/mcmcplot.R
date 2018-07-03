@@ -71,7 +71,7 @@ mcmcplot <- function(mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker="
     cat("\r", rep(" ", getOption("width")), "\r", sep="")
     cat('\n</div>\n</div>\n', file=htmlfile, append=TRUE)
     .html.end(htmlfile)
-    full.name.path <- paste("file://", htmlfile, sep="")
+    full.name.path <- paste("file://", normalizePath(htmlfile), sep="")
     browseURL(full.name.path)
     invisible(full.name.path)
 }
