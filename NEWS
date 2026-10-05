@@ -2,6 +2,11 @@ Changes to mcmcplots version 0.4.4
 * added argument check for 'dir' in function 'mcmcplot'; dir must exist or error is thrown. (thanks to Johan Nylander)
 * added normalizePath to mcmcplot function to correct for bug. (Thanks to Alex Zvoleff.)
 * added 'browse' argument to mcmcplot function allow option to not browse HTML file. (Thanks to Alex Zvoleff.)
+* updated package documentation and metadata to comply with modern CRAN policies:
+  - documented 'browse' argument in mcmcplot Rd usage section.
+  - added package anchor for 'denstrip' in caterplot Rd cross-references.
+  - removed obsolete LazyLoad and LazyData directives from DESCRIPTION.
+  - added URL and BugReports fields to DESCRIPTION.
 
 Changes to mcmcplots version 0.4.3
 * corrected package Rd file to comply with CRAN specifications

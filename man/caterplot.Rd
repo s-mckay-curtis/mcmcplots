@@ -69,7 +69,7 @@ style=c("gray", "plain"), \dots)
 }
 
 \seealso{
-  \code{\link{caterpoints}}, \code{\link{mcmcplot}}, \code{\link{denstrip}}, \code{\link{parms2plot}}
+  \code{\link{caterpoints}}, \code{\link{mcmcplot}}, \code{\link[denstrip]{denstrip}}, \code{\link{parms2plot}}
 }
 
 \examples{
