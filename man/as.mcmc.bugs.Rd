@@ -33,8 +33,8 @@
 outmcmc <- as.mcmc(schools.sim)
 
 ## Gelman Rubin diagnostics
-:gelman.diag(outmcmc)
-:mcmc.plot(outmcmc)
+coda::gelman.diag(outmcmc)
+mcmcplot(outmcmc)
 }
 }
 

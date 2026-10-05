@@ -1,7 +1,7 @@
 \name{as.mcmc.rjags}
 \alias{as.mcmc.rjags}
 
-\title{Convert an rjags Object to an mcmc or mcmc.list Object.}
+\title{Convert an rjags Object to an mcmc or mcmc.list Object}
 
 \description{
   Converts an \code{rjags} object to an \code{mcmc} object.

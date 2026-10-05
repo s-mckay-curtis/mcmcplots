@@ -1,6 +1,6 @@
 \name{denoverplot}
 \alias{denoverplot}
-\title{Overlaying Densities for Parameters from two MCMC Simulations.}
+\title{Overlaying Densities for Parameters from two MCMC Simulations}
 
 \description{
   Determines which parameters are in common from two different MCMC simulations and plots overlaying density estimates of the parameters in common.

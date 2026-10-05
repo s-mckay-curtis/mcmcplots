@@ -1,7 +1,7 @@
 \name{.to.greek}
 \alias{.to.greek}
 \title{
-Parse strings containing names of greek letters.
+Parse strings containing names of greek letters
 }
 \description{
   Convert character vector with greek letters to an expression suitable for plotting greek symbols in titles and labels.
@@ -24,6 +24,6 @@ Parse strings containing names of greek letters.
   \code{\link[base]{parse}}
 }
 \examples{
-\dontrun{.to.greek(c("alpha", "beta", "mybeta", "YourDelta"))}
+\dontrun{mcmcplots:::.to.greek(c("alpha", "beta", "mybeta", "YourDelta"))}
 }
 \keyword{ utilities }

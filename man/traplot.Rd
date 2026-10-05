@@ -1,6 +1,6 @@
 \name{traplot}
 \alias{traplot}
-\title{ Traceplots of Multiple Parameters. }
+\title{ Traceplots of Multiple Parameters }
 
 \description{
   This function produces trace plots from an MCMC simulation on a single plot for all parameters (by default) or those parameters indicated by the \code{parms} argument.

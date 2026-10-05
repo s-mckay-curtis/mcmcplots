@@ -1,7 +1,7 @@
 \name{parms2plot}
 \alias{parms2plot}
 
-\title{ Matches groups of parameters to plot in MCMC diagnostics plots.}
+\title{ Matches groups of parameters to plot in MCMC diagnostics plots}
 
 \description{
   Utility function that finds the parameter names to plot in the \code{mcmcplot} function.  Intended for internal use only.

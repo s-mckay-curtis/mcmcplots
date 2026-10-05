@@ -1,7 +1,7 @@
 \name{.html.begin}
 \alias{.html.begin}
 \title{
-  Initialize an html file for use in the mcmcplot function.
+  Initialize an html file for use in the mcmcplot function
 }
 \description{
   Initializes an html file to capture output from the mcmcplot function.  Intended for internal use only.
