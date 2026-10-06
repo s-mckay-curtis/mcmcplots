@@ -18,6 +18,10 @@ convert.mcmc.list(x)
   }
 }
 
+\details{
+  Handles objects of class \code{mcmc}, \code{mcmc.list}, lists of matrices, 3D arrays with dimensions (iterations x chains x variables), and objects from the \pkg{posterior} package (\code{draws_array}, \code{draws_df}, etc.), as well as Stan and brms model outputs.
+}
+
 \value{
   An object of class \code{mcmc.list}.
 }

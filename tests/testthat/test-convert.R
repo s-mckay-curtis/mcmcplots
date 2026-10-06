@@ -23,3 +23,31 @@ test_that("convert.mcmc.list handles plain list of matrices", {
   expect_equal(length(res), 2)
   expect_equal(coda::varnames(res), c("theta[1]", "theta[2]"))
 })
+
+test_that("convert.mcmc.list handles 3D arrays (iter x chain x var)", {
+  arr <- array(rnorm(120), dim = c(20, 2, 3),
+               dimnames = list(NULL, NULL, c("mu", "sigma", "beta")))
+  res <- convert.mcmc.list(arr)
+  expect_s3_class(res, "mcmc.list")
+  expect_equal(length(res), 2) # 2 chains
+  expect_equal(nrow(res[[1]]), 20) # 20 iterations
+  expect_equal(coda::varnames(res), c("mu", "sigma", "beta"))
+})
+
+test_that("convert.mcmc.list handles posterior draws and mock CmdStanMCMC", {
+  skip_if_not_installed("posterior")
+  dr <- posterior::example_draws()
+  res <- convert.mcmc.list(dr)
+  expect_s3_class(res, "mcmc.list")
+  expect_equal(length(res), 4) # 4 chains in example_draws
+  expect_true(all(c("mu", "tau") %in% coda::varnames(res)))
+
+  # Test mock CmdStanMCMC object with $draws() method
+  mock_cmdstan <- structure(
+    list(draws = function() dr),
+    class = "CmdStanMCMC"
+  )
+  res_cs <- convert.mcmc.list(mock_cmdstan)
+  expect_s3_class(res_cs, "mcmc.list")
+  expect_equal(length(res_cs), 4)
+})
