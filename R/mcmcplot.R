@@ -21,7 +21,7 @@ mcmcplot <- function(mcmcout, parms = NULL, regex = NULL, random = NULL,
                      col = NULL, lty = 1, xlim = NULL, ylim = NULL,
                      style = c("clean", "plain", "gray"), greek = FALSE,
                      browse = TRUE, retina = TRUE, res = NULL,
-                     embed.img = FALSE) {
+                     pointsize = NULL, embed.img = FALSE) {
     ## This must come before mcmcout is evaluated in any other expression
     if (is.null(title))
         title <- paste("MCMC Plots: ", deparse(substitute(mcmcout)), sep = "")
@@ -36,6 +36,11 @@ mcmcplot <- function(mcmcout, parms = NULL, regex = NULL, random = NULL,
         res.plot <- if (isTRUE(retina)) 150 else 96
     } else {
         res.plot <- res
+    }
+    if (is.null(pointsize)) {
+        pointsize.plot <- if (isTRUE(retina)) 18 else 12
+    } else {
+        pointsize.plot <- pointsize
     }
 
     ## Turn off graphics device if interrupted in the middle of plotting
@@ -89,10 +94,11 @@ mcmcplot <- function(mcmcout, parms = NULL, regex = NULL, random = NULL,
             gpath <- file.path(dir, gname)
             if (capabilities("cairo")) {
                 png(gpath, width = htmlwidth * scale, height = htmlheight * scale,
-                    res = res.plot, type = "cairo", antialias = "subpixel")
+                    res = res.plot, pointsize = pointsize.plot,
+                    type = "cairo", antialias = "subpixel")
             } else {
                 png(gpath, width = htmlwidth * scale, height = htmlheight * scale,
-                    res = res.plot)
+                    res = res.plot, pointsize = pointsize.plot)
             }
             plot_err <- tryCatch({
                 mcmcplot1(mcmcout[, p, drop = FALSE], col = col, lty = lty, xlim = xlim, ylim = ylim, style = style, greek = greek)

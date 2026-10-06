@@ -15,7 +15,7 @@ heading = title, col = NULL, lty = 1,
 xlim = NULL, ylim = NULL,
 style=c("clean", "plain", "gray"), greek = FALSE,
 browse = TRUE, retina = TRUE, res = NULL,
-embed.img = FALSE)
+pointsize = NULL, embed.img = FALSE)
 }
 
 \arguments{
@@ -38,6 +38,7 @@ embed.img = FALSE)
   \item{browse}{if \code{TRUE}, the html file will be opened up in a browser window using \code{\link[utils]{browseURL}}}
   \item{retina}{if \code{TRUE} (default), plots are rendered at 2x resolution with anti-aliasing for crisp display on high-DPI and Retina screens.}
   \item{res}{nominal resolution in DPI for the generated PNG plots. If \code{NULL}, defaults to 96 DPI (or 150 DPI when \code{retina = TRUE}).}
+  \item{pointsize}{the default pointsize of plotted text in points. If \code{NULL}, defaults to 18 when \code{retina = TRUE} and 12 otherwise.}
   \item{embed.img}{if \code{TRUE}, plot images are embedded directly into the HTML file as base64 data URIs, creating a self-contained, portable single HTML document.}
 }
 

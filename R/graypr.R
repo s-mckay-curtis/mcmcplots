@@ -8,7 +8,7 @@
                      lwd.grid = 1,
                      lwd.axis = 1,
                      tcl = -0.35,
-                     cex.axis = 0.85) {
+                     cex.axis = 0.9) {
     u <- par("usr")
     rect(u[1], u[3], u[2], u[4], border = NA, col = bg)
     x.ticks <- axTicks(1)

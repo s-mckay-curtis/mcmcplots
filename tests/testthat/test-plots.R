@@ -83,4 +83,8 @@ test_that("mcmcplot supports retina scaling and base64 self-contained embedding"
 
   html_content <- paste(readLines(html_file), collapse = "\n")
   expect_true(grepl("data:image/png;base64,", html_content))
+
+  # Test custom pointsize
+  expect_no_error(mcmcplot(m, parms = "alpha[1]", dir = td, filename = "ps_report",
+                           browse = FALSE, pointsize = 16))
 })
