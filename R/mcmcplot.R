@@ -20,7 +20,7 @@ mcmcplot <- function(mcmcout, parms = NULL, regex = NULL, random = NULL,
                      extension = "html", title = NULL, heading = title,
                      col = NULL, lty = 1, xlim = NULL, ylim = NULL,
                      style = c("clean", "plain", "gray"), greek = FALSE,
-                     browse = TRUE, retina = FALSE, res = NULL,
+                     browse = TRUE, retina = TRUE, res = NULL,
                      embed.img = FALSE) {
     ## This must come before mcmcout is evaluated in any other expression
     if (is.null(title))
@@ -33,7 +33,7 @@ mcmcplot <- function(mcmcout, parms = NULL, regex = NULL, random = NULL,
     ## Scale and resolution for retina/high-DPI
     scale <- if (isTRUE(retina)) 2 else 1
     if (is.null(res)) {
-        res.plot <- if (isTRUE(retina)) 144 else 72
+        res.plot <- if (isTRUE(retina)) 150 else 96
     } else {
         res.plot <- res
     }
@@ -76,8 +76,8 @@ mcmcplot <- function(mcmcout, parms = NULL, regex = NULL, random = NULL,
     cat('</ul>\n</div>\n', file = htmlfile, append = TRUE)
 
     cat('<div class="main">\n', file = htmlfile, append = TRUE)
-    htmlwidth <- 640
-    htmlheight <- 480
+    htmlwidth <- 800
+    htmlheight <- 600
     for (group.name in names(parnames)) {
         cat(sprintf('<section class="group-section" id="group-%s">\n', group.name), file = htmlfile, append = TRUE)
         cat(sprintf('<h2>Plots for %s</h2>\n', group.name), file = htmlfile, append = TRUE)
@@ -87,7 +87,13 @@ mcmcplot <- function(mcmcout, parms = NULL, regex = NULL, random = NULL,
             cat("\rPreparing plots for ", group.name, ".  ", pctdone, "% complete.", sep = "")
             gname <- paste(p, ".png", sep = "")
             gpath <- file.path(dir, gname)
-            png(gpath, width = htmlwidth * scale, height = htmlheight * scale, res = res.plot)
+            if (capabilities("cairo")) {
+                png(gpath, width = htmlwidth * scale, height = htmlheight * scale,
+                    res = res.plot, type = "cairo", antialias = "subpixel")
+            } else {
+                png(gpath, width = htmlwidth * scale, height = htmlheight * scale,
+                    res = res.plot)
+            }
             plot_err <- tryCatch({
                 mcmcplot1(mcmcout[, p, drop = FALSE], col = col, lty = lty, xlim = xlim, ylim = ylim, style = style, greek = greek)
             }, error = function(e) {e})

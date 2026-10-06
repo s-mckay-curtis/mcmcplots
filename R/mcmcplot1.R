@@ -8,7 +8,7 @@ mcmcplot1 <- function(x, col=mcmcplotsPalette(n), lty=1, xlim=NULL, ylim=NULL, s
       label <- .to.greek(label)
     }
     if (style == "clean") {
-        opar <- par(mar = c(3.6, 3.8, 1.8, 1.2), oma = c(0, 0, 2.5, 0), mgp = c(2.2, 0.5, 0),
+        opar <- par(mar = c(3.8, 4.4, 1.8, 1.2), oma = c(0, 0, 2.5, 0), mgp = c(2.6, 0.6, 0),
                     col.lab = "#334155", font.lab = 1, cex.lab = 0.95)
     } else {
         opar <- par(mar=c(5, 4, 2, 1) + 0.2, oma=c(0, 0, 2, 0) + 0.1)

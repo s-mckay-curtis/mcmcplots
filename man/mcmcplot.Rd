@@ -14,7 +14,7 @@ extension = "html", title = NULL,
 heading = title, col = NULL, lty = 1,
 xlim = NULL, ylim = NULL,
 style=c("clean", "plain", "gray"), greek = FALSE,
-browse = TRUE, retina = FALSE, res = NULL,
+browse = TRUE, retina = TRUE, res = NULL,
 embed.img = FALSE)
 }
 
@@ -36,8 +36,8 @@ embed.img = FALSE)
   \item{style}{ if "clean", a modern light canvas with subtle grid lines is used (default); if "plain", standard base graphics are used; if "gray", a legacy gray background is used.}
   \item{greek}{if \code{TRUE}, the names of greek letters in the \code{labels} will be displayed as greek characters on the plot.}
   \item{browse}{if \code{TRUE}, the html file will be opened up in a browser window using \code{\link[utils]{browseURL}}}
-  \item{retina}{if \code{TRUE}, plots are rendered at 2x resolution (144 DPI) for crisp display on high-DPI and Retina screens.}
-  \item{res}{nominal resolution in DPI for the generated PNG plots. If \code{NULL}, defaults to 72 DPI (or 144 DPI when \code{retina = TRUE}).}
+  \item{retina}{if \code{TRUE} (default), plots are rendered at 2x resolution with anti-aliasing for crisp display on high-DPI and Retina screens.}
+  \item{res}{nominal resolution in DPI for the generated PNG plots. If \code{NULL}, defaults to 96 DPI (or 150 DPI when \code{retina = TRUE}).}
   \item{embed.img}{if \code{TRUE}, plot images are embedded directly into the HTML file as base64 data URIs, creating a self-contained, portable single HTML document.}
 }
 
