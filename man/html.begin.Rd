@@ -7,7 +7,9 @@
   Initializes an html file to capture output from the mcmcplot function.  Intended for internal use only.
 }
 \usage{
-.html.begin(outdir = tempdir(), filename = "index", extension = "html", title, cssfile)
+.html.begin(outdir = tempdir(), filename = "index",
+            extension = "html", title, cssfile = NULL,
+            embed.css = TRUE)
 }
 \arguments{
   \item{outdir}{
@@ -24,6 +26,9 @@
   }
   \item{cssfile}{
     css file name.
+  }
+  \item{embed.css}{
+    logical; if \code{TRUE}, CSS stylesheet is inlined directly into a \code{<style>} block in the HTML header.
   }
 }
 \value{

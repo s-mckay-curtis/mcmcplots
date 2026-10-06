@@ -28,7 +28,7 @@ test_that("denplot and traplot run without error", {
   expect_no_error(traplot(m, "alpha", style = "gray"))
 })
 
-test_that("mcmcplot generates HTML report and image files", {
+test_that("mcmcplot generates modern HTML report with search and cards", {
   m <- make_test_mcmc()
   td <- tempfile("mcmcplot_test")
   dir.create(td)
@@ -42,8 +42,26 @@ test_that("mcmcplot generates HTML report and image files", {
   png_files <- list.files(td, pattern = "\\.png$")
   expect_gt(length(png_files), 0)
 
-  # Check that HTML file contains title and images
+  # Check modern HTML structure
   html_content <- readLines(html_file)
-  expect_true(any(grepl("MCMC Plots", html_content)))
+  expect_true(any(grepl("<!DOCTYPE html>", html_content)))
+  expect_true(any(grepl("id=\"param_search\"", html_content)))
+  expect_true(any(grepl("class=\"plot-card\"", html_content)))
+  expect_true(any(grepl("function filterPlots", html_content)))
   expect_true(any(grepl("<img", html_content)))
+})
+
+test_that("mcmcplot supports retina scaling and base64 self-contained embedding", {
+  m <- make_test_mcmc()
+  td <- tempfile("mcmcplot_test_b64")
+  dir.create(td)
+  on.exit(unlink(td, recursive = TRUE))
+
+  res <- mcmcplot(m, parms = "alpha[1]", dir = td, filename = "b64_report",
+                  browse = FALSE, retina = TRUE, embed.img = TRUE)
+  html_file <- file.path(td, "b64_report.html")
+  expect_true(file.exists(html_file))
+
+  html_content <- paste(readLines(html_file), collapse = "\n")
+  expect_true(grepl("data:image/png;base64,", html_content))
 })
