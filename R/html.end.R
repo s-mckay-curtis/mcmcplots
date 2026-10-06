@@ -1,4 +1,4 @@
 .html.end <- function(file) {
-  out <- '</body></html>'
+  out <- '</body>\n</html>\n'
   cat(out, file=file, append=TRUE)
 }

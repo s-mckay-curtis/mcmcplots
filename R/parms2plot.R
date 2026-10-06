@@ -30,7 +30,7 @@
 ##     return(parnames)
 ## }
 
-parms2plot <- function(parnames, parms, regex, random, leaf.marker="[\\[_]", do.unlist=TRUE){
+parms2plot <- function(parnames, parms = NULL, regex = NULL, random = NULL, leaf.marker = "[\\[_]", do.unlist = TRUE){
     addBackslash <- function(x){
         ## helper function
         ## adds a backslash to special characters so a string
