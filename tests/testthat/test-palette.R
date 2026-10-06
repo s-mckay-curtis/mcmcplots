@@ -11,4 +11,13 @@ test_that("mcmcplotsPalette returns expected colors and lengths", {
 
   p_gray <- mcmcplotsPalette(5, type = "grayscale")
   expect_equal(length(p_gray), 5)
+
+  p_cb1 <- mcmcplotsPalette(1, type = "colorblind")
+  expect_equal(length(p_cb1), 1)
+
+  p_cb4 <- mcmcplotsPalette(4, type = "colorblind")
+  expect_equal(length(p_cb4), 4)
+
+  p_vir <- mcmcplotsPalette(6, type = "viridis")
+  expect_equal(length(p_vir), 6)
 })

@@ -3,7 +3,7 @@ importFrom(sfsmisc, mult.fig)
 importFrom(colorspace, sequential_hcl, rainbow_hcl)
 importFrom(denstrip, denstrip)
 importFrom(coda, mcmc, mcmc.list, varnames, "varnames<-", as.mcmc.list,as.mcmc, is.mcmc, is.mcmc.list, nchain, nvar)
-importFrom("grDevices", "dev.list", "dev.off", "gray", "png", "rgb")
+importFrom("grDevices", "dev.list", "dev.off", "gray", "hcl.colors", "palette.colors", "png", "rgb")
 importFrom("graphics", "abline", "axTicks", "axis", "image", "layout",
            "lines", "matlines", "matplot", "par", "plot", "points",
            "rect", "segments", "text", "title")

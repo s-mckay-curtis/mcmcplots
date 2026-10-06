@@ -1,3 +1,20 @@
+Changes to mcmcplots version 0.5.0
+* Modernized HTML report in mcmcplot:
+  - Added live client-side search and parameter filter bar in the sidebar.
+  - Redesigned with responsive CSS, modern system typography, and automatic dark mode support.
+  - Added 'retina' (and 'res') option to render high-resolution 2x plots for Retina and 4K displays.
+  - Added 'embed.img' option to embed PNG plots directly into the HTML as base64 data URIs for self-contained, portable sharing.
+  - Inlines CSS by default ('embed.css = TRUE') so output files can be moved without losing styles.
+* Enhanced MCMC ecosystem compatibility in convert.mcmc.list:
+  - Directly supports 3D MCMC arrays (iterations x chains x variables).
+  - Directly supports posterior package draws objects (draws_array, draws_df, draws_matrix).
+  - Directly supports CmdStanMCMC (cmdstanr), stanfit (rstan), and brmsfit (brms) objects.
+* Added accessible color palettes in mcmcplotsPalette:
+  - Added "colorblind" (Okabe-Ito) and "viridis" palette options using base R's palette.colors and hcl.colors.
+* Developer tooling and test infrastructure:
+  - Added testthat unit test suite covering conversions, parameter matching, palettes, and plot generation.
+  - Added GitHub Actions continuous integration workflow testing on Linux, macOS, and Windows.
+
 Changes to mcmcplots version 0.4.4
 * added argument check for 'dir' in function 'mcmcplot'; dir must exist or error is thrown. (thanks to Johan Nylander)
 * added normalizePath to mcmcplot function to correct for bug. (Thanks to Alex Zvoleff.)
