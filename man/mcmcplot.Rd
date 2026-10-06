@@ -13,7 +13,7 @@ leaf.marker = "[\\\\[_]", dir = tempdir(), filename = "MCMCoutput",
 extension = "html", title = NULL,
 heading = title, col = NULL, lty = 1,
 xlim = NULL, ylim = NULL,
-style=c("gray", "plain"), greek = FALSE,
+style=c("clean", "plain", "gray"), greek = FALSE,
 browse = TRUE, retina = FALSE, res = NULL,
 embed.img = FALSE)
 }
@@ -33,7 +33,7 @@ embed.img = FALSE)
   \item{lty}{ vector of line types.  This will determine the line types that will be used to plot each chain in the traceplots and density plots.  If missing, \code{mcmcplot} will use 1 for all line types.}
   \item{xlim}{ limits for the x axis of the density plot.}
   \item{ylim}{ limits for the y axis of the density plot.}
-  \item{style}{ if "gray", then the plotting region is printed with a gray background, otherwise the default plotting region is used.}
+  \item{style}{ if "clean", a modern light canvas with subtle grid lines is used (default); if "plain", standard base graphics are used; if "gray", a legacy gray background is used.}
   \item{greek}{if \code{TRUE}, the names of greek letters in the \code{labels} will be displayed as greek characters on the plot.}
   \item{browse}{if \code{TRUE}, the html file will be opened up in a browser window using \code{\link[utils]{browseURL}}}
   \item{retina}{if \code{TRUE}, plots are rendered at 2x resolution (144 DPI) for crisp display on high-DPI and Retina screens.}

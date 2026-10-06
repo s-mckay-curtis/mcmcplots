@@ -9,9 +9,9 @@
 \usage{
 denoverplot(mcmc1, mcmc2, parms = NULL, regex = NULL, random = NULL,
 ci = NULL, auto.layout = TRUE, legend = TRUE,
-mar = c(2.0, 2.0, 1.5, 0.25) + 0.1, col = mcmcplotsPalette(2),
+mar = c(2.0, 2.0, 1.5, 0.25) + 0.1, col = NULL,
 lty = 1, plot.title = NULL, main = NULL, greek =FALSE,
-style = c("gray", "plain"), \dots)
+style = c("clean", "plain", "gray"), \dots)
 }
 
 \arguments{
@@ -29,7 +29,7 @@ style = c("gray", "plain"), \dots)
   \item{plot.title}{ title to put in the outer margin.  Default is no title.}
   \item{main}{ character vector of titles to put over each individual plot.  If \code{NULL}, then the names of the parameters are used.}
   \item{greek}{if \code{TRUE}, the names of greek letters in the \code{labels} will be displayed as greek characters on the plot.}
-  \item{style}{ if "gray", then the plotting region is printed with a gray background, otherwise the default plotting region is used.}
+  \item{style}{ if "clean", a modern light canvas with subtle grid lines is used (default); if "plain", standard base graphics are used; if "gray", a legacy gray background is used.}
   \item{\ldots}{ additional arguments passed to the \code{denoverplot} function.}
 }
 

@@ -14,7 +14,7 @@ reorder = collapse, denstrip = FALSE, add = FALSE, labels = NULL,
 labels.loc = "axis", las = NULL, cex.labels = NULL, greek = FALSE,
 horizontal=TRUE, val.lim = NULL, lab.lim = NULL, lwd = c(1, 2),
 pch = 16, eps = 0.1, width = NULL, col = NULL, cat.shift=0,
-style=c("gray", "plain"), \dots)
+style=c("clean", "plain", "gray"), \dots)
 }
 
 \arguments{
@@ -42,7 +42,7 @@ style=c("gray", "plain"), \dots)
   \item{eps}{controls the spacing between parallel caterpillars when \code{collapse=FALSE}}
   \item{width}{width of the density strips.}
   \item{cat.shift}{if greater than 0, "caterpillars" are translated up (left) by the amount \code{cat.shift}. If less than 0, "caterpillars" are translated down (right) by the amount \code{cat.shift}.}
-  \item{style}{if "gray", then the plotting region is printed with a gray background, otherwise the default plotting region is used.}
+  \item{style}{if "clean", a modern light canvas with subtle grid lines is used (default); if "plain", standard base graphics are used; if "gray", a legacy gray background is used.}
   \item{\ldots}{further arguments passed to the plotting function.}
 }
 

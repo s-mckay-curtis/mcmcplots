@@ -5,13 +5,13 @@
 \description{ Creates a color palette for plotting functions in the \pkg{mcmcplots} package using functions in the \pkg{colorspace} package.  }
 
 \usage{
-mcmcplotsPalette(n, type = c("rainbow", "sequential",
-"grayscale", "colorblind", "viridis"), seq = NULL)
+mcmcplotsPalette(n, type = c("colorblind", "viridis",
+"rainbow", "sequential", "grayscale"), seq = NULL)
 }
 
 \arguments{
   \item{n}{number of colors}
-  \item{type}{denotes the type of color palette to create: \code{"rainbow"}, \code{"sequential"}, \code{"grayscale"}, \code{"colorblind"} (Okabe-Ito), or \code{"viridis"}.}
+  \item{type}{denotes the type of color palette to create: \code{"colorblind"} (Okabe-Ito, default), \code{"viridis"}, \code{"rainbow"}, \code{"sequential"}, or \code{"grayscale"}.}
   \item{seq}{deprecated}
 }
 

@@ -1,4 +1,4 @@
-traplot <- function(mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker="[\\[_]", ylim=NULL, auto.layout=TRUE, mar=c(2.0, 2.0, 1.5, 0.25) + 0.1, col=NULL, lty=1, plot.title = NULL, main=NULL, greek = FALSE, style=c("gray", "plain"), ...){
+traplot <- function(mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker="[\\[_]", ylim=NULL, auto.layout=TRUE, mar=c(2.0, 2.0, 1.5, 0.25) + 0.1, col=NULL, lty=1, plot.title = NULL, main=NULL, greek = FALSE, style=c("clean", "plain", "gray"), ...){
     style <- match.arg(style)
     mcmcout <- convert.mcmc.list(mcmcout)
     nchains <- length(mcmcout)

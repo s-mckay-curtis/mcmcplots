@@ -10,14 +10,14 @@
 }
 
 \usage{
-traplot1(x, col = NULL, lty = 1, style = c("gray", "plain"), \dots)
+traplot1(x, col = NULL, lty = 1, style = c("clean", "plain", "gray"), \dots)
 }
 
 \arguments{
   \item{x}{an \code{mcmc.list} object with a single variable.}
   \item{col}{ one or more colors for the trace lines.  Default is \code{mcmcplotsPalette(nchains)}.}
   \item{lty}{ one or more line types for the trace lines.}
-  \item{style}{ if "gray", then the plotting region is printed with a gray background, otherwise the default plotting region is used.}
+  \item{style}{ if "clean", a modern light canvas with subtle grid lines is used (default); if "plain", standard base graphics are used; if "gray", a legacy gray background is used.}
   \item{\dots}{ further arguments passed to the plotting function.}
 }
 

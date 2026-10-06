@@ -10,22 +10,41 @@ make_test_mcmc <- function() {
   )
 }
 
-test_that("caterplot runs without error", {
+test_that("caterplot runs without error across styles", {
   m <- make_test_mcmc()
   pdf(NULL)
   on.exit(dev.off())
-  expect_no_error(caterplot(m, "alpha"))
-  expect_no_error(caterplot(m, collapse = FALSE))
+  expect_no_error(caterplot(m, "alpha", style = "clean"))
+  expect_no_error(caterplot(m, "alpha", style = "plain"))
+  expect_no_error(caterplot(m, "alpha", style = "gray"))
+  expect_no_error(caterplot(m, collapse = FALSE, style = "clean"))
 })
 
-test_that("denplot and traplot run without error", {
+test_that("denplot, traplot, and rmeanplot run without error across styles", {
   m <- make_test_mcmc()
   pdf(NULL)
   on.exit(dev.off())
+  expect_no_error(denplot(m, "alpha", style = "clean"))
   expect_no_error(denplot(m, "alpha", style = "plain"))
   expect_no_error(denplot(m, "alpha", style = "gray"))
+  expect_no_error(traplot(m, "alpha", style = "clean"))
   expect_no_error(traplot(m, "alpha", style = "plain"))
   expect_no_error(traplot(m, "alpha", style = "gray"))
+  expect_no_error(rmeanplot(m, "alpha", style = "clean"))
+  expect_no_error(rmeanplot(m, "alpha", style = "plain"))
+  expect_no_error(rmeanplot(m, "alpha", style = "gray"))
+})
+
+test_that("mcmcplot1 renders with clean style and custom colors", {
+  m <- make_test_mcmc()
+  pdf(NULL)
+  on.exit(dev.off())
+  expect_no_error(mcmcplot1(m[, "alpha[1]", drop = FALSE], style = "clean"))
+  expect_no_error(mcmcplot1(m[, "alpha[1]", drop = FALSE], style = "plain"))
+  expect_no_error(mcmcplot1(m[, "alpha[1]", drop = FALSE], style = "gray"))
+  # Verify custom col works and flows through to rmeanplot1 without error
+  custom_cols <- c("firebrick", "darkblue", "goldenrod")
+  expect_no_error(mcmcplot1(m[, "alpha[1]", drop = FALSE], col = custom_cols))
 })
 
 test_that("mcmcplot generates modern HTML report with search and cards", {

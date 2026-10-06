@@ -1,5 +1,8 @@
-autplot1 <- function(x, chain=1, lag.max=NULL, partial=FALSE, col=mcmcplotsPalette(1), style=c("gray", "plain"), ylim=NULL, ...){
+autplot1 <- function(x, chain=1, lag.max=NULL, partial=FALSE, col=NULL, style=c("clean", "plain", "gray"), ylim=NULL, ...){
     style <- match.arg(style)
+    if (is.null(col)) {
+        col <- mcmcplotsPalette(1)
+    }
     if (partial){
         ylab <- "Partial Autocorrelation"
         xacf <-  pacf(as.ts(x[[chain]]), lag.max = lag.max, plot = FALSE)
@@ -12,6 +15,13 @@ autplot1 <- function(x, chain=1, lag.max=NULL, partial=FALSE, col=mcmcplotsPalet
         if (is.null(ylim)){
             ylim <- range(c(clim, xacf$acf[, j, j]))
         }
+        if (style=="clean"){
+            plot(xacf$lag[, j, j], xacf$acf[, j, j], type = "n", ylab = ylab, xlab = "Lag", ylim = ylim, bty="n", xaxt="n", yaxt="n", ...)
+            .cleanpr()
+            rect(par("usr")[1], clim[1], par("usr")[2], clim[2], col=rgb(0.15, 0.35, 0.6, 0.08), border=NA)
+            abline(h=0, col="#94A3B8", lty=2, lwd=1)
+            lines(xacf$lag[, j, j], xacf$acf[, j, j], type="h", lwd=2.5, col=col)
+        }
         if (style=="gray"){
             plot(xacf$lag[, j, j], xacf$acf[, j, j], type = "n", ylab = ylab, xlab = "Lag", ylim = ylim, bty="n", xaxt="n", yaxt="n", ...)
             .graypr()
@@ -19,7 +29,7 @@ autplot1 <- function(x, chain=1, lag.max=NULL, partial=FALSE, col=mcmcplotsPalet
             lines(xacf$lag[, j, j], xacf$acf[, j, j], type="h", lwd=2, col=col)
         }
         if (style=="plain"){
-            plot(xacf$lag[, j, j], xacf$acf[, j, j], type = "h", ylab = ylab, xlab = "Lag", ylim = ylim, lwd=2, ...)
+            plot(xacf$lag[, j, j], xacf$acf[, j, j], type = "h", ylab = ylab, xlab = "Lag", ylim = ylim, lwd=2, col=col, ...)
             abline(h=c(0, clim), col="gray")
         }
     }

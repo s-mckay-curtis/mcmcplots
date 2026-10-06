@@ -1,4 +1,4 @@
-rmeanplot <- function (mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker="[\\[_]", ylim=NULL, auto.layout=TRUE, mar=c(2.0, 2.0, 1.5, 0.25) + 0.1, col=NULL, lty=1, plot.title = NULL, main=NULL, greek = FALSE, style=c("gray", "plain"), ...) {
+rmeanplot <- function (mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker="[\\[_]", ylim=NULL, auto.layout=TRUE, mar=c(2.0, 2.0, 1.5, 0.25) + 0.1, col=NULL, lty=1, plot.title = NULL, main=NULL, greek = FALSE, style=c("clean", "plain", "gray"), ...) {
     mcmcout <- convert.mcmc.list(mcmcout)
     if (is.null(varnames(mcmcout))) {
         warning("Argument 'mcmcout' did not have valid variable names, so names have been created for you.")

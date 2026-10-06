@@ -9,7 +9,7 @@ Creates a graph window containing three different plots---a trace plot, a densit
 
 \usage{
 mcmcplot1(x, col = mcmcplotsPalette(n), lty = 1, xlim = NULL, ylim =
-NULL, style = c("gray", "plain"), greek = FALSE)
+NULL, style = c("clean", "plain", "gray"), greek = FALSE)
 }
 
 \arguments{
@@ -18,7 +18,7 @@ NULL, style = c("gray", "plain"), greek = FALSE)
   \item{lty}{ line types for plotting each parallel chain.  The default is 1 for all parallel chains.}
   \item{xlim}{ limits for the x axis of the density plot.}
   \item{ylim}{ limits for the y axis of the density plot.}
-  \item{style}{ if "gray", then the plotting region is printed with a gray background, otherwise the default plotting region is used.}
+  \item{style}{ if "clean", a modern light canvas with subtle grid lines is used (default); if "plain", standard base graphics are used; if "gray", a legacy gray background is used.}
   \item{greek}{if \code{TRUE}, the names of greek letters in the \code{labels} will be displayed as greek characters on the plot.}
 }
 

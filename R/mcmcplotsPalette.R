@@ -1,5 +1,14 @@
-mcmcplotsPalette <- function(n, type = c("rainbow", "sequential", "grayscale", "colorblind", "viridis"), seq = NULL) {
+mcmcplotsPalette <- function(n, type = c("colorblind", "viridis", "rainbow", "sequential", "grayscale"), seq = NULL) {
     type <- match.arg(type)
+    if (type == "colorblind") {
+        # Chromatic Okabe-Ito sequence (accessible and high-contrast)
+        pal <- c("#0072B2", "#E69F00", "#009E73", "#D55E00", "#CC79A7", "#56B4E9", "#E6AB02", "#334155")
+        if (n == 1) return(pal[1])
+        return(rep_len(pal, n))
+    }
+    if (type == "viridis") {
+        return(hcl.colors(n, palette = "Viridis"))
+    }
     if (type == "rainbow") {
         if (n == 1)
             return(rainbow_hcl(1, start = 240, l = 50, c = 100))
@@ -10,13 +19,5 @@ mcmcplotsPalette <- function(n, type = c("rainbow", "sequential", "grayscale", "
     }
     if (type == "grayscale") {
         return(gray((1:n / (n + 1))))
-    }
-    if (type == "colorblind") {
-        pal <- palette.colors(9, palette = "Okabe-Ito")
-        if (n == 1) return(unname(pal[2]))
-        return(unname(rep_len(pal, n)))
-    }
-    if (type == "viridis") {
-        return(hcl.colors(n, palette = "Viridis"))
     }
 }

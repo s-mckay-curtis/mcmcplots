@@ -1,4 +1,4 @@
-denoverplot <- function(mcmc1, mcmc2, parms=NULL, regex=NULL, random=NULL, ci = NULL, auto.layout=TRUE, legend=TRUE, mar=c(2.0, 2.0, 1.5, 0.25)+0.1, col=mcmcplotsPalette(2), lty=1, plot.title=NULL, main=NULL, greek = FALSE, style=c("gray", "plain"), ...){
+denoverplot <- function(mcmc1, mcmc2, parms=NULL, regex=NULL, random=NULL, ci = NULL, auto.layout=TRUE, legend=TRUE, mar=c(2.0, 2.0, 1.5, 0.25)+0.1, col=NULL, lty=1, plot.title=NULL, main=NULL, greek = FALSE, style=c("clean", "plain", "gray"), ...){
     nm1 <- deparse(substitute(mcmc1))
     nm2 <- deparse(substitute(mcmc2))
 
@@ -10,6 +10,9 @@ denoverplot <- function(mcmc1, mcmc2, parms=NULL, regex=NULL, random=NULL, ci = 
     if (!(is.mcmc(mcmc1)|is.mcmc.list(mcmc1))) mcmc1 <- as.mcmc(mcmc1)
     if (!(is.mcmc(mcmc2)|is.mcmc.list(mcmc2))) mcmc2 <- as.mcmc(mcmc2)
 
+    if (is.null(col)) {
+        col <- mcmcplotsPalette(2)
+    }
     lty <- rep(lty, length=2)
     col <- rep(col, length=2)
 
@@ -43,12 +46,15 @@ denoverplot <- function(mcmc1, mcmc2, parms=NULL, regex=NULL, random=NULL, ci = 
         plot(c(0, 1), c(0, 1), type="n", yaxt="n", xaxt="n", xlab="", ylab="", bty="n")
         if (style=="plain"){
             rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4])
+        } else if (style=="clean"){
+            rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4], border="#CBD5E1", col="#FFFFFF")
         } else {
             rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4], border=NA, col=gray(0.85))
         }
-        lines(c(0, 0.25), c(0.70, 0.70), col=col[1], lty=lty[1], lwd=3)
-        lines(c(0, 0.25), c(0.30, 0.30), col=col[2], lty=lty[2], lwd=3)
-        text(0.25, 0.70, labels=nm1, pos=4, cex=1.25)
-        text(0.25, 0.30, labels=nm2, pos=4, cex=1.25)
+        lines(c(0.05, 0.30), c(0.70, 0.70), col=col[1], lty=lty[1], lwd=2.5)
+        lines(c(0.05, 0.30), c(0.30, 0.30), col=col[2], lty=lty[2], lwd=2.5)
+        text_col <- if (style == "clean") "#334155" else "black"
+        text(0.32, 0.70, labels=nm1, pos=4, cex=1.1, col=text_col)
+        text(0.32, 0.30, labels=nm2, pos=4, cex=1.1, col=text_col)
     }
 }

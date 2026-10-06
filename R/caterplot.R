@@ -1,4 +1,4 @@
-caterplot <- function (mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker="[\\[_]", quantiles=list(), collapse=TRUE, reorder=collapse, denstrip = FALSE, add = FALSE, labels=NULL, labels.loc="axis", las = NULL, cex.labels=NULL, greek = FALSE, horizontal=TRUE, val.lim=NULL, lab.lim=NULL, lwd=c(1, 2), pch=16, eps=0.1, width=NULL, col=NULL, cat.shift=0, style=c("gray", "plain"), ...){
+caterplot <- function (mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker="[\\[_]", quantiles=list(), collapse=TRUE, reorder=collapse, denstrip = FALSE, add = FALSE, labels=NULL, labels.loc="axis", las = NULL, cex.labels=NULL, greek = FALSE, horizontal=TRUE, val.lim=NULL, lab.lim=NULL, lwd=c(1, 2), pch=16, eps=0.1, width=NULL, col=NULL, cat.shift=0, style=c("clean", "plain", "gray"), ...){
 
     ## Utility functions ##
     is.odd <- function(x) return(x %% 2 != 0)
@@ -107,7 +107,25 @@ caterplot <- function (mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker
         vv <- seq(np) + cat.shift
     }
 
-    if(style=="gray"){
+    if (style=="clean"){
+        if (!add){
+            plot(0, 0, ylim = ylim, xlim=xlim, type="n", ann=FALSE, xaxt="n", yaxt="n", bty="n", ...)
+            .cleanpr(x.axis=x.axis, x.major=x.major, x.minor=x.minor, y.axis=y.axis, y.major=y.major, y.minor=y.minor)
+            if (horizontal){
+                abline(h=1:np, col="#F1F5F9", lty=1)
+                if (0 >= val.lim[1] && 0 <= val.lim[2]) {
+                    abline(v=0, col="#94A3B8", lty=2, lwd=1)
+                }
+            } else {
+                abline(v=1:np, col="#F1F5F9", lty=1)
+                if (0 >= val.lim[1] && 0 <= val.lim[2]) {
+                    abline(h=0, col="#94A3B8", lty=2, lwd=1)
+                }
+            }
+        }
+        colmin <- "#FFFFFF"
+    }
+    if (style=="gray"){
         if (!add){
             plot(0, 0, ylim = ylim, xlim=xlim, type="n", ann=FALSE, xaxt="n", yaxt="n", bty="n", ...)
             .graypr(x.axis=x.axis, x.major=x.major, x.minor=x.minor, y.axis=y.axis, y.major=y.major, y.minor=y.minor)
@@ -179,7 +197,8 @@ caterplot <- function (mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker
         cex.labels <- 1/(log(np)/5 + 1)
     }
     if (labels.loc=="axis"){
-        axis(axis.side, at=vv, labels=labels, tick=F, las=las, cex.axis=cex.labels)
+        text_col <- if (style == "clean") "#334155" else "black"
+        axis(axis.side, at=vv, labels=labels, tick=FALSE, las=las, cex.axis=cex.labels, col.axis=text_col)
     }
     if (labels.loc=="above"){
         if (horizontal){

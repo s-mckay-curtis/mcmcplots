@@ -1,4 +1,4 @@
-denplot <- function(mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker="[\\[_]", ci=NULL, xlim=NULL, ylim=NULL, auto.layout=TRUE, mar=c(2.0, 2.0, 1.5, 0.25) + 0.1, col=NULL, lty=1, xlab="", ylab="", plot.title=NULL, main=NULL, greek = FALSE, collapse=FALSE, style=c("gray", "plain"), ...){
+denplot <- function(mcmcout, parms=NULL, regex=NULL, random=NULL, leaf.marker="[\\[_]", ci=NULL, xlim=NULL, ylim=NULL, auto.layout=TRUE, mar=c(2.0, 2.0, 1.5, 0.25) + 0.1, col=NULL, lty=1, xlab="", ylab="", plot.title=NULL, main=NULL, greek = FALSE, collapse=FALSE, style=c("clean", "plain", "gray"), ...){
     gpar.args <- list(...)
     style <- match.arg(style)
     mcmcout <- convert.mcmc.list(mcmcout)

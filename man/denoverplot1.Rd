@@ -8,8 +8,8 @@
 
 \usage{
 denoverplot1(\dots, ci = NULL, col = NULL, lty = 1, xlim = NULL,
-ylim = NULL, xlab = "", ylab = "Density", main = NULL, style = c("gray",
-"plain"), gpar = NULL)
+ylim = NULL, xlab = "", ylab = "Density", main = NULL, style = c("clean",
+"plain", "gray"), gpar = NULL)
 }
 
 \arguments{
@@ -22,7 +22,7 @@ ylim = NULL, xlab = "", ylab = "Density", main = NULL, style = c("gray",
   \item{xlab}{ label for the x axis.}
   \item{ylab}{ label for the y axis.}
   \item{main}{ main title for plot.}
-  \item{style}{ if "gray", then the plotting region is printed with a gray background, otherwise the default plotting region is used.}
+  \item{style}{ if "clean", a modern light canvas with subtle grid lines is used (default); if "plain", standard base graphics are used; if "gray", a legacy gray background is used.}
   \item{gpar}{ a list of additional graphical parameters to be passed to the plotting function.  See help for \code{par}.}
 }
 

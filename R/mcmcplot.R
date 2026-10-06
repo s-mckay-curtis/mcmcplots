@@ -19,7 +19,7 @@ mcmcplot <- function(mcmcout, parms = NULL, regex = NULL, random = NULL,
                      leaf.marker = "[\\[_]", dir = tempdir(), filename = "MCMCoutput",
                      extension = "html", title = NULL, heading = title,
                      col = NULL, lty = 1, xlim = NULL, ylim = NULL,
-                     style = c("gray", "plain"), greek = FALSE,
+                     style = c("clean", "plain", "gray"), greek = FALSE,
                      browse = TRUE, retina = FALSE, res = NULL,
                      embed.img = FALSE) {
     ## This must come before mcmcout is evaluated in any other expression

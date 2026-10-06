@@ -12,7 +12,7 @@ denplot(mcmcout, parms = NULL, regex = NULL, random = NULL,
 leaf.marker="[\\\\[_]", ci = NULL, xlim = NULL,
 ylim = NULL, auto.layout = TRUE, mar=c(2.0, 2.0, 1.5, 0.25) + 0.1, col =
 NULL, lty = 1, xlab = "", ylab = "", plot.title = NULL, main = NULL,
-greek = FALSE, collapse = FALSE, style=c("gray", "plain"), \dots)
+greek = FALSE, collapse = FALSE, style=c("clean", "plain", "gray"), \dots)
 }
 
 \arguments{
@@ -34,7 +34,7 @@ greek = FALSE, collapse = FALSE, style=c("gray", "plain"), \dots)
   \item{main}{ character vector of titles for each individual plot.  If \code{NULL}, then the names of the parameters are used.}
   \item{greek}{ if \code{TRUE}, the names of greek letters in the \code{labels} will be displayed as greek characters on the plot.}
   \item{collapse}{ if \code{TRUE}, all parallel chains are collapsed into one chain before plotting. If \code{FALSE}, parallel chains are plotted with colors as specified in \code{col}.}
-  \item{style}{ if "gray", then the plotting region is printed with a gray background, otherwise the default plotting region is used.}
+  \item{style}{ if "clean", a modern light canvas with subtle grid lines is used (default); if "plain", standard base graphics are used; if "gray", a legacy gray background is used.}
   \item{\ldots}{ further arguments to be passed to the plotting function.}
 }
 

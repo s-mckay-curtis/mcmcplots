@@ -11,7 +11,7 @@ traplot(mcmcout, parms = NULL, regex = NULL, random = NULL,
 leaf.marker="[\\\\[_]", ylim = NULL, auto.layout = TRUE,
 mar = c(2.0, 2.0, 1.5, 0.25) + 0.1, col =
 NULL, lty = 1, plot.title = NULL, main = NULL,
-greek = FALSE, style = c("gray", "plain"), \dots)
+greek = FALSE, style = c("clean", "plain", "gray"), \dots)
 }
 
 \arguments{
@@ -28,7 +28,7 @@ greek = FALSE, style = c("gray", "plain"), \dots)
   \item{plot.title}{ title to put in the outer margin.  Default is no title.}
   \item{main}{ main title for the plots. Default is to use parameter names.}
   \item{greek}{ if \code{TRUE}, the names of greek letters in the \code{labels} will be displayed as greek characters on the plot.}
-  \item{style}{ if "gray", then the plotting region is printed with a gray background, otherwise the default plotting region is used.}
+  \item{style}{ if "clean", a modern light canvas with subtle grid lines is used (default); if "plain", standard base graphics are used; if "gray", a legacy gray background is used.}
   \item{\ldots}{ further arguments passed to the plotting function. }
 }
 

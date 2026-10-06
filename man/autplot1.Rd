@@ -8,7 +8,7 @@
 }
 \usage{
 autplot1(x, chain = 1, lag.max = NULL, partial = FALSE,
-col = mcmcplotsPalette(1), style = c("gray", "plain"),
+col = NULL, style = c("clean", "plain", "gray"),
 ylim = NULL, \dots)
 }
 \arguments{
@@ -17,7 +17,7 @@ ylim = NULL, \dots)
   \item{lag.max}{passed as an argument to the autocorrelation function \code{acf}.}
   \item{partial}{logical indicating whether paritial autocorrelation should be plotted.}
   \item{col}{color of the bars in the plot.}
-  \item{style}{if "gray", then the plotting region is printed with a gray background, otherwise the default plotting region is used.}
+  \item{style}{if "clean", a modern light canvas with subtle grid lines is used (default); if "plain", standard base graphics are used; if "gray", a legacy gray background is used.}
   \item{ylim}{limits for the y-axis.}
   \item{\dots}{ further arguments passed to the plotting function.}
 }

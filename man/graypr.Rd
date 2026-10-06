@@ -1,8 +1,9 @@
 \name{.graypr}
 \alias{.graypr}
-\title{Create a Gray Plotting Region}
+\alias{.cleanpr}
+\title{Create a Styled Plotting Region}
 \description{
-  Colors the plotting region gray and plots light-gray gridlines.  This function is intended for internal use only.
+  Functions to draw styled plotting regions: \code{.cleanpr} creates a modern clean canvas with subtle gridlines, while \code{.graypr} colors the plotting region gray. These functions are intended for internal use only.
 }
 \usage{
 .graypr(x.axis = TRUE, y.axis = TRUE,

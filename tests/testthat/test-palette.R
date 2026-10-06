@@ -18,6 +18,9 @@ test_that("mcmcplotsPalette returns expected colors and lengths", {
   p_cb4 <- mcmcplotsPalette(4, type = "colorblind")
   expect_equal(length(p_cb4), 4)
 
+  # Verify default type is colorblind
+  expect_equal(mcmcplotsPalette(4), mcmcplotsPalette(4, type = "colorblind"))
+
   p_vir <- mcmcplotsPalette(6, type = "viridis")
   expect_equal(length(p_vir), 6)
 })
