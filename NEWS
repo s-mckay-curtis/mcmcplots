@@ -2,7 +2,8 @@ Changes to mcmcplots version 0.5.0
 * Modernized HTML report in mcmcplot:
   - Added live client-side search and parameter filter bar in the sidebar.
   - Redesigned with responsive CSS, modern system typography, and automatic dark mode support.
-  - Added 'retina' (and 'res') option to render high-resolution 2x plots for Retina and 4K displays.
+  - Added 'retina' (and 'res', 'pointsize') options to render crisp, high-resolution 2x plots for Retina and 4K displays.
+  - Significantly improved typography: increased base font size, bold axis titles, crisp tick marks, and expanded layout margins to eliminate label clipping.
   - Added 'embed.img' option to embed PNG plots directly into the HTML as base64 data URIs for self-contained, portable sharing.
   - Inlines CSS by default ('embed.css = TRUE') so output files can be moved without losing styles.
 * Enhanced MCMC ecosystem compatibility in convert.mcmc.list:
