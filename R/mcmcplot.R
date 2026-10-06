@@ -1,4 +1,5 @@
 .img.to.base64 <- function(png_path) {
+    if (!file.exists(png_path) || file.info(png_path)$size == 0) return("")
     raw_bytes <- readBin(png_path, "raw", file.info(png_path)$size)
     b64_chars <- c(LETTERS, letters, 0:9, "+", "/")
     n <- length(raw_bytes)
@@ -13,6 +14,47 @@
     if (pad >= 1) res[length(res)] <- "="
     if (pad == 2) res[length(res) - 1] <- "="
     paste0("data:image/png;base64,", paste0(res, collapse = ""))
+}
+
+.open_png <- function(filename, width, height, res, pointsize) {
+    is_mac <- Sys.info()[["sysname"]] == "Darwin"
+    dev_before <- dev.cur()
+    dev_opened <- FALSE
+
+    if (is_mac) {
+        dev_opened <- tryCatch({
+            if (capabilities("aqua")) {
+                png(filename, width = width, height = height, res = res,
+                    pointsize = pointsize, type = "quartz", antialias = "subpixel")
+            } else {
+                png(filename, width = width, height = height, res = res,
+                    pointsize = pointsize)
+            }
+            TRUE
+        }, error = function(e) {
+            if (dev.cur() != dev_before) dev.off()
+            FALSE
+        }, warning = function(w) {
+            if (dev.cur() != dev_before) dev.off()
+            FALSE
+        })
+    } else if (capabilities("cairo")) {
+        dev_opened <- tryCatch({
+            png(filename, width = width, height = height, res = res,
+                pointsize = pointsize, type = "cairo", antialias = "subpixel")
+            TRUE
+        }, error = function(e) {
+            if (dev.cur() != dev_before) dev.off()
+            FALSE
+        }, warning = function(w) {
+            if (dev.cur() != dev_before) dev.off()
+            FALSE
+        })
+    }
+
+    if (!isTRUE(dev_opened)) {
+        png(filename, width = width, height = height, res = res, pointsize = pointsize)
+    }
 }
 
 mcmcplot <- function(mcmcout, parms = NULL, regex = NULL, random = NULL,
@@ -92,20 +134,15 @@ mcmcplot <- function(mcmcout, parms = NULL, regex = NULL, random = NULL,
             cat("\rPreparing plots for ", group.name, ".  ", pctdone, "% complete.", sep = "")
             gname <- paste(p, ".png", sep = "")
             gpath <- file.path(dir, gname)
-            if (capabilities("cairo")) {
-                png(gpath, width = htmlwidth * scale, height = htmlheight * scale,
-                    res = res.plot, pointsize = pointsize.plot,
-                    type = "cairo", antialias = "subpixel")
-            } else {
-                png(gpath, width = htmlwidth * scale, height = htmlheight * scale,
-                    res = res.plot, pointsize = pointsize.plot)
-            }
+            .open_png(gpath, width = htmlwidth * scale, height = htmlheight * scale,
+                      res = res.plot, pointsize = pointsize.plot)
             plot_err <- tryCatch({
                 mcmcplot1(mcmcout[, p, drop = FALSE], col = col, lty = lty, xlim = xlim, ylim = ylim, style = style, greek = greek)
             }, error = function(e) {e})
             dev.off()
-            if (inherits(plot_err, "error")) {
-                cat(sprintf('<div class="plot-card" data-param="%s"><h3>%s</h3><p class="plot_err">%s. %s</p></div>\n', p, p, p, plot_err),
+            if (inherits(plot_err, "error") || !file.exists(gpath)) {
+                err_msg <- if (inherits(plot_err, "error")) as.character(plot_err) else "Plot generation failed."
+                cat(sprintf('<div class="plot-card" data-param="%s"><h3>%s</h3><p class="plot_err">%s. %s</p></div>\n', p, p, p, err_msg),
                     file = htmlfile, append = TRUE)
             } else {
                 img_src <- if (isTRUE(embed.img)) .img.to.base64(gpath) else gname
