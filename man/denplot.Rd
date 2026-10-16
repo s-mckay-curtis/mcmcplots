@@ -72,17 +72,6 @@ denplot(fakemcmc, "gamma", "alpha\\\\[[12]]$") # all gamma and alpha[1] and alph
 ## What happens with NULL varnames?
 coda::varnames(fakemcmc) <- NULL
 denplot(fakemcmc)
-
-\dontrun{
-## denplot works on bugs objects too
-library(R2WinBUGS)
-example("openbugs", "R2WinBUGS")
-## from the help file for openbugs:
-schools.sim <- bugs(data, inits, parameters, model.file,
-                    n.chains = 3, n.iter = 5000,
-                    program = "openbugs", working.directory = NULL)
-denplot(schools.sim, "theta")
-}
 }
 
 \keyword{ hplot }

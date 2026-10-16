@@ -15,6 +15,9 @@
     a string with a path to the html file.
   }
 }
+\value{
+  No return value, called for side effects to finalize the HTML file.
+}
 \author{
   Ilya Goldin
 }
@@ -24,4 +27,6 @@
 \examples{
 ## See examples for function mcmcplot
 }
+\keyword{ internal }
 \keyword{ utilities }
+

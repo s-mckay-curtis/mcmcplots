@@ -43,4 +43,6 @@
 \examples{
 ## See examples for function mcmcplot
 }
+\keyword{ internal }
 \keyword{ utilities }
+

@@ -62,7 +62,6 @@ See documentation for \code{\link{parms2plot}} for more information on how to ``
 }
 
 \examples{
-\dontrun{
 ## Create fake MCMC output
 nc <- 10; nr <- 1000
 pnames <- c(paste("alpha[", 1:5, "]", sep=""), paste("gamma[", 1:5, "]", sep=""))
@@ -72,8 +71,11 @@ fakemcmc <- coda::as.mcmc.list(
            function(i) coda::mcmc(matrix(rnorm(nc*nr, rep(means,each=nr)),
                                          nrow=nr, dimnames=list(NULL,pnames)))))
 
-## Use mcmcplot to plot
-## the fake MCMC output
+## Generate HTML report without opening browser
+mcmcplot(fakemcmc, random = 2, browse = FALSE)
+
+\donttest{
+## Open interactive HTML report in browser
 mcmcplot(fakemcmc)
 mcmcplot(fakemcmc, greek=TRUE)
 mcmcplot(fakemcmc, xlim=range(fakemcmc)) # put the densities on the same scale
@@ -86,15 +88,6 @@ mcmcplot(fakemcmc, random=c(2, 3))
 ## What happens with NULL varnames?
 coda::varnames(fakemcmc) <- NULL
 mcmcplot(fakemcmc)
-
-## mcmcplot works on bugs objects too
-library(R2WinBUGS)
-example("openbugs", "R2WinBUGS")
-## from the help file for openbugs:
-schools.sim <- bugs(data, inits, parameters, model.file,
-                    n.chains = 3, n.iter = 5000,
-                    program = "openbugs", working.directory = NULL)
-mcmcplot(schools.sim)
 }
 }
 

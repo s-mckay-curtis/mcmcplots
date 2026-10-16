@@ -24,6 +24,9 @@ Parse strings containing names of greek letters
   \code{\link[base]{parse}}
 }
 \examples{
-\dontrun{mcmcplots:::.to.greek(c("alpha", "beta", "mybeta", "YourDelta"))}
+## Not intended to be called directly.
+## See examples in caterplot, denplot, and traplot.
 }
+\keyword{ internal }
 \keyword{ utilities }
+

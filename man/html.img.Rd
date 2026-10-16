@@ -18,6 +18,9 @@
     string containing additional html attributes for the image.
   }
 }
+\value{
+  No return value, called for side effects to write image tags to the HTML file.
+}
 \author{
   Ilya Goldin
 }
@@ -27,4 +30,6 @@
 \examples{
 ## See examples for function mcmcplot
 }
+\keyword{ internal }
 \keyword{ utilities }
+

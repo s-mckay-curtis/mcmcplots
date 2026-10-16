@@ -18,6 +18,10 @@ caterpoints(x, parnames, horizontal = TRUE, \dots)
   \item{\dots}{ further arguments passed to the function \code{points}. }
 }
 
+\value{
+  No return value, called for side effects to add points to an existing caterpillar plot.
+}
+
 \author{
   S. McKay Curtis
 }
@@ -39,13 +43,14 @@ posterior.medians <- apply(do.call("rbind", fakemcmc), 2, median)
 
 
 ## caterplot plots of the fake MCMC output
-par(mfrow=c(2,2))
+oldpar <- par(mfrow=c(2,2))
 caterplot(fakemcmc, "alpha", collapse=FALSE)
 caterpoints(runif(5, 10, 20), pch="x", col="red")
 caterplot(fakemcmc, "alpha", horizontal=FALSE)
 caterpoints(runif(5, 10, 20), horizontal=FALSE, pch="x", col="red")
 parms <- caterplot(fakemcmc, random=3) # keep the names of plotted parameters
 caterpoints(posterior.medians[parms], pch="x", col="red")
+par(oldpar)
 }
 
 \keyword{aplot}

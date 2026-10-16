@@ -24,8 +24,13 @@ x.milty = 1, y.milty = 1)
   \item{x.milty}{ line type to be used on the x-axis, minor gridlines.}
   \item{y.milty}{ line type to be used on the y-axis, minor gridlines.}
 }
+\value{
+  No return value, called for side effects to set up the plotting region.
+}
 \seealso{
   \code{rect}
 }
 \author{S. McKay Curtis}
+\keyword{internal}
 \keyword{aplot}
+

@@ -42,20 +42,6 @@
 }
 
 \examples{
-\dontrun{
-## mcmcplots functions work on bugs objects too
-library(R2WinBUGS)
-example("openbugs", "R2WinBUGS")
-## from the help file for openbugs:
-schools.sim <- bugs(data, inits, parameters, model.file,
-                    n.chains = 3, n.iter = 5000,
-                    program = "openbugs", working.directory = NULL)
-caterplot(schools.sim, "theta")
-traplot(schools.sim, "theta")
-denplot(schools.sim, "theta")
-mcmcplot(schools.sim)
-}
-
 ## Create fake MCMC output
 nc <- 10; nr <- 1000
 pnames <- c(paste("alpha[", 1:5, "]", sep=""), paste("gamma[", 1:5, "]", sep=""))
@@ -67,7 +53,7 @@ fakemcmc <- coda::as.mcmc.list(
 
 ## Use mcmcplot to plot
 ## the fake MCMC output
-\dontrun{
+\donttest{
 mcmcplot(fakemcmc)
 mcmcplot(fakemcmc, "gamma")
 mcmcplot(fakemcmc, regex="alpha\\\\[[12]")
@@ -90,7 +76,7 @@ denplot(fakemcmc, "gamma", "alpha\\\\[[12]]$") # all gamma and alpha[1] and alph
 
 ## Use caterplot to create
 ## caterpillar plots of fake MCMC data
-par(mfrow=c(2,2))
+oldpar <- par(mfrow=c(2,2))
 caterplot(fakemcmc, "alpha", collapse=FALSE)
 caterplot(fakemcmc, "gamma", collapse=FALSE)
 caterplot(fakemcmc, "alpha", labels.loc="axis", col="blue")
@@ -107,6 +93,7 @@ caterplot(fakemcmc, "gamma", labels.loc="above", col="red", denstrip=TRUE)
 ## Overlay caterplots
 caterplot(fakemcmc, "alpha", collapse=TRUE)
 caterplot(fakemcmc, "gamma", collapse=TRUE, add=TRUE, cat.shift=-0.3)
+par(oldpar)
 
 ## Use denoverplot to create overlaying density plots
 ## of all parameters in fake MCMC data

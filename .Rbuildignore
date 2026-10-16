@@ -2,3 +2,6 @@
 ^\.git$
 ^\.gitignore$
 ^\.github$
+^build$
+^scratch$
+

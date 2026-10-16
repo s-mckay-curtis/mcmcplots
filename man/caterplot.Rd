@@ -84,7 +84,7 @@ fakemcmc <- coda::as.mcmc.list(
                                  nrow=nr, dimnames=list(NULL,pnames)))))
 
 ## caterplot plots of the fake MCMC output
-par(mfrow=c(2,2))
+oldpar <- par(mfrow=c(2,2))
 caterplot(fakemcmc, "alpha", collapse=FALSE)
 caterplot(fakemcmc, "gamma", collapse=FALSE)
 caterplot(fakemcmc, "alpha", labels.loc="axis", greek=TRUE, col="blue")
@@ -116,17 +116,7 @@ caterplot(fakemcmc, "gamma", collapse=TRUE, add=TRUE, cat.shift=-0.3)
 coda::varnames(fakemcmc) <- NULL
 caterplot(fakemcmc)
 caterplot(fakemcmc, collapse=FALSE)
-
-\dontrun{
-## caterplot works on bugs objects too:
-library(R2WinBUGS)
-example("openbugs", "R2WinBUGS")
-## from the help file for openbugs:
-schools.sim <- bugs(data, inits, parameters, model.file,
-                    n.chains = 3, n.iter = 5000,
-                    program = "openbugs", working.directory = NULL)
-caterplot(schools.sim, "theta")
-}
+par(oldpar)
 }
 
 \keyword{hplot}

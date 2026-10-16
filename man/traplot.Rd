@@ -60,18 +60,6 @@ traplot(fakemcmc, "gamma", greek=TRUE)
 ## What happens with NULL varnames?
 coda::varnames(fakemcmc) <- NULL
 traplot(fakemcmc)
-
-\dontrun{
-## traplot works on bugs objects too
-library(R2WinBUGS)
-example("openbugs", "R2WinBUGS")
-## from the help file for openbugs:
-schools.sim <- bugs(data, inits, parameters, model.file,
-                    n.chains = 3, n.iter = 5000,
-                    program = "openbugs", working.directory = NULL)
-traplot(schools.sim, "theta")
-}
-
 }
 
 \keyword{ hplot }

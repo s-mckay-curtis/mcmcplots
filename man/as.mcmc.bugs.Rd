@@ -27,15 +27,12 @@
 }
 
 \examples{
-\dontrun{
-## Data object "schools.sim" generated from the examples
-## in the bugs function of the R2WinBUGS package.
-outmcmc <- as.mcmc(schools.sim)
-
-## Gelman Rubin diagnostics
-coda::gelman.diag(outmcmc)
-mcmcplot(outmcmc)
-}
+## Data object "schools.sim" can be generated from the examples
+## in the bugs function of the R2WinBUGS package:
+##
+## outmcmc <- as.mcmc(schools.sim)
+## coda::gelman.diag(outmcmc)
+## mcmcplot(outmcmc)
 }
 
 \keyword{ manip }

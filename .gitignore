@@ -1,5 +1,12 @@
 *~
 mcmcplots.Rcheck/*
+*.Rcheck/
 .project
 *.zip
 *.tar.gz
+build/
+scratch/
+*.html
+.Rhistory
+.RData
+
