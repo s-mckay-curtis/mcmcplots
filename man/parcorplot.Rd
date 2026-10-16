@@ -25,7 +25,7 @@ parcorplot(mcmcout, parms = NULL, regex = NULL, random = NULL, col = gray(11:0/1
 }
 
 \value{
-  Creates a plot.
+  No return value, called for side effects to produce a parameter correlation plot.
 }
 
 \author{S. McKay Curtis}

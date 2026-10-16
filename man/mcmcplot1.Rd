@@ -23,7 +23,7 @@ NULL, style = c("clean", "plain", "gray"), greek = FALSE)
 }
 
 \value{
-  Creates a plot.
+  No return value, called for side effects to produce diagnostic plots for a single parameter.
 }
 
 \references{ No references. }

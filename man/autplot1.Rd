@@ -25,7 +25,7 @@ ylim = NULL, \dots)
   None.
 }
 \value{
-  Creates a plot.
+  No return value, called for side effects to produce autocorrelation plots.
 }
 \references{
   None.

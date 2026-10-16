@@ -22,7 +22,7 @@ traplot1(x, col = NULL, lty = 1, style = c("clean", "plain", "gray"), \dots)
 }
 
 \value{
-  Creates a plot.
+  No return value, called for side effects to produce trace plots for a single parameter.
 }
 
 \author{

@@ -26,7 +26,7 @@ greek = FALSE, legend.scale = 0.75, mar=c(5, 4, 1, 1) + 0.1, \dots)
 }
 
 \value{
-  Creates a plot.
+  No return value, called for side effects to produce a correlation image plot.
 }
 
 \author{ S. McKay Curtis }

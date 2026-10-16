@@ -15,7 +15,7 @@ The package was archived due to uncorrected issues following reminders. The foll
 
 ### Responses to CRAN Team Feedback
 
-* **Missing `\value` in `man/caterpoints.Rd`**: Added explicit `\value` tag documenting that the function has no return value and is called for side effects to add points to an existing caterpillar plot. Also added `\value` and `\keyword{internal}` tags to unexported internal Rd files (`.graypr.Rd`, `.html.end.Rd`, `.html.img.Rd`, `.html.begin.Rd`).
+* **Missing `\value` tags and documentation of return values**: Added explicit `\value` tag in `man/caterpoints.Rd` documenting that the function has no return value and is called for side effects. Additionally, audited all package `.Rd` files to replace generic "Creates a plot" text with precise return values (e.g. invisibly returning plotted parameter names in `denplot`, `traplot`, `rmeanplot`) or explicit "No return value, called for side effects" descriptions. Added `\value` and `\keyword{internal}` tags to unexported internal Rd files (`.graypr.Rd`, `.html.end.Rd`, `.html.img.Rd`, `.html.begin.Rd`).
 * **Unexported function call with `:::` in `man/to.greek.Rd`**: Removed the executable call `mcmcplots:::.to.greek(...)` and replaced the example with a descriptive comment, marking the file with `\keyword{internal}` so `.to.greek` remains cleanly unexported.
 * **Examples structure and `\dontrun` vs `\donttest`**:
   - In `man/mcmcplot.Rd`, unwrapped a fast non-browser example (`mcmcplot(..., browse = FALSE)`) that executes in < 1 second, and wrapped interactive browser-launching calls inside `\donttest{}`.

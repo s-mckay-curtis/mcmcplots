@@ -34,7 +34,7 @@ style = c("clean", "plain", "gray"), ...)
 }
 
 \value{
-  Creates a plot.
+  Invisibly returns a character vector with the names of the parameters that were plotted. Called for its side effect of producing running mean plots.
 }
 
 \author{

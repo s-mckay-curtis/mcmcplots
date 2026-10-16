@@ -38,7 +38,7 @@ style = c("clean", "plain", "gray"), \dots)
 }
 
 \value{
-  Creates a plot.
+  No return value, called for side effects to produce overlaying density plots.
 }
 
 \author{S. McKay Curtis}

@@ -33,7 +33,7 @@ greek = FALSE, style = c("clean", "plain", "gray"), \dots)
 }
 
 \value{
-  Creates a plot.
+  Invisibly returns a character vector with the names of the parameters that were plotted. Called for its side effect of producing trace plots.
 }
 
 \author{ S. McKay Curtis }

@@ -27,7 +27,7 @@ ylim = NULL, xlab = "", ylab = "Density", main = NULL, style = c("clean",
 }
 
 \value{
-  Creates a plot.
+  No return value, called for side effects to produce density plots for a single parameter.
 }
 
 \author{
