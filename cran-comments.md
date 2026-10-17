@@ -25,7 +25,7 @@ The package was archived due to uncorrected issues following reminders. The foll
 
 ### Test environments
 * Local: Windows 11, R 4.6.1
-* Win-builder: Windows Server 2022, R Under development (unstable) (2026-09-30 r90605 ucrt)
+* Win-builder: Windows Server 2022, R Under development (unstable) (2026-10-14 r90673 ucrt)
 
 ### R CMD check results
 
